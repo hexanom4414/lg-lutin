@@ -2,7 +2,8 @@
 #define LISTINSTRUCTION
 
 #include <SymboleComplexe.h>
-
+#include <list>
+#include "Instruction.h"
 
 class ListInstruction : public SymboleComplexe
 {
@@ -10,6 +11,7 @@ class ListInstruction : public SymboleComplexe
         ListInstruction();
         virtual ~ListInstruction();
     protected:
+    	List<Instruction *> list;
     private:
 };
 

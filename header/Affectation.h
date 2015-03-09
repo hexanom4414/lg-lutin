@@ -2,7 +2,8 @@
 #define AFFECTATION
 
 #include <Instruction.h>
-
+#include "Valeur.h"
+#include "Identificateur.h"
 
 class Affectation : public Instruction
 {
@@ -10,6 +11,8 @@ class Affectation : public Instruction
         Affectation();
         virtual ~Affectation();
     protected:
+    	Identificateur *id;
+    	Valeur *valToAffect;
     private:
 };
 

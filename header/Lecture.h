@@ -2,7 +2,7 @@
 #define LECTURE
 
 #include <Instruction.h>
-
+#include "Identificateur.h"
 
 class Lecture : public Instruction
 {
@@ -10,6 +10,7 @@ class Lecture : public Instruction
         Lecture();
         virtual ~Lecture();
     protected:
+    	Identificateur* idToRead;
     private:
 };
 

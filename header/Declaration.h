@@ -2,7 +2,7 @@
 #define DECLARATION
 
 #include <SymboleComplexe.h>
-
+#include "ListIdentificateur.h"
 
 class Declaration : public SymboleComplexe
 {
@@ -10,6 +10,7 @@ class Declaration : public SymboleComplexe
         Declaration();
         virtual ~Declaration();
     protected:
+    	List<ListIdentificateur *> declaration;
     private:
 };
 

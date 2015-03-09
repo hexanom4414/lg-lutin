@@ -11,7 +11,7 @@ class ListDeclaration : public SymboleComplexe
         ListDeclaration();
         virtual ~ListDeclaration();
     protected:
-    	List<Declaration *> List;
+    	List<Declaration *> list;
     private:
 };
 
