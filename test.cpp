@@ -7,8 +7,14 @@ using namespace boost;
 
 bool test_declaration(const string &s)
 {
-	const regex declaration("(?: var|const) \\v");
+	const regex declaration("(var|const) \\w+");
 	return regex_match(s, declaration);
+}
+
+bool test_opA(const string &s)
+{
+	const regex opA("(?: +|-)");
+	return regex_match
 }
 
 int main()
@@ -22,7 +28,7 @@ int main()
 
 	cout << "test 1" << endl;
 	
-	string declare = "c'est du pipo";
+	string declare = "var lol";
 	cout << test_declaration(declare) << endl;
 	
 	return 0;
