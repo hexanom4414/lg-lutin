@@ -1,7 +1,7 @@
 #ifndef PARFERME_H
 #define PARFERME_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class ParFerme : public SymboleSimple

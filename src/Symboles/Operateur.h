@@ -1,7 +1,7 @@
 #ifndef OPERATEUR_H
 #define OPERATEUR_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class Operateur : public SymboleSimple

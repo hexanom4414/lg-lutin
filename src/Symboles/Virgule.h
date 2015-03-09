@@ -1,7 +1,7 @@
 #ifndef VIRGULE_H
 #define VIRGULE_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class Virgule : public SymboleSimple

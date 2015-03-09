@@ -1,7 +1,7 @@
 #ifndef SYMBVARIABLE_H
 #define SYMBVARIABLE_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class SymbVariable : public SymboleSimple

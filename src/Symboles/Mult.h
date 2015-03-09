@@ -1,7 +1,7 @@
 #ifndef MULT_H
 #define MULT_H
 
-#include <OpM.h>
+#include "OpM.h"
 
 
 class Mult : public OpM

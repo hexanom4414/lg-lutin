@@ -1,7 +1,7 @@
 #ifndef LIRE_H
 #define LIRE_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class Lire : public SymboleSimple

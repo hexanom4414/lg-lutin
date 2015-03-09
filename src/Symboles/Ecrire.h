@@ -1,7 +1,7 @@
 #ifndef ECRIRE_H
 #define ECRIRE_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class Ecrire : public SymboleSimple

@@ -1,7 +1,7 @@
 #ifndef MOINS_H
 #define MOINS_H
 
-#include <OpA.h>
+#include "OpA.h"
 
 
 class Moins : public OpA

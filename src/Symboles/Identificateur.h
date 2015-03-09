@@ -1,7 +1,7 @@
 #ifndef IDENTIFICATEUR_H
 #define IDENTIFICATEUR_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class Identificateur : public SymboleSimple

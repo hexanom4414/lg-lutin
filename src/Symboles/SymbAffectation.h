@@ -1,7 +1,7 @@
 #ifndef SYMBAFFECTATION_H
 #define SYMBAFFECTATION_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class SymbAffectation : public SymboleSimple

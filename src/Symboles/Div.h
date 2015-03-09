@@ -1,7 +1,7 @@
 #ifndef DIV_H
 #define DIV_H
 
-#include <OpM.h>
+#include "OpM.h"
 
 
 class Div : public OpM

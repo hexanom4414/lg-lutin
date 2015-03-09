@@ -1,7 +1,7 @@
 #ifndef SYMBOLESIMPLE_H
 #define SYMBOLESIMPLE_H
 
-#include <Symbole.h>
+#include "Symbole.h"
 
 
 class SymboleSimple : public Symbole

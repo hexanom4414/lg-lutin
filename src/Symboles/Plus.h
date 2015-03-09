@@ -1,7 +1,7 @@
 #ifndef PLUS_H
 #define PLUS_H
 
-#include <OpA.h>
+#include "OpA.h"
 
 
 class Plus : public OpA

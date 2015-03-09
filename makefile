@@ -1,30 +1,44 @@
-CC=g++
-CFLAGS=-std=c++0x
+################################################
+#              Makefile - H4414                #
+#   			 Projet Lutin 				   #
+################################################
+
+# définition des cibles particulières
+.PHONY: clean, mrproper
+# désactivation des règles implicites
+.SUFFIXES:
+
+EXE=Lutin
+LIBPATH=-L /usr/lib/boost/lib
+LIBS=$(LIBPATH) -lboost_regex
+ECHO=@echo
+RM=rm
+CLEANFLAGS=-f
+EDL=g++
 LDFLAGS=
-LIBPATH=-L /usr/lib/boost/lib -lboost_regex
-LIBS=
-INCPATH =
-PATHEXEC=./
-EXEC=test
-TARGET=$(addprefix $(PATHEXEC), $(EXEC))
+CXX=g++
+CXXFLAGS=-W -Wall -ansi -pedantic
 
-SRC=test.cpp
-OBJ=$(SRC:.cpp=.o)
+prefix=.
+srcdir= $(prefix)/src
 
-all: $(TARGET)
+SRC= main.cpp $(wildcard $(srcdir)/*.cpp) $(wildcard $(srcdir)/Symboles/*.cpp)
+OBJ= $(SRC:.cpp=.o)
 
-$(TARGET): $(OBJ)
+all : $(EXE)
 
-	$(CC) -o $@ $^ $(LDFLAGS) $(LIBPATH) $(LIBS)
+Lutin : $(OBJ)
+	$(ECHO) Editions des liens : 
+	$(CXX) $^ -o $@ $(LDFLAGS) $(LIBS)
+	
+%.o : %.cpp
+	$(ECHO) Compilation de $@
+	$(CXX) -c $< -o $@ $(CXXFLAGS)
 
-%.o: %.cpp %.h
-
-	$(CC) -o $@ -c $< $(CFLAGS) $(INCPATH)
-
-#run: $(TARGET)
-
-#	./$(TARGET)
-
-clean:	
-
-	@rm -rf *.o
+clean :
+	$(ECHO) Nettoyage de la cible
+	$(RM) $(CLEANFLAGS) *.o core
+	$(RM) $(CLEANFLAGS) $(OBJ)
+	
+mrproper: clean
+	rm -rf $(EXE).exe

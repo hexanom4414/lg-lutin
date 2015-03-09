@@ -1,7 +1,7 @@
 #ifndef CONSTANTE_H
 #define CONSTANTE_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class Constante : public SymboleSimple

@@ -1,8 +1,8 @@
-#ifndef SYMBOLE
-#define SYMBOLE
+#ifndef SYMBOLE_H
+#define SYMBOLE_H
 
 
-class abstract Symbole
+class Symbole
 {
     public:
     	int getId();

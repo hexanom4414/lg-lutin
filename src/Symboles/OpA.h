@@ -1,7 +1,7 @@
 #ifndef OPA_H
 #define OPA_H
 
-#include <Operateur.h>
+#include "Operateur.h"
 
 
 class OpA : public Operateur

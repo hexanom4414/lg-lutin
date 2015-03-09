@@ -1,7 +1,7 @@
 #ifndef OPM_H
 #define OPM_H
 
-#include <Operateur.h>
+#include "Operateur.h"
 
 
 class OpM : public Operateur

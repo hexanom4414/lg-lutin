@@ -1,7 +1,7 @@
 #ifndef EGAL_H
 #define EGAL_H
 
-#include <SymboleSimple.h>
+#include "SymboleSimple.h"
 
 
 class Egal : public SymboleSimple
