@@ -1,11 +1,11 @@
 CC=g++
 CFLAGS=-std=c++0x
 LDFLAGS=
-LIBPATH=
+LIBPATH=-L /usr/lib/boost/lib -lboost_regex
 LIBS=
 INCPATH =
 PATHEXEC=./
-EXEC=Test
+EXEC=test
 TARGET=$(addprefix $(PATHEXEC), $(EXEC))
 
 SRC=test.cpp
@@ -21,9 +21,9 @@ $(TARGET): $(OBJ)
 
 	$(CC) -o $@ -c $< $(CFLAGS) $(INCPATH)
 
-run: $(TARGET)
+#run: $(TARGET)
 
-	./$(TARGET)
+#	./$(TARGET)
 
 clean:	
 

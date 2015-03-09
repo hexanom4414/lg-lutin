@@ -5,10 +5,10 @@
 using namespace std;
 using namespace boost;
 
-bool test_declaration(string s)
+bool test_declaration(const string &s)
 {
 	const regex declaration("(?: var|const) \\v");
-	return regex_match(s,declaration);
+	return regex_match(s, declaration);
 }
 
 int main()
@@ -20,8 +20,9 @@ int main()
 	const regex priority("(\expression)");
 	
 
+	cout << "test 1" << endl;
 	
-	string declare = "const y";
+	string declare = "c'est du pipo";
 	cout << test_declaration(declare) << endl;
 	
 	return 0;
