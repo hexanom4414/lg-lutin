@@ -23,12 +23,10 @@ bool test_declaration(const string &s)
 	return regex_match(s, declaration);
 }
 
-bool test_opA(const string &s)
+bool test_affectation(const string &s)
 {
-	const regex opA("(+|-)");
-	lexical_result(s,regex_match(s,opA));
-
-	return regex_match(s,opA);
+	const regex affectation("(var|const) \\w+ = [-+]?[0-9]*\.?[0-9]+$");
+	return regex_match(s,affectation);
 }
 
  // verify the validity of multiplication operator 
@@ -50,7 +48,6 @@ bool test_opM(const string &s)
 
 int main()
 {
-	const regex affectation("\\v[:=]\\val|(?: var|const) \\v[=]\\val");
 	const regex opA("(?: +|-)");
 	const regex opM("(\\*|/)");
 	const regex expression("(?: expression|\\v)(?: opM|opA)(?: expression|\\v)");
@@ -60,6 +57,16 @@ int main()
 
 	test_opM("*");
 	
+	cout << "test declaration" << endl;
+	
+	string declare = "var l";
+	cout << test_declaration(declare) << endl;
+	
+	
+	cout << "test affectation" << endl;
+	
+	string affect = "var hehe = c'est faux";
+	cout << test_affectation(affect) << endl;
 	
 	return 0;
 }
