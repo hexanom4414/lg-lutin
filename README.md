@@ -1,6 +1,7 @@
 # lg-lutin
-Projet LG Lutin
+_Projet LG Lutin_
 
-make with binary files : Make
-make without binary files : Make && Make Clean
-clean all files : Make mrproper
+## Make
+* Make with binary files : make
+* Make without binary files : make && make clean
+* Clean all files : make mrproper
