@@ -7,7 +7,7 @@
 class OpM : public Operateur
 {
     public:
-        OpM();
+        OpM(int id);
         virtual ~OpM();
     protected:
     private:

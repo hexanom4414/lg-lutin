@@ -1,4 +1,5 @@
 #include "ConcreteEtats.h"
+#include "Automate.h"
 
 Etat1::Etat1()
 {
@@ -8,6 +9,25 @@ Etat1::Etat1()
 Etat1::~Etat1()
 {
     //dtor
+}
+
+transition_return Etat1::transition(Automate & automate, Symbole * s)
+{
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case PROGRAMME:
+            p_etat = new Etat2();
+            automate.shift(p_etat);
+            return SHIFTED;
+        case LISTDECLARATION:
+            p_etat = new Etat3();
+            automate.shift(p_etat);
+            return SHIFTED;
+        default:
+            cout << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat1
@@ -22,6 +42,12 @@ Etat2::~Etat2()
     //dtor
 }
 
+transition_return Etat2::transition(Automate & automate, Symbole * s)
+{
+
+}
+
+
 //// end Etat2
 
 
@@ -33,6 +59,11 @@ Etat3::Etat3()
 Etat3::~Etat3()
 {
     //dtor
+}
+
+transition_return Etat3::transition(Automate & automate, Symbole * s)
+{
+
 }
 
 //// end Etat3

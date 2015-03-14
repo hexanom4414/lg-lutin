@@ -1,6 +1,6 @@
 #include "Moins.h"
 
-Moins::Moins()
+Moins::Moins(int id) : OpA(id)
 {
     //ctor
 }

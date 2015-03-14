@@ -1,6 +1,6 @@
 #include "Constante.h"
 
-Constante::Constante()
+Constante::Constante(int id) : SymboleSimple(id)
 {
     //ctor
 }

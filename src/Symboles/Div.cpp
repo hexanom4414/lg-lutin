@@ -1,6 +1,6 @@
 #include "Div.h"
 
-Div::Div()
+Div::Div(int id) : OpM(id)
 {
     //ctor
 }

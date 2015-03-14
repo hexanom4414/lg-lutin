@@ -1,6 +1,6 @@
 #include "Operateur.h"
 
-Operateur::Operateur()
+Operateur::Operateur(int id) : SymboleSimple(id)
 {
     //ctor
 }

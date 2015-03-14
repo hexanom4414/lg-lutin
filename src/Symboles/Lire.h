@@ -7,7 +7,7 @@
 class Lire : public SymboleSimple
 {
     public:
-        Lire();
+        Lire(int id);
         virtual ~Lire();
     protected:
     private:

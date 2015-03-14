@@ -1,6 +1,6 @@
 #include "ParOuvre.h"
 
-ParOuvre::ParOuvre()
+ParOuvre::ParOuvre(int id) : SymboleSimple(id)
 {
     //ctor
 }

@@ -1,6 +1,6 @@
 #include "Lire.h"
 
-Lire::Lire()
+Lire::Lire(int id) : SymboleSimple(id)
 {
     //ctor
 }

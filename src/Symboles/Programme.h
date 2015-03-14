@@ -1,5 +1,5 @@
-#ifndef PROGRAMME
-#define PROGRAMME
+#ifndef PROGRAMME_H
+#define PROGRAMME_H
 
 #include <SymboleComplexe.h>
 #include "ListDeclaration.h"
@@ -16,4 +16,4 @@ class Programme : public SymboleComplexe
     private:
 };
 
-#endif // PROGRAMME
+#endif // PROGRAMME_H

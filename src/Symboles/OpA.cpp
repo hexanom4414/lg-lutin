@@ -1,6 +1,6 @@
 #include "OpA.h"
 
-OpA::OpA()
+OpA::OpA(int id) : Operateur(id)
 {
     //ctor
 }

@@ -7,7 +7,7 @@
 class ParOuvre : public SymboleSimple
 {
     public:
-        ParOuvre();
+        ParOuvre(int id);
         virtual ~ParOuvre();
     protected:
     private:

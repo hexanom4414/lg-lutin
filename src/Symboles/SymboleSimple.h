@@ -7,8 +7,8 @@
 class SymboleSimple : public Symbole
 {
     public:
-        SymboleSimple();
-        virtual ~SymboleSimple();
+        SymboleSimple(int id) : Symbole(id) {};
+        virtual ~SymboleSimple() {};
     protected:
     private:
 };

@@ -1,6 +1,6 @@
 #include "Ecrire.h"
 
-Ecrire::Ecrire()
+Ecrire::Ecrire(int id) : SymboleSimple(id)
 {
     //ctor
 }

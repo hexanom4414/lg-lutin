@@ -1,6 +1,6 @@
 #include "PointVirgule.h"
 
-PointVirgule::PointVirgule()
+PointVirgule::PointVirgule(int id) : SymboleSimple(id)
 {
     //ctor
 }

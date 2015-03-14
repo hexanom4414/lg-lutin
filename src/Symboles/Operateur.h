@@ -7,7 +7,7 @@
 class Operateur : public SymboleSimple
 {
     public:
-        Operateur();
+        Operateur(int id);
         virtual ~Operateur();
     protected:
     private:

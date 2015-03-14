@@ -1,6 +1,6 @@
 #include "SymbAffectation.h"
 
-SymbAffectation::SymbAffectation()
+SymbAffectation::SymbAffectation(int id) : SymboleSimple(id)
 {
     //ctor
 }

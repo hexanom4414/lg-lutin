@@ -1,6 +1,6 @@
 #include "Plus.h"
 
-Plus::Plus()
+Plus::Plus(int id) : OpA(id)
 {
     //ctor
 }

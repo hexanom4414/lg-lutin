@@ -16,10 +16,12 @@ class Automate
         virtual ~Automate();
 
         void lecture();
+        void shift(AbstractEtat * etat);
+        void reduce();
 
     protected:
-        stack <AbstractEtat *> pileEtats;
-        stack <Symbole *> pileSymboles;
+        stack <AbstractEtat *> m_pileEtats;
+        stack <Symbole *> m_pileSymboles;
     private:
 };
 

@@ -1,6 +1,6 @@
 #include "ParFerme.h"
 
-ParFerme::ParFerme()
+ParFerme::ParFerme(int id) : SymboleSimple(id)
 {
     //ctor
 }

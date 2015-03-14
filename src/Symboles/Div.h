@@ -7,7 +7,7 @@
 class Div : public OpM
 {
     public:
-        Div();
+        Div(int id);
         virtual ~Div();
     protected:
     private:

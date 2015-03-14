@@ -1,6 +1,6 @@
 #include "OpM.h"
 
-OpM::OpM()
+OpM::OpM(int id) : Operateur(id)
 {
     //ctor
 }

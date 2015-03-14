@@ -1,6 +1,6 @@
 #include "SymbVariable.h"
 
-SymbVariable::SymbVariable()
+SymbVariable::SymbVariable(int id) : SymboleSimple(id)
 {
     //ctor
 }

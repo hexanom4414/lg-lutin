@@ -1,6 +1,6 @@
 #include "Mult.h"
 
-Mult::Mult()
+Mult::Mult(int id) : OpM(id)
 {
     //ctor
 }

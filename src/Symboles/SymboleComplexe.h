@@ -3,12 +3,11 @@
 
 #include <Symbole.h>
 
-
 class SymboleComplexe : public Symbole
 {
     public:
-        SymboleComplexe();
-        virtual ~SymboleComplexe();
+        SymboleComplexe(int id) : Symbole(id) {} ;
+        virtual ~SymboleComplexe() {};
     protected:
     private:
 };

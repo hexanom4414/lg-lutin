@@ -1,6 +1,6 @@
 #include "Egal.h"
 
-Egal::Egal()
+Egal::Egal(int id) : SymboleSimple(id)
 {
     //ctor
 }

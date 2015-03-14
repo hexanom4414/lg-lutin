@@ -1,6 +1,6 @@
 #include "Identificateur.h"
 
-Identificateur::Identificateur()
+Identificateur::Identificateur(int id) : SymboleSimple(id)
 {
     //ctor
 }

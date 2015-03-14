@@ -7,7 +7,7 @@
 class Virgule : public SymboleSimple
 {
     public:
-        Virgule();
+        Virgule(int id);
         virtual ~Virgule();
     protected:
     private:

@@ -9,3 +9,8 @@ Automate::~Automate()
 {
     //dtor
 }
+
+void Automate::shift(AbstractEtat * etat)
+{
+    m_pileEtats.push(etat);
+}

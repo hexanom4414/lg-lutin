@@ -1,6 +1,6 @@
 #include "Virgule.h"
 
-Virgule::Virgule()
+Virgule::Virgule(int id) : SymboleSimple(id)
 {
     //ctor
 }
