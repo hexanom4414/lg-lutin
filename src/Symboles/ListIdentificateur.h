@@ -10,6 +10,7 @@ class ListIdentificateur : public SymboleComplexe
         ListIdentificateur();
         virtual ~ListIdentificateur();
     protected:
+    	List<Identificateur *> list;
     private:
 };
 

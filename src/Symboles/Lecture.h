@@ -9,6 +9,8 @@ class Lecture : public Instruction
     public:
         Lecture();
         virtual ~Lecture();
+
+        bool do(&idToRead);
     protected:
     	Identificateur* idToRead;
     private:

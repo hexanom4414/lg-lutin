@@ -2,7 +2,7 @@
 #define EXPCOMPLEXE
 
 #include <Expression.h>
-
+#include "Operateur.h"
 
 class ExpComplexe : public Expression
 {
@@ -10,6 +10,9 @@ class ExpComplexe : public Expression
         ExpComplexe();
         virtual ~ExpComplexe();
     protected:
+    	Expression *expG;
+    	Expression *expD;
+    	Operateur *op;
     private:
 };
 

@@ -2,7 +2,7 @@
 #define AFFECTATION
 
 #include <Instruction.h>
-#include "Valeur.h"
+#include "Expression.h"
 #include "Identificateur.h"
 
 class Affectation : public Instruction
@@ -10,9 +10,12 @@ class Affectation : public Instruction
     public:
         Affectation();
         virtual ~Affectation();
+
+        bool do(&id, &expToAffect);
+
     protected:
     	Identificateur *id;
-    	Valeur *valToAffect;
+    	Expression *expToAffect;
     private:
 };
 
