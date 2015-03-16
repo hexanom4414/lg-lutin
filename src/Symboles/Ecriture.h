@@ -9,6 +9,8 @@ class Ecriture : public Instruction
     public:
         Ecriture();
         virtual ~Ecriture();
+
+        bool do(&exp);
     protected:
     	Expression *exp;
     private:
