@@ -7,7 +7,7 @@
 class ParFerme : public SymboleSimple
 {
     public:
-        ParFerme(int id);
+        ParFerme() : Symbole(PARFERME) {}
         virtual ~ParFerme();
     protected:
     private:

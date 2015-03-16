@@ -7,7 +7,7 @@
 class OpA : public Operateur
 {
     public:
-        OpA(int id);
+        OpA():Symbole (OPA){}
         virtual ~OpA();
     protected:
     private:

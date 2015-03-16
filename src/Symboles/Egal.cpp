@@ -9,3 +9,8 @@ Egal::~Egal()
 {
     //dtor
 }
+
+Egal::print()
+{
+	System.out.println("=");
+}

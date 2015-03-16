@@ -9,3 +9,8 @@ Lire::~Lire()
 {
     //dtor
 }
+
+Lire::print()
+{
+	System.out.println("LIRE ");
+}

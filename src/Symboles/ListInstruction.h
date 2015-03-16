@@ -8,7 +8,7 @@
 class ListInstruction : public SymboleComplexe
 {
     public:
-        ListInstruction();
+        ListInstruction() : Symbole(LISTINSTRUCTION) {}
         virtual ~ListInstruction();
     protected:
     	List<Instruction *> list;

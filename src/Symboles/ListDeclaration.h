@@ -8,7 +8,7 @@
 class ListDeclaration : public SymboleComplexe
 {
     public:
-        ListDeclaration();
+        ListDeclaration() : Symbole(LISTDECLARATION) {}
         virtual ~ListDeclaration();
     protected:
     	List<Declaration *> list;

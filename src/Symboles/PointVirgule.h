@@ -3,11 +3,10 @@
 
 #include "SymboleSimple.h"
 
-
 class PointVirgule : public SymboleSimple
 {
     public:
-        PointVirgule(int id);
+        PointVirgule() : Symbole(POINTVIRGULE){}
         virtual ~PointVirgule();
     protected:
     private:

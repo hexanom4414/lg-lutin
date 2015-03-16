@@ -6,7 +6,7 @@
 class Programme : public SymboleComplexe
 {
     public:
-        Programme();
+        Programme() : Symbole (PROGRAMME) {}
         virtual ~Programme();
         
         setListDeclaration(ListDeclaration * ld);

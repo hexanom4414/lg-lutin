@@ -3,11 +3,10 @@
 
 #include <SymboleComplexe.h>
 
-
 class ListIdentificateur : public SymboleComplexe
 {
     public:
-        ListIdentificateur();
+        ListIdentificateur():Symbole(LISTIDENTIFICATEUR) {}
         virtual ~ListIdentificateur();
     protected:
     	List<Identificateur *> list;

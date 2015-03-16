@@ -7,7 +7,7 @@
 class Ecriture : public Instruction
 {
     public:
-        Ecriture();
+        Ecriture() : Symbole (ECRITURE) {}
         virtual ~Ecriture();
 
         bool do(&exp);

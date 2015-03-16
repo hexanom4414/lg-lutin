@@ -9,3 +9,8 @@ Div::~Div()
 {
     //dtor
 }
+
+Div::print()
+{
+	System.out.println("/");
+}

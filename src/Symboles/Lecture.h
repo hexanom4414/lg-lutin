@@ -3,11 +3,12 @@
 
 #include <Instruction.h>
 #include "Identificateur.h"
+#include "utils.h"
 
 class Lecture : public Instruction
 {
     public:
-        Lecture();
+        Lecture() : Symbole (LECTURE) {}
         virtual ~Lecture();
 
         bool do(&idToRead);

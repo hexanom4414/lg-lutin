@@ -7,7 +7,7 @@
 class ExpComplexe : public Expression
 {
     public:
-        ExpComplexe();
+        ExpComplexe(): Symbole (EXPCOMPLEXE) , expG(aExpG) ,expD(aExpD) ,op(aOp) {}
         virtual ~ExpComplexe();
     protected:
     	Expression *expG;

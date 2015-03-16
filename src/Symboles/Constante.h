@@ -7,7 +7,7 @@
 class Constante : public SymboleSimple
 {
     public:
-        Constante(int id);
+        Constante() : Symbole(CONSTANTE) {}
         virtual ~Constante();
     protected:
     private:

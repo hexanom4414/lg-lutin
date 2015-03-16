@@ -7,7 +7,7 @@
 class SymbVariable : public SymboleSimple
 {
     public:
-        SymbVariable(int id);
+        SymbVariable() :Symbole(SYMBVARIABLE) {}
         virtual ~SymbVariable();
     protected:
     private:
