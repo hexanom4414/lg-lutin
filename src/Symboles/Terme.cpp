@@ -1,11 +1,11 @@
 #include "Terme.h"
 
-Terme::Terme(int id) : SymboleSimple(id)
+void Terme::print()
 {
-    //ctor
-}
-
-Terme::~Terme()
-{
-    //dtor
+    if(m_terme)
+    {
+        m_terme->print();
+        m_opM->print();
+    }
+    m_facteur->print();
 }

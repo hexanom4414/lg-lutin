@@ -24,7 +24,7 @@ transition_return Etat1::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -50,7 +50,7 @@ transition_return Etat2::transition(Automate & automate, Symbole * s)
             //TODO : acceptation
             return ACCEPTED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -91,7 +91,7 @@ transition_return Etat3::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -136,7 +136,7 @@ transition_return Etat4::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -168,7 +168,7 @@ transition_return Etat5::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -216,7 +216,7 @@ transition_return Etat6::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -261,7 +261,7 @@ transition_return Etat7::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -305,7 +305,7 @@ transition_return Etat8::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -355,7 +355,7 @@ transition_return Etat9::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -395,7 +395,7 @@ transition_return Etat10::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+            cerr << "err" << endl;
             return ERROR;
     }
 }
@@ -415,6 +415,28 @@ Etat11::~Etat11()
 
 transition_return Etat11::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case PLUS:
+        case MOINS:
+        case MULT:
+        case DIV:
+        case PARFERME:
+        case POINTVIRGULE:
+        case DOLLAR:
+            {
+                Terme * p_terme = new Terme(TERME);
+                p_terme->setAttribute((Facteur *) automate.depilerSymbole());
+                p_terme->setAttribute((OpM *) automate.depilerSymbole());
+                p_terme->setAttribute((Terme *) automate.depilerSymbole());
+
+                automate.reduce(3,p_terme);
+            }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat11
@@ -432,6 +454,26 @@ Etat12::~Etat12()
 
 transition_return Etat12::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case PLUS:
+        case MOINS:
+        case MULT:
+        case DIV:
+        case PARFERME:
+        case POINTVIRGULE:
+        case DOLLAR:
+            {
+                Facteur * p_facteur = new Facteur(FACTEUR);
+                p_facteur->setAttribute((Identificateur *) automate.depilerSymbole());
+
+                automate.reduce(1,p_facteur);
+            }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat12
@@ -449,6 +491,26 @@ Etat13::~Etat13()
 
 transition_return Etat13::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case PLUS:
+        case MOINS:
+        case MULT:
+        case DIV:
+        case PARFERME:
+        case POINTVIRGULE:
+        case DOLLAR:
+            {
+                Facteur * p_facteur = new Facteur(FACTEUR);
+                p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+                automate.reduce(1,p_facteur);
+            }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat13
