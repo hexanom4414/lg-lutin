@@ -1,5 +1,5 @@
-#ifndef VALEUR
-#define VALEUR
+#ifndef VALEUR_H
+#define VALEUR_H
 
 #include <Expression.h>
 
@@ -7,10 +7,10 @@
 class Valeur : public Expression
 {
     public:
-        Valeur() : Symbole(VALEUR) {}
+        Valeur() : Expression(VALEUR) {}
         virtual ~Valeur();
     protected:
     private:
 };
 
-#endif // VALEUR
+#endif // VALEUR_H

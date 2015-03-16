@@ -1,15 +1,15 @@
-#ifndef VARIABLE
-#define VARIABLE
+#ifndef VARIABLE_H
+#define VARIABLE_H
 
 #include <Expression.h>
 
 class Variable : public Expression
 {
     public:
-        Variable() : Symbole (VARIABLE){}
+        Variable() : Expression(VARIABLE){}
         virtual ~Variable();
     protected:
     private:
 };
 
-#endif // VARIABLE
+#endif // VARIABLE_H

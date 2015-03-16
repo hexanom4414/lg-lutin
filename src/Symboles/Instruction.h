@@ -1,16 +1,16 @@
-#ifndef INSTRUCTION
-#define INSTRUCTION
+#ifndef INSTRUCTION_H
+#define INSTRUCTION_H
 
-#include <SymboleComplexe.h>
+#include "SymboleComplexe.h"
 
 
 class Instruction : public SymboleComplexe
 {
     public:
-        Instruction();
+        Instruction() : SymboleComplexe(INSTRUCTION) { };
         virtual ~Instruction();
     protected:
     private:
 };
 
-#endif // INSTRUCTION
+#endif // INSTRUCTION_H

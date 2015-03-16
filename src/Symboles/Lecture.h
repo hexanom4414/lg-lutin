@@ -1,9 +1,8 @@
-#ifndef LECTURE
-#define LECTURE
+#ifndef LECTURE_H
+#define LECTURE_H
 
-#include <Instruction.h>
+#include "Instruction.h"
 #include "Identificateur.h"
-#include "utils.h"
 
 class Lecture : public Instruction
 {

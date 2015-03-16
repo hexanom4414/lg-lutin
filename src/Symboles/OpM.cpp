@@ -1,11 +1,6 @@
 #include "OpM.h"
 
-OpM::OpM(int id) : Operateur(id)
+void OpM::print()
 {
-    //ctor
-}
-
-OpM::~OpM()
-{
-    //dtor
+    cout << "* ";
 }

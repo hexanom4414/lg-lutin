@@ -1,16 +1,6 @@
 #include "Lire.h"
 
-Lire::Lire(int id) : SymboleSimple(id)
+void Lire::print()
 {
-    //ctor
-}
-
-Lire::~Lire()
-{
-    //dtor
-}
-
-Lire::print()
-{
-	System.out.println("LIRE ");
+	cout << "LIRE ";
 }

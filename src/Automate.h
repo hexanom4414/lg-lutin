@@ -18,7 +18,7 @@ class Automate
         void lecture();
         Symbole * depilerSymbole();
         void shift(AbstractEtat * etat, Symbole * s);
-        void reduce(unsigned int nbDepil);
+        void reduce(unsigned int nbDepil, Symbole * s);
 
     protected:
         stack <AbstractEtat *> m_pileEtats;

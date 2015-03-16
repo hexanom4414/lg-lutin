@@ -1,7 +1,7 @@
 #ifndef SYMBOLECOMPLEXE_H
 #define SYMBOLECOMPLEXE_H
 
-#include <Symbole.h>
+#include "Symbole.h"
 
 class SymboleComplexe : public Symbole
 {

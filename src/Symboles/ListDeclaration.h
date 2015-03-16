@@ -1,5 +1,5 @@
-#ifndef LISTDECLARATION
-#define LISTDECLARATION
+#ifndef LISTDECLARATION_H
+#define LISTDECLARATION_H
 
 #include "SymboleComplexe.h"
 #include "Declaration.h"
@@ -8,11 +8,11 @@
 class ListDeclaration : public SymboleComplexe
 {
     public:
-        ListDeclaration() : Symbole(LISTDECLARATION) {}
+        ListDeclaration() : SymboleComplexe(LISTDECLARATION) {}
         virtual ~ListDeclaration();
     protected:
-    	List<Declaration *> list;
+    	list<Declaration *> m_listDeclaration;
     private:
 };
 
-#endif // LISTDECLARATION
+#endif // LISTDECLARATION_H

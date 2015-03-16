@@ -7,8 +7,10 @@
 class Div : public OpM
 {
     public:
-        Div(): Symbole (DIV) {}
+        Div(int id) : OpM(id) {};
         virtual ~Div();
+
+        void print();
     protected:
     private:
 };

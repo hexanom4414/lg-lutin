@@ -1,6 +1,7 @@
 #ifndef SYMBOLE_H
 #define SYMBOLE_H
 
+
 #include "../utils.h"
 
 class Symbole

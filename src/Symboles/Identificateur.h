@@ -7,10 +7,13 @@
 class Identificateur : public SymboleSimple
 {
     public:
-        Identificateur() : Symbole (IDENTIFICATEUR) , name(aName) {}
+        Identificateur(int id) : SymboleSimple(id) {};
         virtual ~Identificateur();
+
+        void setName(string name);
+        void print();
     protected:
-    	String name ;
+    	string m_name ;
     private:
 };
 

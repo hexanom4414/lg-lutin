@@ -1,12 +1,12 @@
 #include "ExpComplexe.h"
 
-Egal::~Egal()
+ExpComplexe::~ExpComplexe()
 {
     //dtor
 }
 
-Egal::print()
+void ExpComplexe::print()
 {
-	String toPrint =  this.expG.print() + " " +this.op.print() + " " +this.expD.print();
-	System.out.println(toPrint);
+    //TODO
+	//cout << m_expGauche->print() << " " << m_operateur->print() << " " << m_expDroite->print();
 }

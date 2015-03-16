@@ -7,7 +7,7 @@
 class Moins : public OpA
 {
     public:
-        Moins() : Symbole (MOINS) {}
+        Moins(int id) : OpA(id) {};
         virtual ~Moins();
     protected:
     private:

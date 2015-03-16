@@ -1,14 +1,14 @@
-#ifndef EXPRESSION
-#define EXPRESSION
+#ifndef EXPRESSION_H
+#define EXPRESSION_H
 
-#include <SymboleComplexe.h>
+#include "SymboleComplexe.h"
 
 
 class Expression : public SymboleComplexe
 {
     public:
-        Expression();
-        virtual ~Expression();
+        Expression(int id) : SymboleComplexe(id) {};
+        virtual ~Expression() {};
     protected:
     private:
 };

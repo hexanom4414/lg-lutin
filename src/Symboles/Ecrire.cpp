@@ -1,16 +1,6 @@
 #include "Ecrire.h"
 
-Ecrire::Ecrire(int id) : SymboleSimple(id)
+void Ecrire::print()
 {
-    //ctor
-}
-
-Ecrire::~Ecrire()
-{
-    //dtor
-}
-
-Ecrire::print()
-{
-	System.out.println("Ecrire");
+	cout << "ecrire ";
 }

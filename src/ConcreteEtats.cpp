@@ -1,5 +1,5 @@
 #include "ConcreteEtats.h"
-#include "Automate.h"
+#include "Symboles/Programme.h"
 
 Etat1::Etat1()
 {
@@ -113,10 +113,11 @@ Etat4::~Etat4()
 transition_return Etat4::transition(Automate & automate, Symbole * s)
 {
     AbstractEtat * p_etat;
-    Symbole * p_programme;
-    Symbole * p_ld;
-    Symbole * p_lins;
-    
+    Programme * p_programme;
+    Symbole * p_symbole;
+    ListDeclaration * p_ld;
+    ListInstruction * p_lins;
+
     switch (*s)
     {
         case INSTRUCTION:
@@ -136,11 +137,16 @@ transition_return Etat4::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
 		case DOLLAR:
-			p_lins = automate.depilerSymbole();		
-			p_ld = automate.depilerSymbole();
-			p_programme = new Programme();
-			p_programme->setsetListInstruction(p_lins);
-			p_programme->setsetListDeclaration(p_ld);
+		    p_programme = new Programme(PROGRAMME);
+
+			p_symbole = automate.depilerSymbole();
+			p_lins = (ListInstruction *) p_symbole;
+			p_programme->setListInstruction(p_lins);
+
+			p_symbole = automate.depilerSymbole();
+			p_ld = (ListDeclaration *) p_symbole;
+			p_programme->setListDeclaration(p_ld);
+
 			automate.reduce(2, p_programme);
 			return REDUCED;
         default:
@@ -165,10 +171,16 @@ Etat5::~Etat5()
 transition_return Etat5::transition(Automate & automate, Symbole * s)
 {
     AbstractEtat * p_etat;
+    ListInstruction * p_listInstruction;
+    Symbole * p_symbole;
+    Instruction * p_instruction;
     switch (*s)
     {
 		case DOLLAR:
-			automate.reduce(2);
+		    p_symbole = automate.depilerSymbole();
+		    p_instruction = (Instruction *) p_symbole;
+
+			automate.reduce(2, p_listInstruction);
 			return REDUCED;
         default:
             cout << "err" << endl;
@@ -255,7 +267,7 @@ transition_return Etat7::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
 		case DOLLAR:
-			automate.reduce(2);
+			//TODO automate.reduce(2);
 			return REDUCED;
         default:
             cout << "err" << endl;
@@ -334,7 +346,7 @@ transition_return Etat9::transition(Automate & automate, Symbole * s)
         case PARFERME:
         case POINTVIRGULE:
         case DOLLAR:
-			automate.reduce(3);
+//TODO			automate.reduce(3);
 			return REDUCED;
 		case MULT:
             p_etat = new Etat20();

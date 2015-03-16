@@ -1,13 +1,13 @@
-#ifndef ECRITURE
-#define ECRITURE
+#ifndef ECRITURE_H
+#define ECRITURE_H
 
-#include <Instruction.h>
+#include "Instruction.h"
 #include "Expression.h"
 
 class Ecriture : public Instruction
 {
     public:
-        Ecriture() : Symbole (ECRITURE) {}
+        Ecriture() : Instruction (ECRITURE) {}
         virtual ~Ecriture();
 
         bool do(&exp);
@@ -16,4 +16,4 @@ class Ecriture : public Instruction
     private:
 };
 
-#endif // ECRITURE
+#endif // ECRITURE_H

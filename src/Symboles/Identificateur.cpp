@@ -1,16 +1,11 @@
 #include "Identificateur.h"
 
-Identificateur::Identificateur(int id) : SymboleSimple(id)
+void Identificateur::print()
 {
-    //ctor
+	cout << m_name << " ";
 }
 
-Identificateur::~Identificateur()
+void Identificateur::setName(string name)
 {
-    //dtor
-}
-
-Identificateur::print()
-{
-	System.out.println(this.name);
+    m_name = name;
 }

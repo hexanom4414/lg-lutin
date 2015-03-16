@@ -1,6 +1,7 @@
 #ifndef CONCRETEETATS_H
 #define CONCRETEETATS_H
 
+#include "Automate.h"
 #include "AbstractEtat.h"
 
 class Etat1 : public AbstractEtat

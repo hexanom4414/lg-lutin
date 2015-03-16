@@ -3,7 +3,7 @@
 Automate::Automate()
 {
     cout << "Automate created" << endl;
-    
+
 
 /*
     lire fichier
@@ -13,7 +13,7 @@ Automate::Automate()
 	}
 */
 
-    
+
 }
 
 Automate::~Automate()
@@ -21,7 +21,7 @@ Automate::~Automate()
     //dtor
 }
 
-symbole * Automate::depilerSymbole()
+Symbole * Automate::depilerSymbole()
 {
 	Symbole * p_symbole = m_pileSymboles.top();
 	m_pileSymboles.pop();
@@ -41,6 +41,6 @@ void Automate::reduce(unsigned int nbDepil, Symbole * s)
 		delete m_pileEtats.top();
 		m_pileEtats.pop();
 	}
-	
-	m_pileEtats.top()->transition(* this, s);	
+
+	m_pileEtats.top()->transition(* this, s);
 }

@@ -7,8 +7,10 @@
 class OpM : public Operateur
 {
     public:
-        OpM() : Symbole(OPM){}
+        OpM(int id) : Operateur(id) {};
         virtual ~OpM();
+
+        void print();
     protected:
     private:
 };

@@ -1,6 +1,10 @@
 #ifndef UTILS_H
 #define UTILS_H
 
+#include <iostream>
+
+using namespace std;
+
 #define SYMBAFFECTATION 0
 #define ECRIRE 1
 #define LIRE 2

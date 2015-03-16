@@ -1,16 +1,6 @@
 #include "Div.h"
 
-Div::Div(int id) : OpM(id)
+void Div::print()
 {
-    //ctor
-}
-
-Div::~Div()
-{
-    //dtor
-}
-
-Div::print()
-{
-	System.out.println("/");
+	cout << "/ ";
 }

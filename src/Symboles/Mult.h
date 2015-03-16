@@ -7,7 +7,7 @@
 class Mult : public OpM
 {
     public:
-        Mult() : Symbole (MULT) {}
+        Mult(int id) : OpM(id) {};
         virtual ~Mult();
     protected:
     private:

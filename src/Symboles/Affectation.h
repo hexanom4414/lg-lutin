@@ -1,14 +1,14 @@
-#ifndef AFFECTATION
-#define AFFECTATION
+#ifndef AFFECTATION_H
+#define AFFECTATION_H
 
-#include <Instruction.h>
+#include "Instruction.h"
 #include "Expression.h"
 #include "Identificateur.h"
 
 class Affectation : public Instruction
 {
     public:
-        Affectation() : Symbole(AFFECTATION) , id(aId) , expToAffect(aExp) {}
+        Affectation() : Instruction(AFFECTATION) , id(aId) , expToAffect(aExp) {}
         virtual ~Affectation();
 
         bool do(); //méthode pour lier un id avec une expression dans une map
@@ -19,4 +19,4 @@ class Affectation : public Instruction
     private:
 };
 
-#endif // AFFECTATION
+#endif // AFFECTATION_H

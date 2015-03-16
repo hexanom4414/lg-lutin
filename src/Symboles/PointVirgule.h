@@ -6,7 +6,7 @@
 class PointVirgule : public SymboleSimple
 {
     public:
-        PointVirgule() : Symbole(POINTVIRGULE){}
+        PointVirgule(int id) : SymboleSimple(id) {};
         virtual ~PointVirgule();
     protected:
     private:

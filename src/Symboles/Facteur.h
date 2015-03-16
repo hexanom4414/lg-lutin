@@ -7,7 +7,7 @@
 class Facteur : public SymboleSimple
 {
     public:
-        Facteur(int id);
+        Facteur(int id) : SymboleSimple(id) {};
         virtual ~Facteur();
     protected:
     private:
