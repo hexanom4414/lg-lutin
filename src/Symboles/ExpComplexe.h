@@ -7,7 +7,7 @@
 class ExpComplexe : public Expression
 {
     public:
-        ExpComplexe(): Expression (EXPCOMPLEXE) {};
+        ExpComplexe(int id): Expression (id) {};
         virtual ~ExpComplexe();
 
         void setExpGauche(Expression * p_expGauche);

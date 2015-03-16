@@ -7,7 +7,6 @@
 using namespace std;
 using namespace boost;
 
-<<<<<<< HEAD
 bool affichage = false, analyse = false, execution = false, optimisation = false;
 string m_file = "";
 
@@ -58,9 +57,6 @@ int main(int argc, const char* argv[])
     ifstream fichier(m_file.c_str());
     if(fichier.fail())
         cerr << m_file << " : Fichier inexistant ou non lisible" << endl;
-
-    return 0;
-
 
 	
 /*

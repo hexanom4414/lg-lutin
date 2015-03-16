@@ -7,10 +7,10 @@
 class Lecture : public Instruction
 {
     public:
-        Lecture() : Symbole (LECTURE) {}
+        Lecture(int id) : Instruction (id) {}
         virtual ~Lecture();
-
-        bool do(&idToRead);
+		void print() {};
+        //bool do(&idToRead);
     protected:
     	Identificateur* idToRead;
     private:

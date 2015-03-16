@@ -8,6 +8,7 @@ class Operateur : public SymboleSimple
 {
     public:
         Operateur(int id);
+		void print() {};
         virtual ~Operateur();
     protected:
     private:

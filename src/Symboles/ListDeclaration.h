@@ -9,6 +9,7 @@ class ListDeclaration : public SymboleComplexe
 {
     public:
         ListDeclaration() : SymboleComplexe(LISTDECLARATION) {}
+		void print() {};
         virtual ~ListDeclaration();
     protected:
     	list<Declaration *> m_listDeclaration;

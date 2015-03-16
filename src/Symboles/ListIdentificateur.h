@@ -9,6 +9,7 @@ class ListIdentificateur : public SymboleComplexe
 {
     public:
         ListIdentificateur(): SymboleComplexe(LISTIDENTIFICATEUR) {}
+		void print() {};
         virtual ~ListIdentificateur();
     protected:
     	list<Identificateur *> m_listIdentificateur;

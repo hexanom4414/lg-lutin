@@ -8,6 +8,7 @@ class Moins : public OpA
 {
     public:
         Moins(int id) : OpA(id) {};
+		void print() {};
         virtual ~Moins();
     protected:
     private:

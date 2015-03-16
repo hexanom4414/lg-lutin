@@ -39,6 +39,7 @@ using namespace std;
 #define TERME 32 //TODO
 #define FACTEUR 33 //TODO
 #define EXPRESSION 34
+#define VALEUR 35
 
 enum transition_return
 {
