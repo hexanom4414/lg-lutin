@@ -16,8 +16,9 @@ class Automate
         virtual ~Automate();
 
         void lecture();
-        void shift(AbstractEtat * etat);
-        void reduce();
+        Symbole * depilerSymbole();
+        void shift(AbstractEtat * etat, Symbole * s);
+        void reduce(unsigned int nbDepil);
 
     protected:
         stack <AbstractEtat *> m_pileEtats;

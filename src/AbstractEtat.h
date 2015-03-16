@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Symboles/Symbole.h"
 
+
 class Automate;
 
 using namespace std;

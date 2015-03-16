@@ -31,11 +31,15 @@
 #define EXPCOMPLEXE 28 //
 #define VARIABLES 29
 #define NOMBRE 30 //
+#define DOLLAR 31
+#define TERME 32 //TODO
+#define FACTEUR 33 //TODO
 
 enum transition_return
 {
     SHIFTED,
     REDUCED,
+    ACCEPTED,
     ERROR
 };
 
