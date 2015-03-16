@@ -9,10 +9,11 @@
 class Affectation : public Instruction
 {
     public:
-        Affectation() : Instruction(AFFECTATION) , id(aId) , expToAffect(aExp) {}
+        Affectation(int id) : Instruction(id) {};
         virtual ~Affectation();
 
-        bool do(); //méthode pour lier un id avec une expression dans une map
+		void print() {};
+        //bool do(); //méthode pour lier un id avec une expression dans une map
 
     protected:
     	Identificateur *id;

@@ -8,6 +8,7 @@ class Terme : public SymboleSimple
 {
     public:
         Terme(int id);
+		void print() {};
         virtual ~Terme();
     protected:
     private:

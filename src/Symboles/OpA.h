@@ -8,6 +8,7 @@ class OpA : public Operateur
 {
     public:
         OpA(int id) : Operateur(id) {};
+		void print() {};
         virtual ~OpA();
     protected:
     private:

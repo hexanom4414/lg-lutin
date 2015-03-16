@@ -25,11 +25,11 @@ int main(int argc, const char* argv[])
     cout << "Hello" << endl;
 
     // argc test
-    cout << "Nombre d'arguments : " << argc << endl;
+    //cout << "Nombre d'arguments : " << argc << endl;
 	if(argc < 2)
 	{
-		cout << "Arguments manquants" << endl;
-		help_message();
+		//cout << "Arguments manquants" << endl;
+		//help_message();
 		return 0;
 	}
 	

@@ -8,6 +8,7 @@ class SymbAffectation : public SymboleSimple
 {
     public:
         SymbAffectation(int id) : SymboleSimple(id) {}
+		void print() {};
         virtual ~SymbAffectation();
     protected:
     private:
