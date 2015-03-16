@@ -39,3 +39,4 @@ clean :
 		$(RM) $(CLEANFLAGS) $(OBJ)
 
 mrproper: clean
+	rm -rf $(EXE).exe $(EXE)
