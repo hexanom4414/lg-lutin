@@ -1,5 +1,4 @@
 #include "ConcreteEtats.h"
-#include "Symboles/Programme.h"
 
 Etat1::Etat1()
 {
@@ -48,7 +47,7 @@ transition_return Etat2::transition(Automate & automate, Symbole * s)
     switch (*s)
     {
         case DOLLAR:
-        //TODO : acceptation
+            //TODO : acceptation
             return ACCEPTED;
         default:
             cout << "err" << endl;
@@ -83,11 +82,11 @@ transition_return Etat3::transition(Automate & automate, Symbole * s)
             p_etat = new Etat29();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case SYMBVARIABLE:
+        case SYMBVARIABLE:
             p_etat = new Etat30();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case CONSTANTE:
+        case CONSTANTE:
             p_etat = new Etat36();
             automate.shift(p_etat, s);
             return SHIFTED;
@@ -112,43 +111,30 @@ Etat4::~Etat4()
 
 transition_return Etat4::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
-    Programme * p_programme;
-    Symbole * p_symbole;
-    ListDeclaration * p_ld;
-    ListInstruction * p_lins;
-
     switch (*s)
     {
         case INSTRUCTION:
-            p_etat = new Etat5();
-            automate.shift(p_etat, s);
+            automate.shift(new Etat5(), s);
             return SHIFTED;
         case ECRIRE:
-            p_etat = new Etat6();
-            automate.shift(p_etat, s);
+            automate.shift(new Etat6(), s);
             return SHIFTED;
-		case LIRE:
-            p_etat = new Etat23();
-            automate.shift(p_etat, s);
+        case LIRE:
+            automate.shift(new Etat23(), s);
             return SHIFTED;
-		case IDENTIFICATEUR:
-            p_etat = new Etat25();
-            automate.shift(p_etat, s);
+        case IDENTIFICATEUR:
+            automate.shift(new Etat25(), s);
             return SHIFTED;
-		case DOLLAR:
-		    p_programme = new Programme(PROGRAMME);
+        case DOLLAR:
+            {
+                Programme * p_programme = new Programme(PROGRAMME);
 
-			p_symbole = automate.depilerSymbole();
-			p_lins = (ListInstruction *) p_symbole;
-			p_programme->setListInstruction(p_lins);
+                p_programme->setListInstruction((ListInstruction *) automate.depilerSymbole());
+                p_programme->setListDeclaration((ListDeclaration *) automate.depilerSymbole());
 
-			p_symbole = automate.depilerSymbole();
-			p_ld = (ListDeclaration *) p_symbole;
-			p_programme->setListDeclaration(p_ld);
-
-			automate.reduce(2, p_programme);
-			return REDUCED;
+                automate.reduce(2, p_programme);
+            }
+            return REDUCED;
         default:
             cout << "err" << endl;
             return ERROR;
@@ -170,18 +156,17 @@ Etat5::~Etat5()
 
 transition_return Etat5::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
-    ListInstruction * p_listInstruction;
-    Symbole * p_symbole;
-    Instruction * p_instruction;
     switch (*s)
     {
-		case DOLLAR:
-		    p_symbole = automate.depilerSymbole();
-		    p_instruction = (Instruction *) p_symbole;
+        case DOLLAR:
+            {
+                ListInstruction * p_listInstruction = new ListInstruction(LISTINSTRUCTION);
+                p_listInstruction->addToList((Instruction *) automate.depilerSymbole());
+                p_listInstruction->addToList((ListInstruction *) automate.depilerSymbole());
 
-			automate.reduce(2, p_listInstruction);
-			return REDUCED;
+                automate.reduce(2, p_listInstruction);
+            }
+            return REDUCED;
         default:
             cout << "err" << endl;
             return ERROR;
@@ -214,20 +199,20 @@ transition_return Etat6::transition(Automate & automate, Symbole * s)
             p_etat = new Etat19();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case FACTEUR:
+        case FACTEUR:
             p_etat = new Etat22();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case IDENTIFICATEUR:
+        case IDENTIFICATEUR:
             p_etat = new Etat12();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case NOMBRE: //TODO
+        case NOMBRE: //TODO
             p_etat = new Etat13();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case PAROUVRE:
-		    p_etat = new Etat14();
+        case PAROUVRE:
+            p_etat = new Etat14();
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
@@ -262,13 +247,19 @@ transition_return Etat7::transition(Automate & automate, Symbole * s)
             p_etat = new Etat17();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case MOINS:
+        case MOINS:
             p_etat = new Etat18();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case DOLLAR:
-			//TODO automate.reduce(2);
-			return REDUCED;
+        case DOLLAR:
+            {
+                Ecriture * p_ecriture = new Ecriture(ECRITURE);
+                p_ecriture->setExpression((Expression *) automate.depilerSymbole());
+                automate.depilerSymbole(true); // delete "écrire"
+
+                automate.reduce(2, p_ecriture);
+            }
+            return REDUCED;
         default:
             cout << "err" << endl;
             return ERROR;
@@ -301,15 +292,15 @@ transition_return Etat8::transition(Automate & automate, Symbole * s)
             p_etat = new Etat22();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case IDENTIFICATEUR:
+        case IDENTIFICATEUR:
             p_etat = new Etat12();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case NOMBRE:
+        case NOMBRE:
             p_etat = new Etat13();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case PAROUVRE:
+        case PAROUVRE:
             p_etat = new Etat14();
             automate.shift(p_etat, s);
             return SHIFTED;
@@ -346,13 +337,20 @@ transition_return Etat9::transition(Automate & automate, Symbole * s)
         case PARFERME:
         case POINTVIRGULE:
         case DOLLAR:
-//TODO			automate.reduce(3);
-			return REDUCED;
-		case MULT:
+            {
+                Expression * p_expression = new Expression(EXPRESSION);
+                p_expression->setAttribute((Terme *) automate.depilerSymbole());
+                p_expression->setAttribute((OpA *) automate.depilerSymbole());
+                p_expression->setAttribute((Expression *) automate.depilerSymbole());
+
+                automate.reduce(3, p_expression);
+            }
+            return REDUCED;
+        case MULT:
             p_etat = new Etat20();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case DIV:
+        case DIV:
             p_etat = new Etat21();
             automate.shift(p_etat, s);
             return SHIFTED;
@@ -388,11 +386,11 @@ transition_return Etat10::transition(Automate & automate, Symbole * s)
             p_etat = new Etat12();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case NOMBRE:
+        case NOMBRE:
             p_etat = new Etat13();
             automate.shift(p_etat, s);
             return SHIFTED;
-		case PAROUVRE:
+        case PAROUVRE:
             p_etat = new Etat14();
             automate.shift(p_etat, s);
             return SHIFTED;

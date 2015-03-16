@@ -38,6 +38,7 @@ using namespace std;
 #define DOLLAR 31
 #define TERME 32 //TODO
 #define FACTEUR 33 //TODO
+#define EXPRESSION 34
 
 enum transition_return
 {

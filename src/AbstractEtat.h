@@ -3,7 +3,11 @@
 
 #include "utils.h"
 #include <iostream>
+
 #include "Symboles/Symbole.h"
+#include "Symboles/Programme.h"
+#include "Symboles/Ecriture.h"
+
 
 
 class Automate;

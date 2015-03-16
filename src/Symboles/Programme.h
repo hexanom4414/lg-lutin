@@ -13,6 +13,7 @@ class Programme : public SymboleComplexe
 
         void setListDeclaration(ListDeclaration * ld);
         void setListInstruction(ListInstruction * lins);
+        virtual void print();
     protected:
     	ListDeclaration * m_LD;
     	ListInstruction * m_LIns;

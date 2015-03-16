@@ -7,12 +7,13 @@
 class Ecriture : public Instruction
 {
     public:
-        Ecriture() : Instruction (ECRITURE) {}
-        virtual ~Ecriture();
+        Ecriture(int id) : Instruction(id) {}
+        virtual ~Ecriture() {};
 
-        bool do(&exp);
+        void setExpression(Expression * p_expression);
+        void print();
     protected:
-    	Expression *exp;
+    	Expression * m_expression;
     private:
 };
 

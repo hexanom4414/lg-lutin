@@ -9,3 +9,9 @@ void Programme::setListInstruction(ListInstruction * lins)
 {
 	m_LIns = lins;
 }
+
+void Programme::print()
+{
+    m_LD->print();
+    m_LIns->print();
+}

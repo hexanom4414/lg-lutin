@@ -16,7 +16,7 @@ class Automate
         virtual ~Automate();
 
         void lecture();
-        Symbole * depilerSymbole();
+        Symbole * depilerSymbole(bool toDelete = false);
         void shift(AbstractEtat * etat, Symbole * s);
         void reduce(unsigned int nbDepil, Symbole * s);
 
