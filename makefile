@@ -1,6 +1,6 @@
 ################################################
-# Makefile - H4414 #
-# Projet Lutin #
+# 				Makefile - H4414			   #
+# 				  Projet Lutin 				   #
 ################################################
 
 # définition des cibles particulières
@@ -39,3 +39,4 @@ clean :
 		$(RM) $(CLEANFLAGS) $(OBJ)
 
 mrproper: clean
+	rm -rf $(EXE).exe $(EXE)

@@ -3,6 +3,7 @@
 
 #include "Instruction.h"
 #include "Expression.h"
+#include "Valeur.h"
 #include "Identificateur.h"
 
 class Affectation : public Instruction

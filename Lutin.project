@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeLite_Project Name="Lutin" InternalType="">
+  <Plugins>
+    <Plugin Name="qmake">
+      <![CDATA[00010001N0005Debug000000000000]]>
+    </Plugin>
+    <Plugin Name="CMakePlugin">
+      <![CDATA[[{
+  "name": "Debug",
+  "enabled": false,
+  "buildDirectory": "build",
+  "sourceDirectory": "$(ProjectPath)",
+  "generator": "",
+  "buildType": "",
+  "arguments": [],
+  "parentProject": ""
+ }]]]>
+    </Plugin>
+  </Plugins>
+  <VirtualDirectory Name="tests">
+    <VirtualDirectory Name="01.NoArgument">
+      <File Name="tests/01.NoArgument/description"/>
+      <File Name="tests/01.NoArgument/returncode"/>
+      <File Name="tests/01.NoArgument/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="02.FichierInexistant">
+      <File Name="tests/02.FichierInexistant/description"/>
+      <File Name="tests/02.FichierInexistant/returncode"/>
+      <File Name="tests/02.FichierInexistant/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="03.FichierExistant">
+      <File Name="tests/03.FichierExistant/description"/>
+      <File Name="tests/03.FichierExistant/returncode"/>
+      <File Name="tests/03.FichierExistant/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="04.Affichage">
+      <File Name="tests/04.Affichage/description"/>
+      <File Name="tests/04.Affichage/returncode"/>
+      <File Name="tests/04.Affichage/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="05.DoubleDeclaration">
+      <File Name="tests/05.DoubleDeclaration/description"/>
+      <File Name="tests/05.DoubleDeclaration/returncode"/>
+      <File Name="tests/05.DoubleDeclaration/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="06.1.AnalyseStatique">
+      <File Name="tests/06.1.AnalyseStatique/description"/>
+      <File Name="tests/06.1.AnalyseStatique/returncode"/>
+      <File Name="tests/06.1.AnalyseStatique/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="06.2.AnalyseStatique">
+      <File Name="tests/06.2.AnalyseStatique/description"/>
+      <File Name="tests/06.2.AnalyseStatique/returncode"/>
+      <File Name="tests/06.2.AnalyseStatique/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="06.3.AnalyseStatique">
+      <File Name="tests/06.3.AnalyseStatique/description"/>
+      <File Name="tests/06.3.AnalyseStatique/returncode"/>
+      <File Name="tests/06.3.AnalyseStatique/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="06.4.AnalyseStatique">
+      <File Name="tests/06.4.AnalyseStatique/description"/>
+      <File Name="tests/06.4.AnalyseStatique/returncode"/>
+      <File Name="tests/06.4.AnalyseStatique/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="07.Execution">
+      <File Name="tests/07.Execution/description"/>
+      <File Name="tests/07.Execution/returncode"/>
+      <File Name="tests/07.Execution/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="08.1.Optimisation">
+      <File Name="tests/08.1.Optimisation/description"/>
+      <File Name="tests/08.1.Optimisation/returncode"/>
+      <File Name="tests/08.1.Optimisation/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="08.2.Optimisation">
+      <File Name="tests/08.2.Optimisation/description"/>
+      <File Name="tests/08.2.Optimisation/returncode"/>
+      <File Name="tests/08.2.Optimisation/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="09.ErreurLexicale">
+      <File Name="tests/09.ErreurLexicale/description"/>
+      <File Name="tests/09.ErreurLexicale/returncode"/>
+      <File Name="tests/09.ErreurLexicale/run"/>
+    </VirtualDirectory>
+    <VirtualDirectory Name="10.ErreurSyntaxique">
+      <File Name="tests/10.ErreurSyntaxique/description"/>
+      <File Name="tests/10.ErreurSyntaxique/returncode"/>
+      <File Name="tests/10.ErreurSyntaxique/run"/>
+    </VirtualDirectory>
+    <File Name="tests/lut"/>
+  </VirtualDirectory>
+  <Description/>
+  <Dependencies/>
+  <VirtualDirectory Name="src">
+    <File Name="src/AbstractEtat.cpp"/>
+    <File Name="src/AbstractEtat.h"/>
+    <File Name="src/Automate.cpp"/>
+    <File Name="src/Automate.h"/>
+    <File Name="src/ConcreteEtats.cpp"/>
+    <File Name="src/ConcreteEtats.h"/>
+    <File Name="src/utils.h"/>
+    <VirtualDirectory Name="Symboles">
+      <File Name="src/Symboles/Affectation.h"/>
+      <File Name="src/Symboles/Constante.cpp"/>
+      <File Name="src/Symboles/Constante.h"/>
+      <File Name="src/Symboles/Declaration.h"/>
+      <File Name="src/Symboles/Div.cpp"/>
+      <File Name="src/Symboles/Div.h"/>
+      <File Name="src/Symboles/Ecrire.cpp"/>
+      <File Name="src/Symboles/Ecrire.h"/>
+      <File Name="src/Symboles/Ecriture.cpp"/>
+      <File Name="src/Symboles/Ecriture.h"/>
+      <File Name="src/Symboles/Egal.cpp"/>
+      <File Name="src/Symboles/Egal.h"/>
+      <File Name="src/Symboles/ExpComplexe.cpp"/>
+      <File Name="src/Symboles/ExpComplexe.h"/>
+      <File Name="src/Symboles/Expression.cpp"/>
+      <File Name="src/Symboles/Expression.h"/>
+      <File Name="src/Symboles/Facteur.cpp"/>
+      <File Name="src/Symboles/Facteur.h"/>
+      <File Name="src/Symboles/Identificateur.cpp"/>
+      <File Name="src/Symboles/Identificateur.h"/>
+      <File Name="src/Symboles/Instruction.h"/>
+      <File Name="src/Symboles/Lecture.h"/>
+      <File Name="src/Symboles/Lire.cpp"/>
+      <File Name="src/Symboles/Lire.h"/>
+      <File Name="src/Symboles/ListDeclaration.h"/>
+      <File Name="src/Symboles/ListIdentificateur.h"/>
+      <File Name="src/Symboles/ListInstruction.cpp"/>
+      <File Name="src/Symboles/ListInstruction.h"/>
+      <File Name="src/Symboles/Moins.cpp"/>
+      <File Name="src/Symboles/Moins.h"/>
+      <File Name="src/Symboles/Mult.cpp"/>
+      <File Name="src/Symboles/Mult.h"/>
+      <File Name="src/Symboles/OpA.cpp"/>
+      <File Name="src/Symboles/OpA.h"/>
+      <File Name="src/Symboles/Operateur.cpp"/>
+      <File Name="src/Symboles/Operateur.h"/>
+      <File Name="src/Symboles/OpM.cpp"/>
+      <File Name="src/Symboles/OpM.h"/>
+      <File Name="src/Symboles/ParFerme.cpp"/>
+      <File Name="src/Symboles/ParFerme.h"/>
+      <File Name="src/Symboles/ParOuvre.cpp"/>
+      <File Name="src/Symboles/ParOuvre.h"/>
+      <File Name="src/Symboles/Plus.cpp"/>
+      <File Name="src/Symboles/Plus.h"/>
+      <File Name="src/Symboles/PointVirgule.cpp"/>
+      <File Name="src/Symboles/PointVirgule.h"/>
+      <File Name="src/Symboles/Programme.cpp"/>
+      <File Name="src/Symboles/Programme.h"/>
+      <File Name="src/Symboles/SymbAffectation.cpp"/>
+      <File Name="src/Symboles/SymbAffectation.h"/>
+      <File Name="src/Symboles/Symbole.cpp"/>
+      <File Name="src/Symboles/Symbole.h"/>
+      <File Name="src/Symboles/SymboleComplexe.h"/>
+      <File Name="src/Symboles/SymboleSimple.h"/>
+      <File Name="src/Symboles/SymbVariable.cpp"/>
+      <File Name="src/Symboles/SymbVariable.h"/>
+      <File Name="src/Symboles/Terme.cpp"/>
+      <File Name="src/Symboles/Terme.h"/>
+      <File Name="src/Symboles/Valeur.h"/>
+      <File Name="src/Symboles/Variable.h"/>
+      <File Name="src/Symboles/Virgule.cpp"/>
+      <File Name="src/Symboles/Virgule.h"/>
+    </VirtualDirectory>
+  </VirtualDirectory>
+  <Settings Type="Dynamic Library">
+    <GlobalSettings>
+      <Compiler Options="" C_Options="" Assembler="">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="">
+        <LibraryPath Value="."/>
+      </Linker>
+      <ResourceCompiler Options=""/>
+    </GlobalSettings>
+    <Configuration Name="Debug" CompilerType="MinGW ( MinGW )" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="-g" C_Options="-g" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="" IntermediateDirectory="./Debug" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="yes">
+        <RebuildCommand>make -f makefileWin mrproper &amp; make -f makefileWin</RebuildCommand>
+        <CleanCommand>make -f makefileWin mrproper</CleanCommand>
+        <BuildCommand>make -f makefileWin</BuildCommand>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory>C:\Users\Rémi\codelite_workspace\Lutin\Lutin</WorkingDirectory>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+    <Configuration Name="Release" CompilerType="MinGW ( MinGW )" DebuggerType="GNU gdb debugger" Type="Dynamic Library" BuildCmpWithGlobalSettings="append" BuildLnkWithGlobalSettings="append" BuildResWithGlobalSettings="append">
+      <Compiler Options="" C_Options="" Assembler="" Required="yes" PreCompiledHeader="" PCHInCommandLine="no" PCHFlags="" PCHFlagsPolicy="0">
+        <IncludePath Value="."/>
+      </Compiler>
+      <Linker Options="-O2" Required="yes"/>
+      <ResourceCompiler Options="" Required="no"/>
+      <General OutputFile="" IntermediateDirectory="./Release" Command="" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(IntermediateDirectory)" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
+        <![CDATA[]]>
+      </Environment>
+      <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
+        <DebuggerSearchPaths/>
+        <PostConnectCommands/>
+        <StartupCommands/>
+      </Debugger>
+      <PreBuild/>
+      <PostBuild/>
+      <CustomBuild Enabled="yes">
+        <RebuildCommand/>
+        <CleanCommand>make clean</CleanCommand>
+        <BuildCommand>make</BuildCommand>
+        <PreprocessFileCommand/>
+        <SingleFileCommand/>
+        <MakefileGenerationCommand/>
+        <ThirdPartyToolName>None</ThirdPartyToolName>
+        <WorkingDirectory>$(WorkspacePath)</WorkingDirectory>
+      </CustomBuild>
+      <AdditionalRules>
+        <CustomPostBuild/>
+        <CustomPreBuild/>
+      </AdditionalRules>
+      <Completion EnableCpp11="no">
+        <ClangCmpFlagsC/>
+        <ClangCmpFlags/>
+        <ClangPP/>
+        <SearchPaths/>
+      </Completion>
+    </Configuration>
+  </Settings>
+  <VirtualDirectory Name="Lutin">
+    <File Name="main.cpp"/>
+    <File Name="makefile"/>
+    <File Name="makefileWin"/>
+    <File Name="test.cpp"/>
+    <File Name=".gitignore"/>
+    <File Name="test.h"/>
+  </VirtualDirectory>
+</CodeLite_Project>

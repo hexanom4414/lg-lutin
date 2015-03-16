@@ -2,9 +2,12 @@
 #include <fstream>
 #include <boost/regex.hpp>
 #include "src/Automate.h"
+#include "test.h"
 
 using namespace std;
+using namespace boost;
 
+<<<<<<< HEAD
 bool affichage = false, analyse = false, execution = false, optimisation = false;
 string m_file = "";
 
@@ -57,4 +60,36 @@ int main(int argc, const char* argv[])
         cerr << m_file << " : Fichier inexistant ou non lisible" << endl;
 
     return 0;
+=======
+int main()
+{/*
+	const regex opA("(+|-)");
+	const regex opM("(\\*|/)");
+	const regex expression("(?: expression|\\v)(?: opM|opA)(?: expression|\\v)");
+	const regex priority("(\expression)");
+	
+	test_opM("*");
+	
+	cout << "test declaration" << endl;
+	
+	string affect = "var l";
+	 test_declaration(affect) ;
+	
+	cout << "test affectation" << endl;
+	
+	 affect = "var hehe = c'est faux";
+	test_affectation(affect);
+	
+		cout << "test instruction" << endl;
+	
+	 affect = "lire hehe";
+	test_instruction(affect);
+*/	
+	char* fichier_test = "lutin-test.txt";
+	test_lecture(fichier_test);
+	
+	return 0;
+>>>>>>> lecture buffer symboles+interétation
 }
+
+
