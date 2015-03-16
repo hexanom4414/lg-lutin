@@ -60,9 +60,10 @@ int main(int argc, const char* argv[])
         cerr << m_file << " : Fichier inexistant ou non lisible" << endl;
 
     return 0;
-=======
-int main()
-{/*
+
+
+	
+/*
 	const regex opA("(+|-)");
 	const regex opM("(\\*|/)");
 	const regex expression("(?: expression|\\v)(?: opM|opA)(?: expression|\\v)");
@@ -85,11 +86,11 @@ int main()
 	 affect = "lire hehe";
 	test_instruction(affect);
 */	
+
 	char* fichier_test = "lutin-test.txt";
 	test_lecture(fichier_test);
 	
 	return 0;
->>>>>>> lecture buffer symboles+interétation
 }
 
 
