@@ -21,3 +21,4 @@ class Affectation : public Instruction
 };
 
 #endif // AFFECTATION_H
+

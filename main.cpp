@@ -53,7 +53,7 @@ int main(int argc, const char* argv[])
 			cout << "Argument inconnu" << endl;
     }
 	
-/*
+
 	const regex opA("(+|-)");
 	const regex opM("(\\*|/)");
 	const regex expression("(?: expression|\\v)(?: opM|opA)(?: expression|\\v)");
@@ -75,7 +75,7 @@ int main(int argc, const char* argv[])
 	
 	 affect = "lire hehe";
 	test_instruction(affect);
-*/	
+
 	char* fichier_test = "lutin-test.txt";
 	test_lecture(fichier_test);
 	
