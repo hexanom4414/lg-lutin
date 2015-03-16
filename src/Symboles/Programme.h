@@ -8,7 +8,7 @@
 class Programme : public SymboleComplexe
 {
     public:
-        Programme();
+        Programme() : Symbole (PROGRAMME) {}
         virtual ~Programme();
     protected:
     	ListDeclaration *LD;

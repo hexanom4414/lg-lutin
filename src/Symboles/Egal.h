@@ -7,7 +7,7 @@
 class Egal : public SymboleSimple
 {
     public:
-        Egal(int id);
+        Egal() : Symbole(EGAL) {}
         virtual ~Egal();
     protected:
     private:

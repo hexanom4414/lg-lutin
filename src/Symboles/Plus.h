@@ -7,7 +7,7 @@
 class Plus : public OpA
 {
     public:
-        Plus(int id);
+        Plus():Symbole(PLUS) {}
         virtual ~Plus();
     protected:
     private:

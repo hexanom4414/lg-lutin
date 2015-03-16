@@ -7,7 +7,7 @@
 class Valeur : public Expression
 {
     public:
-        Valeur();
+        Valeur() : Symbole(VALEUR) {}
         virtual ~Valeur();
     protected:
     private:

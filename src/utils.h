@@ -29,7 +29,7 @@
 #define PROGRAMME 25
 #define LISTDECLARATION 26
 #define EXPCOMPLEXE 28 //
-#define VARIABLES 29
+#define VARIABLE 29
 #define NOMBRE 30 //
 
 enum transition_return

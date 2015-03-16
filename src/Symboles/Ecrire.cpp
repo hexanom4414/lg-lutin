@@ -9,3 +9,8 @@ Ecrire::~Ecrire()
 {
     //dtor
 }
+
+Ecrire::print()
+{
+	System.out.println("Ecrire");
+}

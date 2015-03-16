@@ -9,3 +9,8 @@ Identificateur::~Identificateur()
 {
     //dtor
 }
+
+Identificateur::print()
+{
+	System.out.println(this.name);
+}

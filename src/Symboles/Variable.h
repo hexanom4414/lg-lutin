@@ -3,11 +3,10 @@
 
 #include <Expression.h>
 
-
 class Variable : public Expression
 {
     public:
-        Variable();
+        Variable() : Symbole (VARIABLE){}
         virtual ~Variable();
     protected:
     private:
