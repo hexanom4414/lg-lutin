@@ -8,7 +8,7 @@ class OpM : public Operateur
 {
     public:
         OpM(int id) : Operateur(id) {};
-        virtual ~OpM();
+        virtual ~OpM() {};
 
         void print();
     protected:

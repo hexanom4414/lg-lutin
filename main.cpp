@@ -65,21 +65,21 @@ int main(int argc, const char* argv[])
 	const regex expression("(?: expression|\\v)(?: opM|opA)(?: expression|\\v)");
 	const regex priority("(\expression)");
 	
-	test_opM("*");
+	//test_opM("*");
 	
 	cout << "test declaration" << endl;
 	
 	string affect = "var l";
-	 test_declaration(affect) ;
+	 //test_declaration(affect) ;
 	
 	cout << "test affectation" << endl;
 	
 	 affect = "var hehe = c'est faux";
-	test_affectation(affect);
+	//test_affectation(affect);
 	
 		cout << "test instruction" << endl;
 	
-	 affect = "lire hehe";
+	affect = "lire hehe";
 	test_instruction(affect);
 */	
 

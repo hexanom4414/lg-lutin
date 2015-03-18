@@ -8,7 +8,7 @@ class Lecture : public Instruction
 {
     public:
         Lecture(int id) : Instruction (id) {}
-        virtual ~Lecture();
+        virtual ~Lecture() {};
 		void print() {};
         //bool do(&idToRead);
     protected:

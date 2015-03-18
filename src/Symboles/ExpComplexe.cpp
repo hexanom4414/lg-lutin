@@ -1,10 +1,5 @@
 #include "ExpComplexe.h"
 
-ExpComplexe::~ExpComplexe()
-{
-    //dtor
-}
-
 void ExpComplexe::print()
 {
     //TODO

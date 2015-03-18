@@ -8,7 +8,7 @@ class ExpComplexe : public Expression
 {
     public:
         ExpComplexe(int id): Expression (id) {};
-        virtual ~ExpComplexe();
+        virtual ~ExpComplexe() {};
 
         void setExpGauche(Expression * p_expGauche);
         void setExpDroite(Expression * p_expDroit);

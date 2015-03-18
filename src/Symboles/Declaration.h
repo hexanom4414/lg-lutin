@@ -9,7 +9,7 @@ class Declaration : public SymboleComplexe
     public:
         Declaration() : SymboleComplexe(DECLARATION){}
 		void print() {};
-        virtual ~Declaration();
+        virtual ~Declaration() {};
     protected:
     	list<ListIdentificateur *> m_listIdentificateur;
     private:

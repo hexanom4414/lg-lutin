@@ -31,7 +31,7 @@
 #include "src/Symboles/SymboleSimple.h"
 #include "src/Symboles/SymbVariable.h"
 #include "src/Symboles/Valeur.h"
-#include "src/Symboles/Variables.h"
+#include "src/Symboles/Variable.h"
 #include "src/Symboles/Virgule.h"
 
 
@@ -192,28 +192,28 @@ Symbole * test_lexer (string text)
 	if (test_lire(text))
 	{
 		resultat = new Lire();
-		break;
+
 	}
 	else if(test_ecrire(text))
 	{
-		resultat = new Ecrire();
-		break;
+		resultat = new Ecrire(ECRIRE);
+
 
 	}
 	else if(test_const(text))
 	{
-		resultat = new Constante();
-		break;
+		resultat = new Constante(CONSTANTE);
+
 	}
 	else if(test_var(text))
 	{
-		resultat = new SymbVariable();
-		break;
+		resultat = new SymbVariable(SYMBVARIABLE);
+
 	}
 	else if(test_valeur(text))
 	{	
-		resultat = new Identificateur();
-		break;
+		resultat = new Identificateur(IDENTIFICATEUR);
+
 	}
 	else if(test_num(text))
 	{
@@ -222,56 +222,56 @@ Symbole * test_lexer (string text)
 	}
 	else if(test_aff_dyn(text))
 	{		
-		resultat = new SymbAffectation();
-		break;	
+		resultat = new SymbAffectation(SYMBAFFECTATION);
+	
 	}
 	else if(test_aff_stat(text))
 	{
-		resultat = new Egale();
-		break;
+		resultat = new Egal(EGAL);
+
 	}
 	else if(test_point_virg(text))
 	{
-		resultat = new PointVirgule();
-		break;
+		resultat = new PointVirgule(POINTVIRGULE);
+
 	}
 	else if(test_virg(text))
 	{
-		resultat = new Virgule();
-		break;
+		resultat = new Virgule(VIRGULE);
+
 	}
 	else if(test_plus(text))
 	{
-		resultat = new Plus();
-		break;
+		resultat = new Plus(PLUS);
+
 	}	
 	else if(test_moins(text))
 	{
-		resultat = new Moins();
-		break;
+		resultat = new Moins(MOINS);
+
 	}
 	else if(test_mult(text))
 	{
-		resultat = new Mult();
-		break;
+		resultat = new Mult(MULT);
+
 		
 	}	
 	else if(test_div(text))
 	{
-		resultat = new Div();
-		break;
+		resultat = new Div(DIV);
+
 		
 	}
 	else if(test_parOuvr(text))
 	{
-		resultat = new ParOuvre();
-		break;
+		resultat = new ParOuvre(PAROUVRE);
+
 		
 	}
 	else if(test_parFerm(text))
 	{
-		resultat = new ParFerme();
-		break;
+		resultat = new ParFerme(PARFERME);
+
 		
 	} 
 	else

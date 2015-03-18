@@ -8,7 +8,7 @@ class Identificateur : public SymboleSimple
 {
     public:
         Identificateur(int id) : SymboleSimple(id) {};
-        virtual ~Identificateur();
+        virtual ~Identificateur() {};
 
         void setName(string name);
         void print();

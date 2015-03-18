@@ -9,7 +9,7 @@ class Operateur : public SymboleSimple
     public:
         Operateur(int id);
 		void print() {};
-        virtual ~Operateur();
+        virtual ~Operateur()  {};
     protected:
     private:
 };

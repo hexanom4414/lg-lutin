@@ -10,7 +10,7 @@ class Affectation : public Instruction
 {
     public:
         Affectation(int id) : Instruction(id) {};
-        virtual ~Affectation();
+        virtual ~Affectation() {};
 
 		void print() {};
         //bool do(); //méthode pour lier un id avec une expression dans une map

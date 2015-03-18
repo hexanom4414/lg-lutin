@@ -9,7 +9,7 @@ class Mult : public OpM
     public:
         Mult(int id) : OpM(id) {};
 		void print() {};
-        virtual ~Mult();
+        virtual ~Mult() {};
     protected:
     private:
 };

@@ -8,7 +8,7 @@ class Div : public OpM
 {
     public:
         Div(int id) : OpM(id) {};
-        virtual ~Div();
+        virtual ~Div() {};
 
         void print();
     protected:

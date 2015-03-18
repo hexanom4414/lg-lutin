@@ -4,8 +4,3 @@ Operateur::Operateur(int id) : SymboleSimple(id)
 {
     //ctor
 }
-
-Operateur::~Operateur()
-{
-    //dtor
-}
