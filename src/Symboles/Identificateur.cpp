@@ -1,11 +1,11 @@
 #include "Identificateur.h"
 
-Identificateur::Identificateur()
+void Identificateur::print()
 {
-    //ctor
+	cout << m_name << " ";
 }
 
-Identificateur::~Identificateur()
+void Identificateur::setName(string name)
 {
-    //dtor
+    m_name = name;
 }

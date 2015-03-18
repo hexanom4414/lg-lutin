@@ -7,8 +7,10 @@
 class Ecrire : public SymboleSimple
 {
     public:
-        Ecrire();
+        Ecrire(int id) : SymboleSimple(id) {};
         virtual ~Ecrire();
+
+        void print();
     protected:
     private:
 };

@@ -1,11 +1,6 @@
 #include "OpM.h"
 
-OpM::OpM()
+void OpM::print()
 {
-    //ctor
-}
-
-OpM::~OpM()
-{
-    //dtor
+    cout << "* ";
 }

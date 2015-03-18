@@ -1,11 +1,6 @@
 #include "Div.h"
 
-Div::Div()
+void Div::print()
 {
-    //ctor
-}
-
-Div::~Div()
-{
-    //dtor
+	cout << "/ ";
 }

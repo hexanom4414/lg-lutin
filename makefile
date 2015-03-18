@@ -1,11 +1,11 @@
 ################################################
-#              Makefile - H4414                #
-#   			 Projet Lutin 				   #
+# Makefile - H4414 #
+# Projet Lutin #
 ################################################
 
-# dÃ©finition des cibles particuliÃ¨res
+# définition des cibles particulières
 .PHONY: clean, mrproper
-# dÃ©sactivation des rÃ¨gles implicites
+# désactivation des règles implicites
 .SUFFIXES:
 
 EXE=Lutin
@@ -18,27 +18,25 @@ EDL=g++
 LDFLAGS=
 CXX=g++
 CXXFLAGS=-W -Wall -ansi -pedantic
-
 prefix=.
 srcdir= $(prefix)/src
-
-SRC= main.cpp test.cpp $(wildcard $(srcdir)/*.cpp) $(wildcard $(srcdir)/Symboles/*.cpp)
+SRC= main.cpp $(wildcard $(srcdir)/*.cpp) $(wildcard $(srcdir)/Symboles/*.cpp)
 OBJ= $(SRC:.cpp=.o)
 
 all : $(EXE)
 
 Lutin : $(OBJ)
-	$(ECHO) Editions des liens : 
-	$(CXX) $^ -o $@ $(LDFLAGS) $(LIBS)
-	
+		$(ECHO) Editions des liens :
+		$(CXX) $^ -o $@ $(LDFLAGS) $(LIBS)
+
 %.o : %.cpp
-	$(ECHO) Compilation de $@
-	$(CXX) -c $< -o $@ $(CXXFLAGS)
+		$(ECHO) Compilation de $@
+		$(CXX) -c $< -o $@ $(CXXFLAGS)
 
 clean :
-	$(ECHO) Nettoyage de la cible
-	$(RM) $(CLEANFLAGS) *.o core
-	$(RM) $(CLEANFLAGS) $(OBJ)
-	
+		$(ECHO) Nettoyage de la cible
+		$(RM) $(CLEANFLAGS) *.o core
+		$(RM) $(CLEANFLAGS) $(OBJ)
+
 mrproper: clean
-	rm -rf $(EXE).exe
+	rm -rf $(EXE).exe $(EXE)

@@ -7,7 +7,8 @@
 class SymbVariable : public SymboleSimple
 {
     public:
-        SymbVariable();
+        SymbVariable(int id) : SymboleSimple(id) {};
+		void print() {};
         virtual ~SymbVariable();
     protected:
     private:

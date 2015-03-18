@@ -1,19 +1,23 @@
-#ifndef PROGRAMME
-#define PROGRAMME
+#ifndef PROGRAMME_H
+#define PROGRAMME_H
 
-#include <SymboleComplexe.h>
+#include "SymboleComplexe.h"
 #include "ListDeclaration.h"
 #include "ListInstruction.h"
 
 class Programme : public SymboleComplexe
 {
     public:
-        Programme();
-        virtual ~Programme();
+        Programme(int id) : SymboleComplexe (id) {};
+        virtual ~Programme() {};
+
+        void setListDeclaration(ListDeclaration * ld);
+        void setListInstruction(ListInstruction * lins);
+        virtual void print();
     protected:
-    	ListDeclaration *LD;
-    	ListInstruction *LIns;
+    	ListDeclaration * m_LD;
+    	ListInstruction * m_LIns;
     private:
 };
 
-#endif // PROGRAMME
+#endif // PROGRAMME_H

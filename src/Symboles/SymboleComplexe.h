@@ -1,14 +1,14 @@
 #ifndef SYMBOLECOMPLEXE_H
 #define SYMBOLECOMPLEXE_H
 
-#include <Symbole.h>
-
+#include "Symbole.h"
 
 class SymboleComplexe : public Symbole
 {
     public:
-        SymboleComplexe();
-        virtual ~SymboleComplexe();
+        SymboleComplexe(int id) : Symbole(id) {} ;
+		void print() {};
+        virtual ~SymboleComplexe() {};
     protected:
     private:
 };

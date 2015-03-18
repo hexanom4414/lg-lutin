@@ -7,8 +7,9 @@
 class Lire : public SymboleSimple
 {
     public:
-        Lire();
+        Lire() : SymboleSimple(LIRE) {};
         virtual ~Lire();
+        void print();
     protected:
     private:
 };

@@ -1,0 +1,7 @@
+*.o
+lutin.cbp
+lutin.depend
+lutin.layout
+Lutin
+Lutin.exe
+makefileWin

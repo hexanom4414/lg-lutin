@@ -1,18 +1,25 @@
-#ifndef LISTINSTRUCTION
-#define LISTINSTRUCTION
+#ifndef LISTINSTRUCTION_H
+#define LISTINSTRUCTION_H
 
-#include <SymboleComplexe.h>
+#include "SymboleComplexe.h"
 #include <list>
 #include "Instruction.h"
 
 class ListInstruction : public SymboleComplexe
 {
     public:
-        ListInstruction();
-        virtual ~ListInstruction();
+        ListInstruction(int id) : SymboleComplexe(id) {};
+        virtual ~ListInstruction() {};
+
+        void addToList(ListInstruction * p_listInstruction);
+        void addToList(Instruction * p_Instruction);
+        bool isEmpty();
+        void popFront();
+        Instruction * getFront();
+        virtual void print();
     protected:
-    	List<Instruction *> list;
+    	list<Instruction *> m_listInstruction;
     private:
 };
 
-#endif // LISTINSTRUCTION
+#endif // LISTINSTRUCTION_H

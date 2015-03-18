@@ -1,11 +1,6 @@
 #include "Lire.h"
 
-Lire::Lire()
+void Lire::print()
 {
-    //ctor
-}
-
-Lire::~Lire()
-{
-    //dtor
+	cout << "LIRE ";
 }

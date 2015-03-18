@@ -1,11 +1,6 @@
 #include "Ecrire.h"
 
-Ecrire::Ecrire()
+void Ecrire::print()
 {
-    //ctor
-}
-
-Ecrire::~Ecrire()
-{
-    //dtor
+	cout << "ecrire ";
 }

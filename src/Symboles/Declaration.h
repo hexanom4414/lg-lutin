@@ -1,17 +1,18 @@
-#ifndef DECLARATION
-#define DECLARATION
+#ifndef DECLARATION_H
+#define DECLARATION_H
 
-#include <SymboleComplexe.h>
+#include "SymboleComplexe.h"
 #include "ListIdentificateur.h"
 
 class Declaration : public SymboleComplexe
 {
     public:
-        Declaration();
+        Declaration() : SymboleComplexe(DECLARATION){}
+		void print() {};
         virtual ~Declaration();
     protected:
-    	List<ListIdentificateur *> declaration;
+    	list<ListIdentificateur *> m_listIdentificateur;
     private:
 };
 
-#endif // DECLARATION
+#endif // DECLARATION_H

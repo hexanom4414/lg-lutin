@@ -16,10 +16,13 @@ class Automate
         virtual ~Automate();
 
         void lecture();
+        Symbole * depilerSymbole(bool toDelete = false);
+        void shift(AbstractEtat * etat, Symbole * s);
+        void reduce(unsigned int nbDepil, Symbole * s);
 
     protected:
-        stack <AbstractEtat *> pileEtats;
-        stack <Symbole *> pileSymboles;
+        stack <AbstractEtat *> m_pileEtats;
+        stack <Symbole *> m_pileSymboles;
     private:
 };
 
