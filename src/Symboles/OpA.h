@@ -9,7 +9,7 @@ class OpA : public Operateur
     public:
         OpA(int id) : Operateur(id) {};
 		void print() {};
-        virtual ~OpA();
+        virtual ~OpA() {};
     protected:
     private:
 };

@@ -9,7 +9,7 @@ class Instruction : public SymboleComplexe
 {
     public:
         Instruction(int id) : SymboleComplexe(id) { };
-		virtual void print();
+		virtual void print()  {};
         virtual ~Instruction() {};
     protected:
     private:

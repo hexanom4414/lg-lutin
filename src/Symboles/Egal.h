@@ -9,7 +9,7 @@ class Egal : public SymboleSimple
     public:
         Egal(int id) : SymboleSimple(id) {};
 		void print() {};
-        virtual ~Egal();
+        virtual ~Egal() {};
     protected:
     private:
 };

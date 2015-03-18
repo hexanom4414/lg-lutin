@@ -9,7 +9,7 @@ class Constante : public SymboleSimple
     public:
         Constante(int id) : SymboleSimple(id) {}
 		void print() {};
-        virtual ~Constante();
+        virtual ~Constante() {};
     protected:
     private:
 };

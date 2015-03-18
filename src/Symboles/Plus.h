@@ -9,7 +9,7 @@ class Plus : public OpA
     public:
         Plus(int id) : OpA(id) {}
 		void print() {};
-        virtual ~Plus();
+        virtual ~Plus() {};
     protected:
     private:
 };

@@ -5,6 +5,7 @@
 #include <fstream>
 #include <string>
 #include <boost/regex.hpp>
+#include "src/utils.h"
 
 using namespace std;
 using namespace boost;
