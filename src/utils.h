@@ -40,6 +40,8 @@ using namespace std;
 #define FACTEUR 33 //TODO
 #define EXPRESSION 34
 #define VALEUR 35
+#define LISTAFFECTATION 36
+#define POINTEGAL 37
 
 enum transition_return
 {
