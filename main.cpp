@@ -2,7 +2,7 @@
 #include <fstream>
 #include <boost/regex.hpp>
 #include "src/Automate.h"
-#include "test.h"
+#include "src/Lexer.h"
 
 using namespace std;
 using namespace boost;
@@ -107,7 +107,7 @@ int main(int argc, const char* argv[])
 */	
 
 	char* fichier_test = "lutin-test.txt";
-	test_lecture(fichier_test);
+	lexer_lecture(fichier_test);
 	
 	return 0;
 }
