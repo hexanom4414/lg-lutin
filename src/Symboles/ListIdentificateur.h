@@ -8,9 +8,15 @@
 class ListIdentificateur : public SymboleComplexe
 {
     public:
-        ListIdentificateur(): SymboleComplexe(LISTIDENTIFICATEUR) {}
-		void print() {};
+        ListIdentificateur(int id): SymboleComplexe(id) {};
         virtual ~ListIdentificateur();
+
+        void addToList(ListIdentificateur * p_listIdentificateur);
+        void addToList(Identificateur * p_Identificateur);
+        bool isEmpty();
+        void popFront();
+        Identificateur * getFront();
+        virtual void print();
     protected:
     	list<Identificateur *> m_listIdentificateur;
     private:
