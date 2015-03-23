@@ -23,6 +23,7 @@ protected:
 
 private:
     ifstream file;
+    Symbole * resultat;
 
     bool lexical_result(string s, bool b);
     bool lexer_const(const string &s);

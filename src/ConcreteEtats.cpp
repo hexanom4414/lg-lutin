@@ -5,6 +5,7 @@ transition_return Etat1::transition(Automate & automate, Symbole * s)
     AbstractEtat * p_etat;
     switch (*s)
     {
+
         case PROGRAMME:
             p_etat = new Etat2("Etat 2");
             automate.shift(p_etat, s);
@@ -30,7 +31,6 @@ transition_return Etat2::transition(Automate & automate, Symbole * s)
     switch (*s)
     {
         case DOLLAR:
-            //TODO : acceptation
             return ACCEPTED;
         default:
             cerr << "err2" << endl;
@@ -756,7 +756,9 @@ transition_return Etat29::transition(Automate & automate, Symbole * s)
     {
         case SYMBVARIABLE:
         case CONSTANTE:
-        case DOLLAR:
+        case ECRIRE:
+        case LIRE:
+        case IDENTIFICATEUR:
             {
                 ListDeclaration * p_listDeclaration = new ListDeclaration(LISTDECLARATION);
                 p_listDeclaration->addToList((Declaration *) automate.depilerSymbole());
@@ -765,6 +767,15 @@ transition_return Etat29::transition(Automate & automate, Symbole * s)
                 automate.reduce(2,p_listDeclaration);
             }
             return REDUCED;
+        case DOLLAR:
+            {
+                ListDeclaration * p_listDeclaration = new ListDeclaration(LISTDECLARATION);
+                p_listDeclaration->addToList((Declaration *) automate.depilerSymbole());
+                p_listDeclaration->addToList((ListDeclaration *) automate.depilerSymbole());
+
+                automate.reduce(2,p_listDeclaration);
+            }
+            return ACCEPTED;
         default:
             cerr << "err" << endl;
             return ERROR;

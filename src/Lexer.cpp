@@ -3,6 +3,7 @@
 #include "Symboles/Constante.h"
 #include "Symboles/Declaration.h"
 #include "Symboles/Div.h"
+#include "Symboles/Dollar.h"
 #include "Symboles/Ecrire.h"
 #include "Symboles/Ecriture.h"
 #include "Symboles/Egal.h"
@@ -44,6 +45,7 @@
 Lexer::Lexer(const string & p_file) : file(p_file.c_str(), ios_base::in)
 {
     cout << "Lexer created" << endl;
+    resultat = 0;
 }
 
 bool Lexer::lexical_result (string s, bool b)
@@ -159,10 +161,28 @@ bool Lexer::lexer_lire(const string &s)
 
 Symbole * Lexer::getSymbole ()
 {
-    Symbole * resultat;
-
-    if(file)
+    if(file.is_open())
     {
+        if (file.eof())
+        {
+            cout << "........................." << endl;
+            cout << "LU : EoF" << endl;
+            resultat = new Dollar(DOLLAR);
+            file.close();
+            return resultat;
+        }
+
+        if(resultat != 0)
+        {
+            if((int) * resultat == POINTVIRGULE)
+            {
+                resultat = new Dollar(DOLLAR);
+                cout << "........................." << endl;
+                cout << "LU : "<< "$" << endl;
+                return resultat;
+            }
+        }
+
         string word;
         if(file >> word)
         {
@@ -238,10 +258,11 @@ Symbole * Lexer::getSymbole ()
                 cerr << "syntaxe incorrecte : " << word << endl;
             }
         }
-        else
-        {
-            resultat = (Symbole *) -1;
-        }
+        return resultat;
     }
-    return resultat;
+    else
+    {
+        resultat = (Symbole *) -1;
+        return resultat;
+    }
 }

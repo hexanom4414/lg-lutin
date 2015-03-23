@@ -12,23 +12,18 @@ void Automate::run()
 {
     cout << endl << "////////////////// Run //////////////////"  << endl;
     Symbole * t_symb;
+    transition_return ret_val = REDUCED;
     while((int)(t_symb = m_lexer->getSymbole()) != -1)
     {
-        transition_return ret_val = REDUCED;
+        ret_val = REDUCED;
         while(ret_val == REDUCED)
         {
             ret_val = m_pileEtats.top()->transition(*this, t_symb);
         }
-
-        if((int) *t_symb == POINTVIRGULE)
-        {
-            ret_val = REDUCED;
-            t_symb = new Dollar(DOLLAR);
-            while(ret_val == REDUCED)
-            {
-                ret_val = m_pileEtats.top()->transition(*this, t_symb);
-            }
-        }
+    }
+    if(ret_val == ACCEPTED)
+    {
+        cout << "Program Accepted !" << endl;
     }
     cout << "//////////////// End Run ////////////////" << endl << endl;
     printEtatStack();
