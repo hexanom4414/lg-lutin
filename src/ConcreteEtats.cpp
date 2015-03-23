@@ -528,6 +528,7 @@ Etat14::~Etat14()
 
 transition_return Etat14::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case EXPRESSION:
@@ -576,6 +577,7 @@ Etat15::~Etat15()
 
 transition_return Etat15::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case OPA:
@@ -627,7 +629,7 @@ transition_return Etat16::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(3,p_facteur); // 3 ˆ vŽrifier !!!
         }
             return REDUCED;
@@ -660,7 +662,7 @@ transition_return Etat17::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(1,p_facteur);
         }
             return REDUCED;
@@ -693,7 +695,7 @@ transition_return Etat18::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(1,p_facteur);
         }
             return REDUCED;
@@ -719,6 +721,7 @@ Etat19::~Etat19()
 
 transition_return Etat19::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case OPM:
@@ -741,7 +744,7 @@ transition_return Etat19::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(1,p_facteur);
         }
             return REDUCED;
@@ -774,7 +777,7 @@ transition_return Etat20::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(1,p_facteur);
         }
             return REDUCED;
@@ -807,7 +810,7 @@ transition_return Etat21::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(1,p_facteur);
         }
             return REDUCED;
@@ -845,7 +848,7 @@ transition_return Etat22::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(1,p_facteur);
         }
             return REDUCED;
@@ -870,6 +873,7 @@ Etat23::~Etat23()
 
 transition_return Etat23::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case IDENTIFICATEUR:
@@ -880,7 +884,7 @@ transition_return Etat23::transition(Automate & automate, Symbole * s)
             cerr << "err" << endl;
             return ERROR;
     }
-    
+
 }
 
 //// end Etat23
@@ -904,7 +908,7 @@ transition_return Etat24::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(2,p_facteur);
         }
             return REDUCED;
@@ -930,6 +934,7 @@ Etat25::~Etat25()
 
 transition_return Etat25::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTEGAL:
@@ -958,6 +963,7 @@ Etat26::~Etat26()
 
 transition_return Etat26::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case EXPRESSION:
@@ -1005,6 +1011,7 @@ Etat27::~Etat27()
 
 transition_return Etat27::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case PLUS:
@@ -1045,7 +1052,7 @@ transition_return Etat28::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(4,p_facteur); // 4 ˆ vŽrifier
         }
             return REDUCED;
@@ -1078,7 +1085,7 @@ transition_return Etat29::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(3,p_facteur);
         }
             return REDUCED;
@@ -1102,6 +1109,7 @@ Etat30::~Etat30()
 
 transition_return Etat30::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case IDENTIFICATEUR:
@@ -1133,6 +1141,7 @@ Etat31::~Etat31()
 
 transition_return Etat31::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTVIRGULE:
@@ -1171,7 +1180,7 @@ transition_return Etat32::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(3,p_facteur);
         }
             return REDUCED;
@@ -1196,6 +1205,7 @@ Etat33::~Etat33()
 
 transition_return Etat33::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case IDENTIFICATEUR:
@@ -1232,7 +1242,7 @@ transition_return Etat34::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(3,p_facteur);
         }
             return REDUCED;
@@ -1267,7 +1277,7 @@ transition_return Etat35::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(1,p_facteur);
         }
             return REDUCED;
@@ -1291,6 +1301,7 @@ Etat36::~Etat36()
 
 transition_return Etat36::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case LISTAFFECTATION:
@@ -1322,6 +1333,7 @@ Etat37::~Etat37()
 
 transition_return Etat37::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTVIRGULE:
@@ -1360,7 +1372,7 @@ transition_return Etat38::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(3,p_facteur);
         }
             return REDUCED;
@@ -1385,6 +1397,7 @@ Etat39::~Etat39()
 
 transition_return Etat39::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case IDENTIFICATEUR:
@@ -1411,6 +1424,7 @@ Etat40::~Etat40()
 
 transition_return Etat40::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTEGAL:
@@ -1438,6 +1452,7 @@ Etat41::~Etat41()
 
 transition_return Etat41::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case NOMBRE:
@@ -1475,7 +1490,7 @@ transition_return Etat42::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(5,p_facteur); // 5 a vŽrifier
         }
             return REDUCED;
@@ -1500,6 +1515,7 @@ Etat43::~Etat43()
 
 transition_return Etat43::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTEGAL:
@@ -1527,6 +1543,7 @@ Etat44::~Etat44()
 
 transition_return Etat44::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
     switch (*s)
     {
         case NOMBRE:
@@ -1564,7 +1581,7 @@ transition_return Etat45::transition(Automate & automate, Symbole * s)
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
             p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-            
+
             automate.reduce(3,p_facteur);
         }
             return REDUCED;
