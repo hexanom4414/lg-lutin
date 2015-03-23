@@ -9,7 +9,7 @@ class ListIdentificateur : public SymboleComplexe
 {
     public:
         ListIdentificateur(int id): SymboleComplexe(id) {};
-        virtual ~ListIdentificateur();
+        virtual ~ListIdentificateur() {};
 
         void addToList(ListIdentificateur * p_listIdentificateur);
         void addToList(Identificateur * p_Identificateur);

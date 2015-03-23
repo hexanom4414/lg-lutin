@@ -6,12 +6,13 @@
 
 class OpA : public Operateur
 {
-    public:
-        OpA(int id) : Operateur(id) {};
-		void print() {};
-        virtual ~OpA() {};
-    protected:
-    private:
+public:
+    OpA(int id) : Operateur(id) {};
+    virtual ~OpA() {};
+
+    void print() {};
+protected:
+private:
 };
 
 #endif // OPA_H
