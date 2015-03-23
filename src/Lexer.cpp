@@ -48,7 +48,7 @@ bool lexical_result (string s, bool b)
 	//}else{
 		//cout << "Expression "+s + " incorrecte" << endl ;
 	//}
-	
+
 	return b;
 }
 
@@ -76,7 +76,7 @@ bool lexer_identificateur(const string &s)
 
 bool lexer_num(const string &s)
 {
-	const regex num("-?[0-9]*\\git .?[0-9]*");
+	const regex num("-?[0-9]*\\.?[0-9]*");
 	return lexical_result(s,regex_match(s,num));
 
 }
@@ -125,53 +125,53 @@ bool lexer_parFerm(const string &s)
 
 }
 
- // verify the validity of multiplication operator 
+ // verify the validity of multiplication operator
 
 bool lexer_mult(const string &s);
 
 bool lexer_mult(const string &s)
 {
 	const regex opM("(\\*)");
-	
+
 
 	return lexical_result(s,regex_match(s,opM));
 
-	
+
 }
 bool lexer_div(const string &s)
 {
 	const regex opM("(/)");
-	
+
 
 	return lexical_result(s,regex_match(s,opM));
 
-	
+
 }
- // verify the validity of addition operator 
+ // verify the validity of addition operator
 
 bool lexer_plus(const string &s)
 {
 	const regex opA("+");
-	
+
 
 	return lexical_result(s,regex_match(s,opA));
 
-	
+
 }
 bool lexer_moins(const string &s)
 {
 	const regex opA("-");
-	
+
 
 	return lexical_result(s,regex_match(s,opA));
 
-	
+
 }
 
 bool lexer_ecrire(const string &s)
 {
 	const regex instruction("(ecrire)");
-	
+
 
 	return lexical_result(s,regex_match(s,instruction));
 
@@ -179,7 +179,7 @@ bool lexer_ecrire(const string &s)
 bool lexer_lire(const string &s)
 {
 	const regex instruction("(lire)");
-	
+
 
 	return lexical_result(s,regex_match(s,instruction));
 
@@ -189,9 +189,9 @@ bool lexer_lire(const string &s)
 Symbole * lexer (string text)
 {
 	Symbole * resultat;
-	
+
 	cout << "texte: "<<text <<endl;
-	
+
 	if (lexer_lire(text))
 	{
 		resultat = new Lire();
@@ -214,19 +214,19 @@ Symbole * lexer (string text)
 
 	}
 	else if(lexer_identificateur(text))
-	{	
+	{
 		resultat = new Identificateur(IDENTIFICATEUR);
 
 	}
 	else if(lexer_num(text))
 	{
-		
+
 		resultat = new Valeur(VALEUR);
 	}
 	else if(lexer_aff_dyn(text))
-	{		
+	{
 		resultat = new SymbAffectation(SYMBAFFECTATION);
-	
+
 	}
 	else if(lexer_aff_stat(text))
 	{
@@ -247,7 +247,7 @@ Symbole * lexer (string text)
 	{
 		resultat = new Plus(PLUS);
 
-	}	
+	}
 	else if(lexer_moins(text))
 	{
 		resultat = new Moins(MOINS);
@@ -257,38 +257,38 @@ Symbole * lexer (string text)
 	{
 		resultat = new Mult(MULT);
 
-		
-	}	
+
+	}
 	else if(lexer_div(text))
 	{
 		resultat = new Div(DIV);
 
-		
+
 	}
 	else if(lexer_parOuvr(text))
 	{
 		resultat = new ParOuvre(PAROUVRE);
 
-		
+
 	}
 	else if(lexer_parFerm(text))
 	{
 		resultat = new ParFerme(PARFERME);
 
-		
-	} 
+
+	}
 	else
 	{
-		
+
 		cerr << "syntaxe incorrecte : " <<text << endl;
 
 	}
-		
+
 	cout << (int)*resultat<<endl;
 
 
 	return resultat;
-	
+
 }
 
 
@@ -307,13 +307,13 @@ void lexer_lecture(char* filename)
 			{
 				if(!(isspace(*it)))
 				{
-					
+
 					recognize += (*it);
-					
+
 				}
 				else
 				{
-					 
+
 					word = recognize.substr(posDeb);
 					lexer(word);
 					recognize += "\n";
