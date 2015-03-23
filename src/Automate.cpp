@@ -19,6 +19,16 @@ void Automate::run()
         {
             ret_val = m_pileEtats.top()->transition(*this, t_symb);
         }
+
+        if((int) *t_symb == POINTVIRGULE)
+        {
+            ret_val = REDUCED;
+            t_symb = new Dollar(DOLLAR);
+            while(ret_val == REDUCED)
+            {
+                ret_val = m_pileEtats.top()->transition(*this, t_symb);
+            }
+        }
     }
     cout << "//////////////// End Run ////////////////" << endl << endl;
     printEtatStack();

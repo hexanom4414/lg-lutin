@@ -6,6 +6,7 @@
 #include "AbstractEtat.h"
 #include "ConcreteEtats.h"
 #include "Symboles/Symbole.h"
+#include "Symboles/Dollar.h"
 #include "Lexer.h"
 
 using namespace std;
