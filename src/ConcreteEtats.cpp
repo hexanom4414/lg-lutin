@@ -528,7 +528,39 @@ Etat14::~Etat14()
 
 transition_return Etat14::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case EXPRESSION:
+            p_etat = new Etat15();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case TERME:
+            p_etat = new Etat19();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case FACTEUR:
+            p_etat = new Etat22();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case IDENTIFICATEUR:
+            p_etat = new Etat12();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case NOMBRE:
+            p_etat = new Etat13();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case PAROUVRE:
+            p_etat = new Etat14();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
+
 
 //// end Etat14
 
@@ -545,6 +577,29 @@ Etat15::~Etat15()
 
 transition_return Etat15::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case OPA:
+            p_etat = new Etat6();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case PLUS:
+            p_etat = new Etat17();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case MOINS:
+            p_etat = new Etat18();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case PARFERME:
+            p_etat = new Etat16();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat15
@@ -562,6 +617,26 @@ Etat16::~Etat16()
 
 transition_return Etat16::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case MOINS:
+        case PLUS:
+        case MULT:
+        case DIV:
+        case PARFERME:
+        case POINTVIRGULE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(3,p_facteur); // 3 à vérifier !!!
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat16
@@ -579,6 +654,23 @@ Etat17::~Etat17()
 
 transition_return Etat17::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case IDENTIFICATEUR:
+        case NOMBRE:
+        case PAROUVRE:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(1,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat17
@@ -595,6 +687,23 @@ Etat18::~Etat18()
 
 transition_return Etat18::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case IDENTIFICATEUR:
+        case NOMBRE:
+        case PAROUVRE:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(1,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat18
@@ -612,6 +721,38 @@ Etat19::~Etat19()
 
 transition_return Etat19::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case OPM:
+            p_etat = new Etat10();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case MULT:
+            p_etat = new Etat20();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case DIV:
+            p_etat = new Etat21();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case PLUS:
+        case MOINS:
+        case PARFERME:
+        case POINTVIRGULE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(1,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat19
@@ -629,6 +770,22 @@ Etat20::~Etat20()
 
 transition_return Etat20::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case MULT:
+        case DIV:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(1,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat20
@@ -646,6 +803,22 @@ Etat21::~Etat21()
 
 transition_return Etat21::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case MULT:
+        case DIV:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(1,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat21
@@ -663,6 +836,26 @@ Etat22::~Etat22()
 
 transition_return Etat22::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case PLUS:
+        case MOINS:
+        case MULT:
+        case DIV:
+        case PARFERME:
+        case POINTVIRGULE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(1,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat22
@@ -680,6 +873,18 @@ Etat23::~Etat23()
 
 transition_return Etat23::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case IDENTIFICATEUR:
+            p_etat = new Etat24();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat23
@@ -697,6 +902,21 @@ Etat24::~Etat24()
 
 transition_return Etat24::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(2,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat24
@@ -714,6 +934,18 @@ Etat25::~Etat25()
 
 transition_return Etat25::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case POINTEGAL:
+            p_etat = new Etat26();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat25
@@ -731,6 +963,38 @@ Etat26::~Etat26()
 
 transition_return Etat26::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case EXPRESSION:
+            p_etat = new Etat27();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case TERME:
+            p_etat = new Etat19();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case FACTEUR:
+            p_etat = new Etat22();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case IDENTIFICATEUR:
+            p_etat = new Etat12();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case NOMBRE:
+            p_etat = new Etat13();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case PAROUVRE:
+            p_etat = new Etat14();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat26
@@ -747,6 +1011,25 @@ Etat27::~Etat27()
 
 transition_return Etat27::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case PLUS:
+            p_etat = new Etat17();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case MOINS:
+            p_etat = new Etat18();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case POINTVIRGULE:
+            p_etat = new Etat28();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat27
@@ -763,6 +1046,21 @@ Etat28::~Etat28()
 
 transition_return Etat28::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(4,p_facteur); // 4 à vérifier
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat28
@@ -779,6 +1077,22 @@ Etat29::~Etat29()
 
 transition_return Etat29::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case SYMBVARIABLE:
+        case CONSTANTE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(3,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat29
@@ -795,6 +1109,22 @@ Etat30::~Etat30()
 
 transition_return Etat30::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case IDENTIFICATEUR:
+            p_etat = new Etat31();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case LISTDECLARATION:
+            p_etat = new Etat35();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat30
@@ -811,6 +1141,21 @@ Etat31::~Etat31()
 
 transition_return Etat31::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case POINTVIRGULE:
+            p_etat = new Etat32();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case VIRGULE:
+            p_etat = new Etat33();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat31
@@ -827,6 +1172,23 @@ Etat32::~Etat32()
 
 transition_return Etat32::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case SYMBVARIABLE:
+        case CONSTANTE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(3,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat32
@@ -843,6 +1205,18 @@ Etat33::~Etat33()
 
 transition_return Etat33::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case IDENTIFICATEUR:
+            p_etat = new Etat34();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat33
@@ -858,6 +1232,25 @@ Etat34::~Etat34()
 }
 transition_return Etat34::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case SYMBVARIABLE:
+        case CONSTANTE:
+        case POINTVIRGULE:
+        case VIRGULE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(3,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat34
@@ -871,8 +1264,27 @@ Etat35::~Etat35()
 {
     //dtor
 }
+
 transition_return Etat35::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case SYMBVARIABLE:
+        case CONSTANTE:
+        case POINTVIRGULE:
+        case VIRGULE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(1,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat35
@@ -886,8 +1298,25 @@ Etat36::~Etat36()
 {
     //dtor
 }
+
 transition_return Etat36::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case LISTAFFECTATION:
+            p_etat = new Etat37();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case IDENTIFICATEUR:
+            p_etat = new Etat43();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat36
@@ -901,8 +1330,24 @@ Etat37::~Etat37()
 {
     //dtor
 }
+
 transition_return Etat37::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case POINTVIRGULE:
+            p_etat = new Etat38();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        case VIRGULE:
+            p_etat = new Etat39();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat37
@@ -916,8 +1361,26 @@ Etat38::~Etat38()
 {
     //dtor
 }
+
 transition_return Etat38::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case SYMBVARIABLE:
+        case CONSTANTE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(3,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat38
@@ -931,8 +1394,20 @@ Etat39::~Etat39()
 {
     //dtor
 }
+
 transition_return Etat39::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case IDENTIFICATEUR:
+            p_etat = new Etat40();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
 }
 
 //// end Etat39
@@ -946,8 +1421,21 @@ Etat40::~Etat40()
 {
     //dtor
 }
+
 transition_return Etat40::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case POINTEGAL:
+            p_etat = new Etat41();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat40
@@ -961,8 +1449,21 @@ Etat41::~Etat41()
 {
     //dtor
 }
+
 transition_return Etat41::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case NOMBRE:
+            p_etat = new Etat42();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat41
@@ -976,8 +1477,28 @@ Etat42::~Etat42()
 {
     //dtor
 }
+
 transition_return Etat42::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case SYMBVARIABLE:
+        case CONSTANTE:
+        case POINTVIRGULE:
+        case VIRGULE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(5,p_facteur); // 5 a vérifier
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat42
@@ -991,8 +1512,21 @@ Etat43::~Etat43()
 {
     //dtor
 }
+
 transition_return Etat43::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case POINTEGAL:
+            p_etat = new Etat44();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat43
@@ -1006,8 +1540,21 @@ Etat44::~Etat44()
 {
     //dtor
 }
+
 transition_return Etat44::transition(Automate & automate, Symbole * s)
 {
+    AbstractEtat * p_etat;
+    switch (*s)
+    {
+        case NOMBRE:
+            p_etat = new Etat45();
+            automate.shift(p_etat, s);
+            return SHIFTED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat44
@@ -1021,8 +1568,28 @@ Etat45::~Etat45()
 {
     //dtor
 }
+
 transition_return Etat45::transition(Automate & automate, Symbole * s)
 {
+    switch (*s)
+    {
+        case SYMBVARIABLE:
+        case CONSTANTE:
+        case POINTVIRGULE:
+        case VIRGULE:
+        case DOLLAR:
+        {
+            Facteur * p_facteur = new Facteur(FACTEUR);
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+
+            automate.reduce(3,p_facteur);
+        }
+            return REDUCED;
+        default:
+            cerr << "err" << endl;
+            return ERROR;
+    }
+
 }
 
 //// end Etat45
