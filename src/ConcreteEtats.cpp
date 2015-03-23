@@ -24,8 +24,11 @@ transition_return Etat1::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cerr << "err" << endl;
-            return ERROR;
+            {
+                ListDeclaration * p_listDeclaration = new ListDeclaration(LISTDECLARATION);
+                automate.reduce(0, p_listDeclaration);
+            }
+            return REDUCED;
     }
 }
 
@@ -91,8 +94,11 @@ transition_return Etat3::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cerr << "err" << endl;
-            return ERROR;
+            {
+                ListInstruction * p_listInstruction = new ListInstruction(LISTINSTRUCTION);
+                automate.reduce(0, p_listInstruction);
+            }
+            return REDUCED;
     }
 }
 

@@ -8,9 +8,15 @@
 class ListDeclaration : public SymboleComplexe
 {
     public:
-        ListDeclaration() : SymboleComplexe(LISTDECLARATION) {}
-		void print() {};
-        virtual ~ListDeclaration();
+        ListDeclaration(int id) : SymboleComplexe(id) {};
+        virtual ~ListDeclaration() { };
+
+		void print();
+		void addToList(ListDeclaration * p_listDeclaration);
+        void addToList(Declaration * p_Declaration);
+        bool isEmpty();
+        void popFront();
+        Declaration * getFront();
     protected:
     	list<Declaration *> m_listDeclaration;
     private:
