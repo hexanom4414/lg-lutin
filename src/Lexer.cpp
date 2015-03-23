@@ -41,302 +41,207 @@
 //const string ID_REGEX = "\\w+";
 //const string VAL_REGEX =;
 
-bool lexical_result (string s, bool b)
+Lexer::Lexer(const string & p_file) : file(p_file.c_str(), ios_base::in)
 {
-	//if (b){
-		//cout << "Expression " +s+" correcte" << endl;
-	//}else{
-		//cout << "Expression "+s + " incorrecte" << endl ;
-	//}
-
-	return b;
+    cout << "Lexer created" << endl;
 }
 
-bool lexer_const(const string &s)
+bool Lexer::lexical_result (string s, bool b)
 {
-	const regex declaration("const");
+    //if (b){
+    ////cout << "Expression " +s+" correcte" << endl;
+    //}else{
+    ////cout << "Expression "+s + " incorrecte" << endl ;
+    //}
 
-	return lexical_result(s,regex_match(s,declaration));
+    return b;
 }
 
-bool lexer_var(const string &s)
+bool Lexer::lexer_const(const string &s)
 {
-	const regex declaration("var");
-
-	return lexical_result(s,regex_match(s,declaration));
+    const regex declaration("const");
+    return lexical_result(s,regex_match(s,declaration));
 }
 
-bool lexer_identificateur(const string &s)
+bool Lexer::lexer_var(const string &s)
 {
-	const regex valeur("[a-z]+[a-zA-Z0-9]*");
-
-	return lexical_result(s,regex_match(s,valeur));
+    const regex declaration("var");
+    return lexical_result(s,regex_match(s,declaration));
 }
 
-
-bool lexer_num(const string &s)
+bool Lexer::lexer_identificateur(const string &s)
 {
-	const regex num("-?[0-9]*\\.?[0-9]*");
-	return lexical_result(s,regex_match(s,num));
-
+    const regex valeur("[a-z]+[a-zA-Z0-9]*");
+    return lexical_result(s,regex_match(s,valeur));
 }
 
 
-bool lexer_aff_dyn(const string &s)
+bool Lexer::lexer_num(const string &s)
 {
-	const regex affectation(":=");
-	return lexical_result(s,regex_match(s,affectation));
-
-}
-
-bool lexer_aff_stat(const string &s)
-{
-	const regex affectation("=");
-	return lexical_result(s,regex_match(s,affectation));
-
+    const regex num("-?[0-9]*\\.?[0-9]*");
+    return lexical_result(s,regex_match(s,num));
 }
 
 
-bool lexer_point_virg(const string &s)
+bool Lexer::lexer_aff_dyn(const string &s)
 {
-	const regex pVirg(";");
-	return lexical_result(s,regex_match(s,pVirg));
-
+    const regex affectation(":=");
+    return lexical_result(s,regex_match(s,affectation));
 }
 
-
-bool lexer_virg(const string &s)
+bool Lexer::lexer_aff_stat(const string &s)
 {
-	const regex virg(",");
-	return lexical_result(s,regex_match(s,virg));
-
+    const regex affectation("=");
+    return lexical_result(s,regex_match(s,affectation));
 }
 
-bool lexer_parOuvr(const string &s)
+bool Lexer::lexer_point_virg(const string &s)
 {
-	const regex parOuvr("(");
-	return lexical_result(s,regex_match(s,parOuvr));
-
-}
-bool lexer_parFerm(const string &s)
-{
-	const regex parFerm(")");
-	return lexical_result(s,regex_match(s,parFerm));
-
+    const regex pVirg(";");
+    return lexical_result(s,regex_match(s,pVirg));
 }
 
- // verify the validity of multiplication operator
-
-bool lexer_mult(const string &s);
-
-bool lexer_mult(const string &s)
+bool Lexer::lexer_virg(const string &s)
 {
-	const regex opM("(\\*)");
-
-
-	return lexical_result(s,regex_match(s,opM));
-
-
-}
-bool lexer_div(const string &s)
-{
-	const regex opM("(/)");
-
-
-	return lexical_result(s,regex_match(s,opM));
-
-
-}
- // verify the validity of addition operator
-
-bool lexer_plus(const string &s)
-{
-	const regex opA("+");
-
-
-	return lexical_result(s,regex_match(s,opA));
-
-
-}
-bool lexer_moins(const string &s)
-{
-	const regex opA("-");
-
-
-	return lexical_result(s,regex_match(s,opA));
-
-
+    const regex virg(",");
+    return lexical_result(s,regex_match(s,virg));
 }
 
-bool lexer_ecrire(const string &s)
+bool Lexer::lexer_parOuvr(const string &s)
 {
-	const regex instruction("(ecrire)");
-
-
-	return lexical_result(s,regex_match(s,instruction));
-
-}
-bool lexer_lire(const string &s)
-{
-	const regex instruction("(lire)");
-
-
-	return lexical_result(s,regex_match(s,instruction));
-
+    const regex parOuvr("(");
+    return lexical_result(s,regex_match(s,parOuvr));
 }
 
-
-Symbole * lexer (string text)
+bool Lexer::lexer_parFerm(const string &s)
 {
-	Symbole * resultat;
-
-	cout << "texte: "<<text <<endl;
-
-	if (lexer_lire(text))
-	{
-		resultat = new Lire();
-
-	}
-	else if(lexer_ecrire(text))
-	{
-		resultat = new Ecrire(ECRIRE);
-
-
-	}
-	else if(lexer_const(text))
-	{
-		resultat = new Constante(CONSTANTE);
-
-	}
-	else if(lexer_var(text))
-	{
-		resultat = new SymbVariable(SYMBVARIABLE);
-
-	}
-	else if(lexer_identificateur(text))
-	{
-		resultat = new Identificateur(IDENTIFICATEUR);
-
-	}
-	else if(lexer_num(text))
-	{
-
-		resultat = new Valeur(VALEUR);
-	}
-	else if(lexer_aff_dyn(text))
-	{
-		resultat = new SymbAffectation(SYMBAFFECTATION);
-
-	}
-	else if(lexer_aff_stat(text))
-	{
-		resultat = new Egal(EGAL);
-
-	}
-	else if(lexer_point_virg(text))
-	{
-		resultat = new PointVirgule(POINTVIRGULE);
-
-	}
-	else if(lexer_virg(text))
-	{
-		resultat = new Virgule(VIRGULE);
-
-	}
-	else if(lexer_plus(text))
-	{
-		resultat = new Plus(PLUS);
-
-	}
-	else if(lexer_moins(text))
-	{
-		resultat = new Moins(MOINS);
-
-	}
-	else if(lexer_mult(text))
-	{
-		resultat = new Mult(MULT);
-
-
-	}
-	else if(lexer_div(text))
-	{
-		resultat = new Div(DIV);
-
-
-	}
-	else if(lexer_parOuvr(text))
-	{
-		resultat = new ParOuvre(PAROUVRE);
-
-
-	}
-	else if(lexer_parFerm(text))
-	{
-		resultat = new ParFerme(PARFERME);
-
-
-	}
-	else
-	{
-
-		cerr << "syntaxe incorrecte : " <<text << endl;
-
-	}
-
-	cout << (int)*resultat<<endl;
-
-
-	return resultat;
-
+    const regex parFerm(")");
+    return lexical_result(s,regex_match(s,parFerm));
 }
 
-
-void lexer_lecture(char* filename)
+// verify the validity of multiplication operator
+bool Lexer::lexer_mult(const string &s)
 {
-	ifstream file(filename, ios::in);
-	string line;
-	string recognize;
-	string word ;
-	int posDeb = 0;
-	if(file.is_open())
-	{
-		while(getline(file,line))
-		{
-			for(string::iterator it = line.begin(); it != line.end(); it++)
-			{
-				if(!(isspace(*it)))
-				{
-
-					recognize += (*it);
-
-				}
-				else
-				{
-
-					word = recognize.substr(posDeb);
-					lexer(word);
-					recognize += "\n";
-					posDeb = recognize.find_last_of("\n")+1;
-				}
-				if((*it) == ';')
-				{
-					recognize += "\n";
-					posDeb = recognize.find_last_of("\n")+1;
-
-				}
-
-			}
-		}
-		cout << recognize << endl;
-		file.close();
-	}
-	else
-	{
-		cerr << "fichier erroné" << endl;
-	}
+    const regex opM("(\\*)");
+    return lexical_result(s,regex_match(s,opM));
 }
 
+bool Lexer::lexer_div(const string &s)
+{
+    const regex opM("(/)");
+    return lexical_result(s,regex_match(s,opM));
+}
 
+// verify the validity of addition operator
+bool Lexer::lexer_plus(const string &s)
+{
+    const regex opA("+");
+    return lexical_result(s,regex_match(s,opA));
+}
 
+bool Lexer::lexer_moins(const string &s)
+{
+    const regex opA("-");
+    return lexical_result(s,regex_match(s,opA));
+}
 
+bool Lexer::lexer_ecrire(const string &s)
+{
+    const regex instruction("(ecrire)");
+    return lexical_result(s,regex_match(s,instruction));
+}
+
+bool Lexer::lexer_lire(const string &s)
+{
+    const regex instruction("(lire)");
+    return lexical_result(s,regex_match(s,instruction));
+}
+
+Symbole * Lexer::getSymbole ()
+{
+    Symbole * resultat;
+
+    if(file)
+    {
+        string word;
+        if(file >> word)
+        {
+            cout << "........................." << endl;
+            cout << "LU : "<< word << endl;
+
+            if (lexer_lire(word))
+            {
+                resultat = new Lire(LIRE);
+            }
+            else if(lexer_ecrire(word))
+            {
+                resultat = new Ecrire(ECRIRE);
+            }
+            else if(lexer_const(word))
+            {
+                resultat = new Constante(CONSTANTE);
+            }
+            else if(lexer_var(word))
+            {
+                resultat = new SymbVariable(SYMBVARIABLE);
+            }
+            else if(lexer_identificateur(word))
+            {
+                resultat = new Identificateur(IDENTIFICATEUR);
+            }
+            else if(lexer_num(word))
+            {
+                resultat = new Valeur(VALEUR);
+            }
+            else if(lexer_aff_dyn(word))
+            {
+                resultat = new SymbAffectation(SYMBAFFECTATION);
+            }
+            else if(lexer_aff_stat(word))
+            {
+                resultat = new Egal(EGAL);
+            }
+            else if(lexer_point_virg(word))
+            {
+                resultat = new PointVirgule(POINTVIRGULE);
+            }
+            else if(lexer_virg(word))
+            {
+                resultat = new Virgule(VIRGULE);
+            }
+            else if(lexer_plus(word))
+            {
+                resultat = new Plus(PLUS);
+            }
+            else if(lexer_moins(word))
+            {
+                resultat = new Moins(MOINS);
+            }
+            else if(lexer_mult(word))
+            {
+                resultat = new Mult(MULT);
+            }
+            else if(lexer_div(word))
+            {
+                resultat = new Div(DIV);
+            }
+            else if(lexer_parOuvr(word))
+            {
+                resultat = new ParOuvre(PAROUVRE);
+            }
+            else if(lexer_parFerm(word))
+            {
+                resultat = new ParFerme(PARFERME);
+            }
+            else
+            {
+                cerr << "syntaxe incorrecte : " << word << endl;
+            }
+        }
+        else
+        {
+            resultat = (Symbole *) -1;
+        }
+    }
+    return resultat;
+}

@@ -1,2 +1,2 @@
-var x = 4;
-lire x;
+var x ;
+const n = 10 ;

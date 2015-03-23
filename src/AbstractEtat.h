@@ -28,10 +28,11 @@ class AbstractEtat
 {
     public:
         AbstractEtat();
-        AbstractEtat(string name);
-        virtual ~AbstractEtat();
+        AbstractEtat(const string & name) {m_name = name;};
+        virtual ~AbstractEtat() {};
 
-        void print() const;
+        void print() const {cout << m_name;};
+
         virtual transition_return transition(Automate & automate, Symbole * s) = 0;
 
     protected:

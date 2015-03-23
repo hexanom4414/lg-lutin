@@ -26,18 +26,18 @@ using namespace std;
 #define LISTIDENTIFICATEUR 18
 #define DECLARATION 19
 #define INSTRUCTION 20
-#define LECTURE 21 //
-#define ECRITURE 22 //
+#define LECTURE 21
+#define ECRITURE 22
 #define AFFECTATION 23
 #define LISTINSTRUCTION 24
 #define PROGRAMME 25
 #define LISTDECLARATION 26
-#define EXPCOMPLEXE 28 //
+#define EXPCOMPLEXE 28
 #define VARIABLE 29
-#define NOMBRE 30 //
+#define NOMBRE 30
 #define DOLLAR 31
-#define TERME 32 //TODO
-#define FACTEUR 33 //TODO
+#define TERME 32
+#define FACTEUR 33
 #define EXPRESSION 34
 #define VALEUR 35
 #define LISTAFFECTATION 36

@@ -58,14 +58,15 @@ int main(int argc, const char* argv[])
 
     ifstream fichier(m_file.c_str());
     if(fichier.fail())
+    {
         cerr << m_file << " : Fichier inexistant ou non lisible" << endl;
+    }
 
+    //// Lancement automate
+    Automate * automate = new Automate(m_file);
+    automate->run();
 
-
-
-	char* fichier_test = "lutin-test.txt";
-	lexer_lecture(fichier_test);
-	return 0;
+    return 0;
 }
 
 
