@@ -76,7 +76,7 @@ bool lexer_identificateur(const string &s)
 
 bool lexer_num(const string &s)
 {
-	const regex num("-?[0-9]*\\.?[0-9]*");
+	const regex num("-?[0-9]*\\git .?[0-9]*");
 	return lexical_result(s,regex_match(s,num));
 
 }
