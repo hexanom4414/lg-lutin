@@ -1502,7 +1502,6 @@ transition_return Etat42::transition(Automate & automate, Symbole * s)
         case POINTVIRGULE:
         case VIRGULE:
         case DOLLAR:
-        /*
         {
             ListAffectation * p_ListAffectation = new ListAffectation(LISTAFFECTATION);
             p_ListAffectation->setAttribute((Valeur *) automate.depilerSymbole());
@@ -1514,7 +1513,6 @@ transition_return Etat42::transition(Automate & automate, Symbole * s)
             automate.reduce(5,p_ListAffectation);
         }
             return REDUCED;
-            */
         default:
             cerr << "err" << endl;
             return ERROR;
@@ -1599,7 +1597,6 @@ transition_return Etat45::transition(Automate & automate, Symbole * s)
         case POINTVIRGULE:
         case VIRGULE:
         case DOLLAR:
-        /*
         {
             ListAffectation * p_ListAffectation = new ListAffectation(LISTAFFECTATION);
             p_ListAffectation->setAttribute((Valeur *) automate.depilerSymbole());
@@ -1609,7 +1606,6 @@ transition_return Etat45::transition(Automate & automate, Symbole * s)
             automate.reduce(3,p_ListAffectation);
         }
             return REDUCED;
-        */
         default:
             cerr << "err" << endl;
             return ERROR;
