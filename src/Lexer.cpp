@@ -43,11 +43,11 @@
 
 bool lexical_result (string s, bool b)
 {
-	if (b){
-		cout << "Expression " +s+" correcte" << endl;
-	}else{
-		cout << "Expression "+s + " incorrecte" << endl ;
-	}
+	//if (b){
+		//cout << "Expression " +s+" correcte" << endl;
+	//}else{
+		//cout << "Expression "+s + " incorrecte" << endl ;
+	//}
 	
 	return b;
 }
@@ -66,9 +66,9 @@ bool lexer_var(const string &s)
 	return lexical_result(s,regex_match(s,declaration));
 }
 
-bool lexer_valeur(const string &s)
+bool lexer_identificateur(const string &s)
 {
-	const regex valeur("w+");
+	const regex valeur("[a-z]+[a-zA-Z0-9]*");
 
 	return lexical_result(s,regex_match(s,valeur));
 }
@@ -76,7 +76,7 @@ bool lexer_valeur(const string &s)
 
 bool lexer_num(const string &s)
 {
-	const regex num("[-]?[0-9]*\.?[0-9]*");
+	const regex num("-?[0-9]*\\.?[0-9]*");
 	return lexical_result(s,regex_match(s,num));
 
 }
@@ -127,6 +127,7 @@ bool lexer_parFerm(const string &s)
 
  // verify the validity of multiplication operator 
 
+bool lexer_mult(const string &s);
 
 bool lexer_mult(const string &s)
 {
@@ -212,7 +213,7 @@ Symbole * lexer (string text)
 		resultat = new SymbVariable(SYMBVARIABLE);
 
 	}
-	else if(lexer_valeur(text))
+	else if(lexer_identificateur(text))
 	{	
 		resultat = new Identificateur(IDENTIFICATEUR);
 
@@ -282,7 +283,10 @@ Symbole * lexer (string text)
 		cerr << "syntaxe incorrecte : " <<text << endl;
 
 	}
-	
+		
+	cout << (int)*resultat<<endl;
+
+
 	return resultat;
 	
 }
