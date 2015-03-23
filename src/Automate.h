@@ -20,7 +20,7 @@ public:
     Symbole * depilerSymbole(bool toDelete = false);
     void shift(AbstractEtat * etat, Symbole * s);
     void reduce(unsigned int nbDepil, Symbole * s);
-
+    void printSymbole(int symbole);
 protected:
     stack <AbstractEtat *> m_pileEtats;
     stack <Symbole *> m_pileSymboles;

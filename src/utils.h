@@ -5,44 +5,6 @@
 
 using namespace std;
 
-#define SYMBAFFECTATION 0
-#define ECRIRE 1
-#define LIRE 2
-#define CONSTANTE 3
-#define SYMBVARIABLE 4
-#define POINTVIRGULE 5
-#define VIRGULE 6
-#define PAROUVRE 7
-#define PARFERME 8
-#define EGAL 9
-#define IDENTIFICATEUR 10
-#define OPERATEUR 11
-#define OPA 12
-#define OPM 13
-#define PLUS 14
-#define MOINS 15
-#define DIV 16
-#define MULT 17
-#define LISTIDENTIFICATEUR 18
-#define DECLARATION 19
-#define INSTRUCTION 20
-#define LECTURE 21
-#define ECRITURE 22
-#define AFFECTATION 23
-#define LISTINSTRUCTION 24
-#define PROGRAMME 25
-#define LISTDECLARATION 26
-#define EXPCOMPLEXE 28
-#define VARIABLE 29
-#define NOMBRE 30
-#define DOLLAR 31
-#define TERME 32
-#define FACTEUR 33
-#define EXPRESSION 34
-#define VALEUR 35
-#define LISTAFFECTATION 36
-#define POINTEGAL 37
-
 enum transition_return
 {
     SHIFTED,
@@ -51,5 +13,45 @@ enum transition_return
     ERROR
 };
 
+enum enumSymbole
+{
+    SYMBAFFECTATION,
+    ECRIRE,
+    LIRE,
+    CONSTANTE,
+    SYMBVARIABLE,
+    POINTVIRGULE,
+    VIRGULE,
+    PAROUVRE,
+    PARFERME,
+    EGAL,
+    IDENTIFICATEUR,
+    OPERATEUR,
+    OPA,
+    OPM,
+    PLUS,
+    MOINS,
+    DIV,
+    MULT,
+    LISTIDENTIFICATEUR,
+    DECLARATION,
+    INSTRUCTION,
+    LECTURE,
+    ECRITURE,
+    AFFECTATION,
+    LISTINSTRUCTION,
+    PROGRAMME,
+    LISTDECLARATION,
+    EXPCOMPLEXE,
+    VARIABLE,
+    NOMBRE,
+    DOLLAR,
+    TERME,
+    FACTEUR,
+    EXPRESSION,
+    VALEUR,
+    LISTAFFECTATION,
+    POINTEGAL
+};
 
 #endif // UTILS_H

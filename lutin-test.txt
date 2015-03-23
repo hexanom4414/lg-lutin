@@ -1,2 +1,1 @@
 var x ;
-const n = 10 ;
