@@ -189,6 +189,8 @@ Symbole * lexer (string text)
 {
 	Symbole * resultat;
 	
+	cout << text <<endl;
+	
 	if (lexer_lire(text))
 	{
 		resultat = new Lire();
@@ -291,6 +293,8 @@ void lexer_lecture(char* filename)
 	ifstream file(filename, ios::in);
 	string line;
 	string recognize;
+	string word ;
+	int posDeb = 0;
 	if(file.is_open())
 	{
 		while(getline(file,line))
@@ -299,15 +303,23 @@ void lexer_lecture(char* filename)
 			{
 				if(!(isspace(*it)))
 				{
+					
 					recognize += (*it);
+					
 				}
 				else
 				{
+					 
+					word = recognize.substr(posDeb);
+					lexer(word);
 					recognize += "\n";
+					posDeb = recognize.find_last_of("\n")+1;
 				}
 				if((*it) == ';')
 				{
 					recognize += "\n";
+					posDeb = recognize.find_last_of("\n")+1;
+
 				}
 
 			}
