@@ -76,7 +76,7 @@ bool lexer_valeur(const string &s)
 
 bool lexer_num(const string &s)
 {
-	const regex num("[-+]?[0-9]*\.?[0-9]+$");
+	const regex num("[-]?[0-9]*\.?[0-9]*");
 	return lexical_result(s,regex_match(s,num));
 
 }
@@ -189,7 +189,7 @@ Symbole * lexer (string text)
 {
 	Symbole * resultat;
 	
-	cout << text <<endl;
+	cout << "texte: "<<text <<endl;
 	
 	if (lexer_lire(text))
 	{
