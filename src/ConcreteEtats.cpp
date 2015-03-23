@@ -508,7 +508,7 @@ transition_return Etat13::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Facteur * p_facteur = new Facteur(FACTEUR);
-                p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
+                p_facteur->setAttribute((Valeur *) automate.depilerSymbole());
 
                 automate.reduce(1,p_facteur);
             }
@@ -534,7 +534,6 @@ Etat14::~Etat14()
 
 transition_return Etat14::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case EXPRESSION:
@@ -583,7 +582,6 @@ Etat15::~Etat15()
 
 transition_return Etat15::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case OPA:
@@ -634,9 +632,11 @@ transition_return Etat16::transition(Automate & automate, Symbole * s)
         case DOLLAR:
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(3,p_facteur); // 3 ˆ vŽrifier !!!
+            p_facteur->setAttribute((ParFerme *) automate.depilerSymbole());
+            p_facteur->setAttribute((Expression *) automate.depilerSymbole());
+            p_facteur->setAttribute((ParOuvre *) automate.depilerSymbole());
+            
+            automate.reduce(3,p_facteur); 
         }
             return REDUCED;
         default:
@@ -666,10 +666,10 @@ transition_return Etat17::transition(Automate & automate, Symbole * s)
         case NOMBRE:
         case PAROUVRE:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(1,p_facteur);
+            OpA * p_opA = new OpA(OPA);
+            p_opA->setAttribute((Plus *) automate.depilerSymbole());
+            
+            automate.reduce(1,p_opA);
         }
             return REDUCED;
         default:
@@ -699,10 +699,10 @@ transition_return Etat18::transition(Automate & automate, Symbole * s)
         case NOMBRE:
         case PAROUVRE:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(1,p_facteur);
+            OpA * p_opA = new OpA(OPA);
+            p_opA->setAttribute((Moins *) automate.depilerSymbole());
+            
+            automate.reduce(1,p_opA);
         }
             return REDUCED;
         default:
@@ -727,7 +727,6 @@ Etat19::~Etat19()
 
 transition_return Etat19::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case OPM:
@@ -748,10 +747,10 @@ transition_return Etat19::transition(Automate & automate, Symbole * s)
         case POINTVIRGULE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(1,p_facteur);
+            Expression * p_expression = new Expression(EXPRESSION);
+            p_expression->setAttribute((Terme *) automate.depilerSymbole());
+            
+            automate.reduce(1,p_expression);
         }
             return REDUCED;
         default:
@@ -781,10 +780,10 @@ transition_return Etat20::transition(Automate & automate, Symbole * s)
         case MULT:
         case DIV:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(1,p_facteur);
+            OpM * p_opM = new OpM(OPM);
+            p_opM->setAttribute((Mult *) automate.depilerSymbole());
+            
+            automate.reduce(1,p_opM);
         }
             return REDUCED;
         default:
@@ -814,10 +813,10 @@ transition_return Etat21::transition(Automate & automate, Symbole * s)
         case MULT:
         case DIV:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(1,p_facteur);
+            OpM * p_opM = new OpM(OPM);
+            p_opM->setAttribute((Div *) automate.depilerSymbole());
+            
+            automate.reduce(1,p_opM);
         }
             return REDUCED;
         default:
@@ -852,10 +851,10 @@ transition_return Etat22::transition(Automate & automate, Symbole * s)
         case POINTVIRGULE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(1,p_facteur);
+            Terme * p_terme = new Terme (TERME);
+            p_terme->setAttribute((Facteur *) automate.depilerSymbole());
+            
+            automate.reduce(1,p_terme);
         }
             return REDUCED;
         default:
@@ -879,7 +878,6 @@ Etat23::~Etat23()
 
 transition_return Etat23::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case IDENTIFICATEUR:
@@ -890,7 +888,7 @@ transition_return Etat23::transition(Automate & automate, Symbole * s)
             cerr << "err" << endl;
             return ERROR;
     }
-
+    
 }
 
 //// end Etat23
@@ -912,10 +910,11 @@ transition_return Etat24::transition(Automate & automate, Symbole * s)
     {
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(2,p_facteur);
+            Instruction * p_instruction = new Instruction(INSTRUCTION);
+            p_instruction->setAttribute((Identificateur *) automate.depilerSymbole());
+            p_instruction->setAttribute((Lire *) automate.depilerSymbole());
+            
+            automate.reduce(2,p_instruction);
         }
             return REDUCED;
         default:
@@ -940,7 +939,6 @@ Etat25::~Etat25()
 
 transition_return Etat25::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTEGAL:
@@ -969,7 +967,6 @@ Etat26::~Etat26()
 
 transition_return Etat26::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case EXPRESSION:
@@ -1017,7 +1014,6 @@ Etat27::~Etat27()
 
 transition_return Etat27::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case PLUS:
@@ -1057,9 +1053,9 @@ transition_return Etat28::transition(Automate & automate, Symbole * s)
         case DOLLAR:
         {
             Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(4,p_facteur); // 4 ˆ vŽrifier
+            p_facteur->setAttribute((Valeur *) automate.depilerSymbole());
+            
+            automate.reduce(4,p_facteur); 
         }
             return REDUCED;
         default:
@@ -1089,10 +1085,12 @@ transition_return Etat29::transition(Automate & automate, Symbole * s)
         case CONSTANTE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(3,p_facteur);
+            Instruction * p_instruction = new Instruction(INSTRUCTION);
+            p_instruction->setAttribute((Expression *) automate.depilerSymbole());
+            p_instruction->setAttribute((PointVirgule *) automate.depilerSymbole());
+            p_instruction->setAttribute((Identificateur *) automate.depilerSymbole());
+            
+            automate.reduce(3,p_instruction);
         }
             return REDUCED;
         default:
@@ -1115,7 +1113,6 @@ Etat30::~Etat30()
 
 transition_return Etat30::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case IDENTIFICATEUR:
@@ -1147,7 +1144,6 @@ Etat31::~Etat31()
 
 transition_return Etat31::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTVIRGULE:
@@ -1184,10 +1180,12 @@ transition_return Etat32::transition(Automate & automate, Symbole * s)
         case CONSTANTE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(3,p_facteur);
+            Declaration * p_declaration = new Declaration(DECLARATION);
+            p_declaration->setAttribute((PointVirgule *) automate.depilerSymbole());
+            p_declaration->setAttribute((ListDeclaration *) automate.depilerSymbole());
+            p_declaration->setAttribute((Variable *) automate.depilerSymbole());
+            
+            automate.reduce(3,p_declaration);
         }
             return REDUCED;
         default:
@@ -1211,7 +1209,6 @@ Etat33::~Etat33()
 
 transition_return Etat33::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case IDENTIFICATEUR:
@@ -1246,10 +1243,12 @@ transition_return Etat34::transition(Automate & automate, Symbole * s)
         case VIRGULE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(3,p_facteur);
+            ListIdentificateur * p_ListIdentificateur = new ListIdentificateur(LISTIDENTIFICATEUR);
+            p_ListIdentificateur->setAttribute((Identificateur *) automate.depilerSymbole());
+            p_ListIdentificateur->setAttribute((Virgule *) automate.depilerSymbole());
+            p_ListIdentificateur->setAttribute((ListIdentificateur *) automate.depilerSymbole());
+            
+            automate.reduce(3,p_ListIdentificateur);
         }
             return REDUCED;
         default:
@@ -1281,10 +1280,9 @@ transition_return Etat35::transition(Automate & automate, Symbole * s)
         case VIRGULE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(1,p_facteur);
+            ListIdentificateur * p_ListIdentificateur = new ListIdentificateur(LISTIDENTIFICATEUR);
+			p_ListIdentificateur->setAttribute((Identificateur *) automate.depilerSymbole());            
+            automate.reduce(1,p_ListIdentificateur);
         }
             return REDUCED;
         default:
@@ -1307,7 +1305,6 @@ Etat36::~Etat36()
 
 transition_return Etat36::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case LISTAFFECTATION:
@@ -1339,7 +1336,6 @@ Etat37::~Etat37()
 
 transition_return Etat37::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTVIRGULE:
@@ -1376,10 +1372,12 @@ transition_return Etat38::transition(Automate & automate, Symbole * s)
         case CONSTANTE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(3,p_facteur);
+            Declaration * p_declaration = new Declaration(DECLARATION);
+            p_declaration->setAttribute((PointVirgule *) automate.depilerSymbole());
+            p_declaration->setAttribute((ListAffectation *) automate.depilerSymbole());
+            p_declaration->setAttribute((Constante *) automate.depilerSymbole());
+            
+            automate.reduce(3,p_declaration);
         }
             return REDUCED;
         default:
@@ -1403,7 +1401,6 @@ Etat39::~Etat39()
 
 transition_return Etat39::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case IDENTIFICATEUR:
@@ -1430,7 +1427,6 @@ Etat40::~Etat40()
 
 transition_return Etat40::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTEGAL:
@@ -1458,7 +1454,6 @@ Etat41::~Etat41()
 
 transition_return Etat41::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case NOMBRE:
@@ -1494,10 +1489,14 @@ transition_return Etat42::transition(Automate & automate, Symbole * s)
         case VIRGULE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(5,p_facteur); // 5 a vŽrifier
+            ListAffectation * p_ListAffectation = new ListAffectation(LISTAFFECTATION);
+            p_ListAffectation->setAttribute((Valeur *) automate.depilerSymbole());
+            p_ListAffectation->setAttribute((Egal *) automate.depilerSymbole());
+            p_ListAffectation->setAttribute((Identificateur *) automate.depilerSymbole());
+            p_ListAffectation->setAttribute((Virgule *) automate.depilerSymbole());
+            p_ListAffectation->setAttribute((ListAffectation *) automate.depilerSymbole());
+            
+            automate.reduce(5,p_ListAffectation); 
         }
             return REDUCED;
         default:
@@ -1521,7 +1520,6 @@ Etat43::~Etat43()
 
 transition_return Etat43::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case POINTEGAL:
@@ -1549,7 +1547,6 @@ Etat44::~Etat44()
 
 transition_return Etat44::transition(Automate & automate, Symbole * s)
 {
-    AbstractEtat * p_etat;
     switch (*s)
     {
         case NOMBRE:
@@ -1585,10 +1582,12 @@ transition_return Etat45::transition(Automate & automate, Symbole * s)
         case VIRGULE:
         case DOLLAR:
         {
-            Facteur * p_facteur = new Facteur(FACTEUR);
-            p_facteur->setAttribute((Valeur *) automate.depilerSymbole(true));
-
-            automate.reduce(3,p_facteur);
+            ListAffectation * p_ListAffectation = new ListAffectation(LISTAFFECTATION);
+            p_ListAffectation->setAttribute((Valeur *) automate.depilerSymbole());
+            p_ListAffectation->setAttribute((Egal *) automate.depilerSymbole());
+            p_ListAffectation->setAttribute((Identificateur *) automate.depilerSymbole());
+            
+            automate.reduce(3,p_ListAffectation);
         }
             return REDUCED;
         default:
