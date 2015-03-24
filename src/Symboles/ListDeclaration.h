@@ -12,8 +12,8 @@ class ListDeclaration : public SymboleComplexe
         virtual ~ListDeclaration() { };
 
 		void print();
-		void addToList(ListDeclaration * p_listDeclaration);
-        void addToList(Declaration * p_Declaration);
+		void setAttribute(ListDeclaration * p_listDeclaration);
+        void setAttribute(Declaration * p_Declaration);
         bool isEmpty();
         void popFront();
         Declaration * getFront();

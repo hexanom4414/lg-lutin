@@ -8,7 +8,6 @@ class Virgule : public SymboleSimple
 {
     public:
         Virgule(int id) : SymboleSimple(id) {};
-		void print() {};
         virtual ~Virgule() {};
     protected:
     private:

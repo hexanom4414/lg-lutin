@@ -11,13 +11,13 @@ class Programme : public SymboleComplexe
         Programme(int id) : SymboleComplexe (id) {};
         virtual ~Programme() {};
 
-        void setListDeclaration(ListDeclaration * ld);
-        void setListInstruction(ListInstruction * lins);
-        virtual void print();
+        void setAttribute(ListDeclaration * p_listDeclaration) {m_listDeclaration = p_listDeclaration;};
+        void setAttribute(ListInstruction * p_listInstruction) {m_listInstruction = p_listInstruction;};
+        void print();
     protected:
-    	ListDeclaration * m_LD;
-    	ListInstruction * m_LIns;
     private:
+        ListDeclaration * m_listDeclaration;
+    	ListInstruction * m_listInstruction;
 };
 
 #endif // PROGRAMME_H

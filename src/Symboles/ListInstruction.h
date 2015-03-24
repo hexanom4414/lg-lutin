@@ -11,8 +11,8 @@ class ListInstruction : public SymboleComplexe
         ListInstruction(int id) : SymboleComplexe(id) {};
         virtual ~ListInstruction() {};
 
-        void addToList(ListInstruction * p_listInstruction);
-        void addToList(Instruction * p_Instruction);
+        void setAttribute(ListInstruction * p_listInstruction);
+        void setAttribute(Instruction * p_Instruction);
         bool isEmpty();
         void popFront();
         Instruction * getFront();

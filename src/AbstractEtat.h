@@ -2,7 +2,6 @@
 #define ABSTRACTETAT_H
 
 #include "utils.h"
-#include <iostream>
 
 #include "Symboles/Symbole.h"
 #include "Symboles/Programme.h"

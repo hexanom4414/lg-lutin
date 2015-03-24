@@ -1,9 +1,9 @@
 #ifndef AUTOMATE_H
 #define AUTOMATE_H
 
-#include <iostream>
-#include <stack>
+#include "utils.h"
 #include "AbstractEtat.h"
+#include <stack>
 #include "ConcreteEtats.h"
 #include "Symboles/Symbole.h"
 #include "Symboles/Dollar.h"

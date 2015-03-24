@@ -1,15 +1,15 @@
 #ifndef OPERATEUR_H
 #define OPERATEUR_H
 
-#include "SymboleSimple.h"
+#include "SymboleComplexe.h"
 
 
-class Operateur : public SymboleSimple
+class Operateur : public SymboleComplexe
 {
     public:
-        Operateur(int id);
-		void print() {};
-        virtual ~Operateur()  {};
+        Operateur(int id) : SymboleComplexe(id) {};
+		void print() = 0;
+        virtual ~Operateur() {};
     protected:
     private:
 };

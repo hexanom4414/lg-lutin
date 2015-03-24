@@ -1,14 +1,13 @@
 #ifndef MULT_H
 #define MULT_H
 
-#include "OpM.h"
+#include "SymboleSimple.h"
 
 
-class Mult : public OpM
+class Mult : public SymboleSimple
 {
     public:
-        Mult(int id) : OpM(id) {};
-		void print() {};
+        Mult(int id) : SymboleSimple(id) {};
         virtual ~Mult() {};
     protected:
     private:

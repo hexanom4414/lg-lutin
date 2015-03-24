@@ -6,17 +6,17 @@ void ListInstruction::print()
         (*it)->print();
 }
 
-void ListInstruction::addToList(ListInstruction * p_listInstruction)
+void ListInstruction::setAttribute(ListInstruction * p_listInstruction)
 {
     while (!p_listInstruction->isEmpty())
     {
-            addToList(p_listInstruction->getFront());
+            setAttribute(p_listInstruction->getFront());
             p_listInstruction->popFront();
     }
     delete p_listInstruction;
 }
 
-void ListInstruction::addToList(Instruction * p_Instruction)
+void ListInstruction::setAttribute(Instruction * p_Instruction)
 {
     m_listInstruction.push_back(p_Instruction);
 }

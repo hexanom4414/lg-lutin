@@ -1,16 +1,16 @@
 #include "ListIdentificateur.h"
 
-void ListIdentificateur::addToList(ListIdentificateur * p_listIdentificateur)
+void ListIdentificateur::setAttribute(ListIdentificateur * p_listIdentificateur)
 {
     while (!p_listIdentificateur->isEmpty())
     {
-            addToList(p_listIdentificateur->getFront());
+            setAttribute(p_listIdentificateur->getFront());
             p_listIdentificateur->popFront();
     }
     delete p_listIdentificateur;
 }
 
-void ListIdentificateur::addToList(Identificateur * p_Identificateur)
+void ListIdentificateur::setAttribute(Identificateur * p_Identificateur)
 {
     m_listIdentificateur.push_back(p_Identificateur);
 }

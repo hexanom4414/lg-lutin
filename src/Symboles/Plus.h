@@ -1,14 +1,13 @@
 #ifndef PLUS_H
 #define PLUS_H
 
-#include "OpA.h"
+#include "SymboleSimple.h"
 
 
-class Plus : public OpA
+class Plus : public SymboleSimple
 {
     public:
-        Plus(int id) : OpA(id) {}
-		void print() {};
+        Plus(int id) : SymboleSimple(id) {}
         virtual ~Plus() {};
     protected:
     private:

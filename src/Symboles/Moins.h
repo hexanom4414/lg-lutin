@@ -1,14 +1,13 @@
 #ifndef MOINS_H
 #define MOINS_H
 
-#include "OpA.h"
+#include "SymboleSimple.h"
 
 
-class Moins : public OpA
+class Moins : public SymboleSimple
 {
     public:
-        Moins(int id) : OpA(id) {};
-		void print() {};
+        Moins(int id) : SymboleSimple(id) {};
         virtual ~Moins() {};
     protected:
     private:

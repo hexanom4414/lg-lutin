@@ -16,10 +16,12 @@ void Automate::run()
     transition_return ret_val = REDUCED;
     while((int)(t_symb = m_lexer->getSymbole()) != -1)
     {
+
         if((int)* t_symb == IDENTIFICATEUR)
         {
             m_declMap->addIdent(t_symb->getName());
         }
+
         ret_val = REDUCED;
         while(ret_val == REDUCED)
         {

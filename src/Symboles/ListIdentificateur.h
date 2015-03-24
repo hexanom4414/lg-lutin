@@ -11,8 +11,8 @@ class ListIdentificateur : public SymboleComplexe
         ListIdentificateur(int id): SymboleComplexe(id) {};
         virtual ~ListIdentificateur() {};
 
-        void addToList(ListIdentificateur * p_listIdentificateur);
-        void addToList(Identificateur * p_Identificateur);
+        void setAttribute(ListIdentificateur * p_listIdentificateur);
+        void setAttribute(Identificateur * p_Identificateur);
         bool isEmpty();
         void popFront();
         Identificateur * getFront();

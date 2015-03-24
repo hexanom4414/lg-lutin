@@ -2,21 +2,21 @@
 
 void ListDeclaration::print()
 {
-        for (list<Declaration *>::iterator it=m_listDeclaration.begin(); it != m_listDeclaration.end(); ++it)
+    for (list<Declaration *>::iterator it=m_listDeclaration.begin(); it != m_listDeclaration.end(); ++it)
         (*it)->print();
 }
 
-void ListDeclaration::addToList(ListDeclaration * p_listDeclaration)
+void ListDeclaration::setAttribute(ListDeclaration * p_listDeclaration)
 {
     while (!p_listDeclaration->isEmpty())
     {
-            addToList(p_listDeclaration->getFront());
-            p_listDeclaration->popFront();
+        setAttribute(p_listDeclaration->getFront());
+        p_listDeclaration->popFront();
     }
     delete p_listDeclaration;
 }
 
-void ListDeclaration::addToList(Declaration * p_Declaration)
+void ListDeclaration::setAttribute(Declaration * p_Declaration)
 {
     m_listDeclaration.push_back(p_Declaration);
 }

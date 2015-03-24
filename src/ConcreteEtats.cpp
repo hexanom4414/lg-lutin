@@ -50,6 +50,8 @@ transition_return Etat3::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         case DECLARATION:
+        case CONSTANTE:
+        case VARIABLE:
             p_etat = new Etat29("Etat 29");
             automate.shift(p_etat, s);
             return SHIFTED;
@@ -95,8 +97,8 @@ transition_return Etat4::transition(Automate & automate, Symbole * s)
             {
                 Programme * p_programme = new Programme(PROGRAMME);
 
-                p_programme->setListInstruction((ListInstruction *) automate.depilerSymbole());
-                p_programme->setListDeclaration((ListDeclaration *) automate.depilerSymbole());
+                p_programme->setAttribute((ListInstruction *) automate.depilerSymbole());
+                p_programme->setAttribute((ListDeclaration *) automate.depilerSymbole());
 
                 automate.reduce(2, p_programme);
             }
@@ -116,8 +118,8 @@ transition_return Etat5::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 ListInstruction * p_listInstruction = new ListInstruction(LISTINSTRUCTION);
-                p_listInstruction->addToList((Instruction *) automate.depilerSymbole());
-                p_listInstruction->addToList((ListInstruction *) automate.depilerSymbole());
+                p_listInstruction->setAttribute((Instruction *) automate.depilerSymbole());
+                p_listInstruction->setAttribute((ListInstruction *) automate.depilerSymbole());
 
                 automate.reduce(2, p_listInstruction);
             }
@@ -477,7 +479,8 @@ transition_return Etat17::transition(Automate & automate, Symbole * s)
         case PAROUVRE:
             {
                 OpA * p_opA = new OpA(OPA);
-                p_opA = (Plus *) automate.depilerSymbole();
+                p_opA->setAttribute(PLUS);
+                automate.depilerSymbole(true);
 
                 automate.reduce(1,p_opA);
             }
@@ -499,7 +502,8 @@ transition_return Etat18::transition(Automate & automate, Symbole * s)
         case PAROUVRE:
             {
                 OpA * p_opA = new OpA(OPA);
-                p_opA = (Moins *) automate.depilerSymbole();
+                p_opA->setAttribute(MOINS);
+                automate.depilerSymbole(true);
 
                 automate.reduce(1,p_opA);
             }
@@ -767,8 +771,8 @@ transition_return Etat29::transition(Automate & automate, Symbole * s)
         case IDENTIFICATEUR:
             {
                 ListDeclaration * p_listDeclaration = new ListDeclaration(LISTDECLARATION);
-                p_listDeclaration->addToList((Declaration *) automate.depilerSymbole());
-                p_listDeclaration->addToList((ListDeclaration *) automate.depilerSymbole());
+                p_listDeclaration->setAttribute((Declaration *) automate.depilerSymbole());
+                p_listDeclaration->setAttribute((ListDeclaration *) automate.depilerSymbole());
 
                 automate.reduce(2,p_listDeclaration);
             }
@@ -776,8 +780,8 @@ transition_return Etat29::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 ListDeclaration * p_listDeclaration = new ListDeclaration(LISTDECLARATION);
-                p_listDeclaration->addToList((Declaration *) automate.depilerSymbole());
-                p_listDeclaration->addToList((ListDeclaration *) automate.depilerSymbole());
+                p_listDeclaration->setAttribute((Declaration *) automate.depilerSymbole());
+                p_listDeclaration->setAttribute((ListDeclaration *) automate.depilerSymbole());
 
                 automate.reduce(2,p_listDeclaration);
             }
@@ -882,9 +886,9 @@ transition_return Etat34::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 ListIdentificateur * p_ListIdentificateur = new ListIdentificateur(LISTIDENTIFICATEUR);
-                p_ListIdentificateur->addToList((Identificateur *) automate.depilerSymbole());
+                p_ListIdentificateur->setAttribute((Identificateur *) automate.depilerSymbole());
                 automate.depilerSymbole(true); //remove virgule
-                p_ListIdentificateur->addToList((ListIdentificateur *) automate.depilerSymbole());
+                p_ListIdentificateur->setAttribute((ListIdentificateur *) automate.depilerSymbole());
 
                 automate.reduce(3,p_ListIdentificateur);
             }
@@ -908,7 +912,7 @@ transition_return Etat35::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 ListIdentificateur * p_ListIdentificateur = new ListIdentificateur(LISTIDENTIFICATEUR);
-                p_ListIdentificateur->addToList((Identificateur *) automate.depilerSymbole());
+                p_ListIdentificateur->setAttribute((Identificateur *) automate.depilerSymbole());
                 automate.reduce(1,p_ListIdentificateur);
             }
             return REDUCED;
