@@ -13,7 +13,7 @@ void ListInstruction::setAttribute(ListInstruction * p_listInstruction)
             setAttribute(p_listInstruction->getFront());
             p_listInstruction->popFront();
     }
-    delete p_listInstruction;
+//    delete p_listInstruction;
 }
 
 void ListInstruction::setAttribute(Instruction * p_Instruction)

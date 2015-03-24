@@ -7,7 +7,7 @@ void ListIdentificateur::setAttribute(ListIdentificateur * p_listIdentificateur)
         setAttribute(p_listIdentificateur->getFront());
         p_listIdentificateur->popFront();
     }
-    delete p_listIdentificateur;
+//    delete p_listIdentificateur;
 }
 
 void ListIdentificateur::setAttribute(const string & identificateur)

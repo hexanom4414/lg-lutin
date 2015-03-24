@@ -12,7 +12,7 @@ void ListAffectation::setAttribute(ListAffectation * p_listAffectation)
         addToList(p_listAffectation->getFront());
         p_listAffectation->popFront();
     }
-    delete p_listAffectation;
+//    delete p_listAffectation;
 }
 
 void ListAffectation::addToList(const string & ident, int value)

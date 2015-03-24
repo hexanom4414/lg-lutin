@@ -251,7 +251,7 @@ transition_return Etat9::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Expression * p_expression = new Expression(EXPRESSION);
-                p_expression->setAttribute((Terme *) automate.depilerSymbole());
+                p_expression->setAttribute((Terme *) automate.depilerSymbole(), false);
                 p_expression->setAttribute((OpA *) automate.depilerSymbole());
                 p_expression->setAttribute((Expression *) automate.depilerSymbole());
 
@@ -314,7 +314,7 @@ transition_return Etat11::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Terme * p_terme = new Terme(TERME);
-                p_terme->setAttribute((Facteur *) automate.depilerSymbole());
+                p_terme->setAttribute((Facteur *) automate.depilerSymbole(), false);
                 p_terme->setAttribute((OpM *) automate.depilerSymbole());
                 p_terme->setAttribute((Terme *) automate.depilerSymbole());
 
@@ -540,7 +540,7 @@ transition_return Etat19::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Expression * p_expression = new Expression(EXPRESSION);
-                p_expression->setAttribute((Terme *) automate.depilerSymbole());
+                p_expression->setAttribute((Terme *) automate.depilerSymbole(), true);
 
                 automate.reduce(1,p_expression);
             }
@@ -608,7 +608,7 @@ transition_return Etat22::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Terme * p_terme = new Terme (TERME);
-                p_terme->setAttribute((Facteur *) automate.depilerSymbole());
+                p_terme->setAttribute((Facteur *) automate.depilerSymbole(), true);
 
                 automate.reduce(1,p_terme);
             }
@@ -747,8 +747,6 @@ transition_return Etat28::transition(Automate & automate, Symbole * s)
                 p_affectation->setAttribute((Expression *) automate.depilerSymbole());
                 automate.depilerSymbole();
                 p_affectation->setAttribute(automate.depilerSymbole()->getName());
-
-                p_affectation->print();
 
                 automate.reduce(4,p_affectation);
             }

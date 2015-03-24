@@ -50,8 +50,8 @@ void Automate::run()
 Symbole * Automate::depilerSymbole(bool toDelete)
 {
     Symbole * p_symbole = m_pileSymboles.top();
-    if(toDelete)
-        delete p_symbole;
+    //if(toDelete)
+        //delete p_symbole;
     m_pileSymboles.pop();
     return p_symbole;
 }
@@ -77,7 +77,7 @@ void Automate::reduce(unsigned int nbDepil, Symbole * s)
 
     for(unsigned int i = 0 ; i < nbDepil ; i++)
     {
-        delete m_pileEtats.top();
+//        delete m_pileEtats.top();
         m_pileEtats.pop();
     }
 

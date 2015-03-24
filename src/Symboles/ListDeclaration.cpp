@@ -13,7 +13,7 @@ void ListDeclaration::setAttribute(ListDeclaration * p_listDeclaration)
         setAttribute(p_listDeclaration->getFront());
         p_listDeclaration->popFront();
     }
-    delete p_listDeclaration;
+//    delete p_listDeclaration;
 }
 
 void ListDeclaration::setAttribute(Declaration * p_Declaration)

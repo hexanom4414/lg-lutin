@@ -7,14 +7,14 @@ void Facteur::print()
     {
         cout << "(";
         m_expression->print();
-        cout << ") " << endl;
+        cout << ") ";
     }
     else if (m_identificateur.compare("") == 0)
     {
-        cout << m_valeur << " " << endl;
+        cout << m_valeur << " ";
     }
     else
     {
-        cout << m_identificateur << " " << endl;
+        cout << m_identificateur << " ";
     }
 }

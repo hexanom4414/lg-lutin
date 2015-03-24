@@ -3,7 +3,7 @@
 
 void Terme::print()
 {
-    if(m_expGauche)
+    if(!m_isFacteur)
     {
         m_expGauche->print();
         m_operateur->print();

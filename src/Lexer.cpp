@@ -174,6 +174,7 @@ Symbole * Lexer::getSymbole ()
             else if(lexer_num(word))
             {
                 resultat = new Valeur(VALEUR);
+                resultat->setValue(atoi(word.c_str()));
             }
             else if(lexer_aff_dyn(word))
             {
