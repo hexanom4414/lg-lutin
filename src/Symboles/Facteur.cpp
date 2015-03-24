@@ -1,17 +1,20 @@
 #include "Facteur.h"
+#include "Expression.h"
 
 void Facteur::print()
 {
-    if(m_identificateur)
-        m_identificateur->print();
-    else if(m_valIsValid)
-        cout << m_val << " ";
+    if(m_isAnExpression)
+    {
+        cout << "(";
+        m_expression->print();
+        cout << ") " << endl;
+    }
+    else if (m_identificateur.compare("") == 0)
+    {
+        cout << m_valeur << " " << endl;
+    }
     else
-        cout << "( ";
-}
-
-void Facteur::setAttribute(Valeur * p_valeur)
-{
-    m_val = p_valeur->getValue();
-    m_valIsValid = true;
+    {
+        cout << m_identificateur << " " << endl;
+    }
 }

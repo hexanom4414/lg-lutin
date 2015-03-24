@@ -1,13 +1,12 @@
 #include "Lexer.h"
 #include "Symboles/Affectation.h"
-#include "Symboles/Constante.h"
+#include "Symboles/SymbConst.h"
 #include "Symboles/Declaration.h"
 #include "Symboles/Div.h"
 #include "Symboles/Dollar.h"
 #include "Symboles/Ecrire.h"
 #include "Symboles/Ecriture.h"
 #include "Symboles/Egal.h"
-#include "Symboles/ExpComplexe.h"
 #include "Symboles/Expression.h"
 #include "Symboles/Identificateur.h"
 #include "Symboles/Instruction.h"
@@ -137,7 +136,7 @@ bool Lexer::lexer_div(const string &s)
 // verify the validity of addition operator
 bool Lexer::lexer_plus(const string &s)
 {
-    const regex opA("+");
+    const regex opA("\\+");
     return lexical_result(s,regex_match(s,opA));
 }
 
@@ -199,7 +198,7 @@ Symbole * Lexer::getSymbole ()
             }
             else if(lexer_const(word))
             {
-                resultat = new Constante(CONSTANTE);
+                resultat = new SymbConst(SYMBCONST);
             }
             else if(lexer_var(word))
             {
@@ -208,6 +207,7 @@ Symbole * Lexer::getSymbole ()
             else if(lexer_identificateur(word))
             {
                 resultat = new Identificateur(IDENTIFICATEUR);
+                resultat->setName(word);
             }
             else if(lexer_num(word))
             {

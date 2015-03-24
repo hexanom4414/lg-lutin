@@ -10,6 +10,9 @@ class Symbole
         virtual ~Symbole() {};
 
         virtual void print() = 0;
+        virtual string getName() {return "";};
+        virtual int getValue() {return -1;};
+        virtual void setName(const string & name) {};
 
         operator int() const { return ident; }
 

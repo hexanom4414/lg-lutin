@@ -1,25 +1,24 @@
 #ifndef TERME_H
 #define TERME_H
 
-#include "SymboleSimple.h"
 #include "OpM.h"
 #include "Facteur.h"
+#include "SymboleComplexe.h"
 
-
-class Terme : public SymboleSimple
+class Terme : public SymboleComplexe
 {
 public:
-    Terme(int id) : SymboleSimple(id) {};
+    Terme(int id) : SymboleComplexe(id) {};
     virtual ~Terme() {};
 
     virtual void print();
-    void setAttribute(OpM * p_opM) {m_opM = p_opM;};
-    void setAttribute(Terme * p_terme) {m_terme = p_terme;};
-    void setAttribute(Facteur * p_facteur) {m_facteur = p_facteur;};
+    void setAttribute(Terme * p_terme) {m_expGauche = p_terme;};
+    void setAttribute(OpM * p_opM) {m_operateur = p_opM;};
+    void setAttribute(Facteur * p_facteur) {m_expDroite = p_facteur;};
 protected:
-    OpM * m_opM;
-    Terme * m_terme;
-    Facteur * m_facteur;
+    Terme * m_expGauche;
+    OpM * m_operateur;
+    Facteur * m_expDroite;
 private:
 };
 

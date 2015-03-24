@@ -8,7 +8,9 @@ class SymboleSimple : public Symbole
 {
     public:
         SymboleSimple(int id) : Symbole(id) {};
-		void print() {};
+        void print() {};
+        virtual string getName() {return "";};
+        virtual void setName(const string & name) {};
         virtual ~SymboleSimple() {};
     protected:
     private:

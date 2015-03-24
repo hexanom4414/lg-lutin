@@ -10,7 +10,7 @@ class Ecriture : public Instruction
         Ecriture(int id) : Instruction(id) {}
         virtual ~Ecriture() {};
 
-        void setExpression(Expression * p_expression);
+        void setAttribute(Expression * p_expression) {m_expression = p_expression;};
         void print();
     protected:
     	Expression * m_expression;

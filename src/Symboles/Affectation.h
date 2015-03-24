@@ -12,12 +12,12 @@ class Affectation : public Instruction
         Affectation(int id) : Instruction(id) {};
         virtual ~Affectation() {};
 
+        void setAttribute(Expression * p_expression) {m_expression = p_expression;};
+        void setAttribute(const string & ident) {m_ident = ident;};
 		void print() {};
-        //bool do(); //méthode pour lier un id avec une expression dans une map
-
     protected:
-    	Identificateur *id;
-    	Expression *expToAffect;
+    	string m_ident;
+    	Expression * m_expression;
     private:
 };
 

@@ -16,8 +16,9 @@
 #include "Symboles/Variable.h"
 #include "Symboles/Virgule.h"
 #include "Symboles/Egal.h"
+#include "Symboles/SymbConst.h"
 #include "Symboles/Constante.h"
-#include "Symboles/Declaration.h"
+#include "Symboles/Affectation.h"
 
 
 class Automate;

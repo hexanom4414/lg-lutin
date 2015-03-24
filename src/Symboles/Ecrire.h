@@ -9,8 +9,6 @@ class Ecrire : public SymboleSimple
     public:
         Ecrire(int id) : SymboleSimple(id) {};
         virtual ~Ecrire() {};
-
-        void print();
     protected:
     private:
 };

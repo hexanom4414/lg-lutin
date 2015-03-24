@@ -1,16 +1,14 @@
 #ifndef DIV_H
 #define DIV_H
 
-#include "OpM.h"
+#include "SymboleSimple.h"
 
 
-class Div : public OpM
+class Div : public SymboleSimple
 {
     public:
-        Div(int id) : OpM(id) {};
+        Div(int id) : SymboleSimple(id) {};
         virtual ~Div() {};
-
-        void print();
     protected:
     private:
 };

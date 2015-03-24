@@ -1,11 +1,12 @@
 #include "Terme.h"
+#include "Facteur.h"
 
 void Terme::print()
 {
-    if(m_terme)
+    if(m_expGauche)
     {
-        m_terme->print();
-        m_opM->print();
+        m_expGauche->print();
+        m_operateur->print();
     }
-    m_facteur->print();
+    m_expDroite->print();
 }

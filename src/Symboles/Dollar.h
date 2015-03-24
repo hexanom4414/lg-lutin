@@ -7,7 +7,6 @@ class Dollar : public SymboleSimple
 {
     public:
         Dollar(int id) : SymboleSimple(id) {};
-		void print() {};
         virtual ~Dollar() {};
     protected:
     private:

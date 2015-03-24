@@ -6,6 +6,7 @@ Automate::Automate(const string & p_file)
     cout << "Automate created & initialized" << endl;
 
     m_lexer = new Lexer(p_file);
+    m_declMap = new DeclMap();
 }
 
 void Automate::run()
@@ -15,6 +16,10 @@ void Automate::run()
     transition_return ret_val = REDUCED;
     while((int)(t_symb = m_lexer->getSymbole()) != -1)
     {
+        if((int)* t_symb == IDENTIFICATEUR)
+        {
+            m_declMap->addIdent(t_symb->getName());
+        }
         ret_val = REDUCED;
         while(ret_val == REDUCED)
         {
@@ -29,6 +34,8 @@ void Automate::run()
     printEtatStack();
     cout << endl << endl;
     printSymboleStack();
+    cout << endl << endl;
+    printDeclMap();
 }
 
 
@@ -90,6 +97,12 @@ void Automate::printSymboleStack()
         cout << endl;
         m_pileSymboles.pop();
     }
+}
+
+void Automate::printDeclMap()
+{
+    cout << "Map des variables :" << endl;
+    m_declMap->print();
 }
 
 void Automate::printSymbole(int symbole)
@@ -183,9 +196,6 @@ void Automate::printSymbole(int symbole)
         case VARIABLE :
             cout << "variable";
             break;
-        case NOMBRE :
-            cout << "nombre";
-            break;
         case DOLLAR :
             cout << "dollar";
             break;
@@ -204,8 +214,8 @@ void Automate::printSymbole(int symbole)
         case LISTAFFECTATION :
             cout << "listaffectation";
             break;
-        case POINTEGAL :
-            cout << "pointegal";
+        case SYMBCONST :
+            cout << "symbconst";
             break;
         default:
             cout << symbole;

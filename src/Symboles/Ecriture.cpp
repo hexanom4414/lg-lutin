@@ -1,12 +1,7 @@
 #include "Ecriture.h"
 
-void Ecriture::setExpression(Expression * p_expression)
-{
-    m_expression = p_expression;
-}
-
 void Ecriture::print()
 {
-    cout << "écrire ";
+    cout << "ecrire ";
     m_expression->print();
 }

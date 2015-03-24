@@ -8,6 +8,7 @@
 #include "Symboles/Symbole.h"
 #include "Symboles/Dollar.h"
 #include "Lexer.h"
+#include "DeclMap.h"
 
 using namespace std;
 
@@ -26,9 +27,11 @@ protected:
     stack <AbstractEtat *> m_pileEtats;
     stack <Symbole *> m_pileSymboles;
     Lexer * m_lexer;
+    DeclMap * m_declMap;
 
     void printEtatStack();
     void printSymboleStack();
+    void printDeclMap();
 private:
 };
 

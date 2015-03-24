@@ -1,32 +1,24 @@
 #ifndef FACTEUR_H
 #define FACTEUR_H
 
-#include "SymboleSimple.h"
-#include "Identificateur.h"
-#include "Valeur.h"
-#include "ParFerme.h"
-#include "ParOuvre.h"
+#include "SymboleComplexe.h"
 
 class Expression;
-class Facteur : public SymboleSimple
+class Facteur : public SymboleComplexe
 {
     public:
-        Facteur(int id) : SymboleSimple(id), m_valIsValid(false) {};
+        Facteur(int id) : SymboleComplexe(id), m_isAnExpression(false), m_identificateur("") {};
         virtual ~Facteur() {};
 
-        void setAttribute(Identificateur * p_identificateur) {m_identificateur = p_identificateur;};
-        void setAttribute(Valeur * p_valeur);
-        void setAttribute(ParFerme * p_parFerme) {m_parFerme = p_parFerme;};
-        void setAttribute(Expression * p_expression) {m_expression = p_expression;};
-        void setAttribute(ParOuvre * p_parOuvre) {m_parOuvre = p_parOuvre;};
+        void setAttribute(const string & identificateur) {m_identificateur = identificateur;};
+        void setAttribute(int valeur) {m_valeur = valeur;};
+        void setAttribute(Expression * p_expression) {m_expression = p_expression; m_isAnExpression = true;};
         void print();
     protected:
-        Identificateur * m_identificateur;
-        ParOuvre * m_parOuvre;
+        string m_identificateur;
+        int m_valeur;
         Expression * m_expression;
-        ParFerme * m_parFerme;
-        bool m_valIsValid;
-        int m_val;
+        bool m_isAnExpression;
     private:
 };
 
