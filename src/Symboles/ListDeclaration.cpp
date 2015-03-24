@@ -2,7 +2,7 @@
 
 void ListDeclaration::print()
 {
-    for (list<Declaration *>::iterator it=m_listDeclaration.begin(); it != m_listDeclaration.end(); ++it)
+    for (list<Declaration *>::reverse_iterator it=m_listDeclaration.rbegin(); it != m_listDeclaration.rend(); ++it)
         (*it)->print();
 }
 

@@ -5,7 +5,6 @@
 #include <utility>
 
 #include "SymboleComplexe.h"
-#include "Affectation.h"
 
 class ListAffectation : public SymboleComplexe
 {

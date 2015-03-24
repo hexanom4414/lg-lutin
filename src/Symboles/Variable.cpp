@@ -2,7 +2,7 @@
 
 void Variable::print()
 {
-    cout << "var";
+    cout << "var ";
     m_listIdentificateur->print();
     cout << ";" << endl;
 }

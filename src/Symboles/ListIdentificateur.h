@@ -12,13 +12,13 @@ class ListIdentificateur : public SymboleComplexe
         virtual ~ListIdentificateur() {};
 
         void setAttribute(ListIdentificateur * p_listIdentificateur);
-        void setAttribute(Identificateur * p_Identificateur);
+        void setAttribute(const string & identificateur);
         bool isEmpty();
         void popFront();
-        Identificateur * getFront();
+        string getFront();
         virtual void print();
     protected:
-    	list<Identificateur *> m_listIdentificateur;
+    	list<string> m_listIdentificateur;
     private:
 };
 

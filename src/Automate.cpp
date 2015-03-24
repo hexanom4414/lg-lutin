@@ -16,6 +16,9 @@ void Automate::run()
     transition_return ret_val = REDUCED;
     while((int)(t_symb = m_lexer->getSymbole()) != -1)
     {
+        cout << "RECU : ";
+        printSymbole((int) * t_symb);
+        cout << endl << endl;
 
         if((int)* t_symb == IDENTIFICATEUR)
         {
@@ -33,6 +36,9 @@ void Automate::run()
         cout << "Program Accepted !" << endl;
     }
     cout << "//////////////// End Run ////////////////" << endl << endl;
+    cout << "Affichage du programme :" << endl;
+    m_pileSymboles.top()->print();
+    cout << endl << endl;
     printEtatStack();
     cout << endl << endl;
     printSymboleStack();

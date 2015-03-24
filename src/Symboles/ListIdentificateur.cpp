@@ -4,15 +4,15 @@ void ListIdentificateur::setAttribute(ListIdentificateur * p_listIdentificateur)
 {
     while (!p_listIdentificateur->isEmpty())
     {
-            setAttribute(p_listIdentificateur->getFront());
-            p_listIdentificateur->popFront();
+        setAttribute(p_listIdentificateur->getFront());
+        p_listIdentificateur->popFront();
     }
     delete p_listIdentificateur;
 }
 
-void ListIdentificateur::setAttribute(Identificateur * p_Identificateur)
+void ListIdentificateur::setAttribute(const string & identificateur)
 {
-    m_listIdentificateur.push_back(p_Identificateur);
+    m_listIdentificateur.push_back(identificateur);
 }
 
 bool ListIdentificateur::isEmpty()
@@ -25,13 +25,19 @@ void ListIdentificateur::popFront()
     m_listIdentificateur.pop_front();
 }
 
-Identificateur * ListIdentificateur::getFront()
+string ListIdentificateur::getFront()
 {
     return m_listIdentificateur.front();
 }
 
 void ListIdentificateur::print()
 {
-    for (list<Identificateur *>::iterator it=m_listIdentificateur.begin(); it != m_listIdentificateur.end(); ++it)
-        (*it)->print();
+    unsigned int i = m_listIdentificateur.size();
+    for (list<string>::iterator it=m_listIdentificateur.begin(); it != m_listIdentificateur.end(); ++it)
+    {
+        cout << *it << " ";
+        if(i != 1)
+            cout << ", ";
+        i--;
+    }
 }
