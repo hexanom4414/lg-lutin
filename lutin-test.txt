@@ -1,6 +1,2 @@
 var x ;
 var y ;
-var xa ;
-var yqbqd ;
-var sns ;
-var snsd ;

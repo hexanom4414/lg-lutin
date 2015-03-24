@@ -2,14 +2,12 @@
 #define INSTRUCTION_H
 
 #include "SymboleComplexe.h"
-#include "SymboleSimple.h"
-
 
 class Instruction : public SymboleComplexe
 {
     public:
         Instruction(int id) : SymboleComplexe(id) { };
-		virtual void print()  {};
+		virtual void print() = 0;
         virtual ~Instruction() {};
     protected:
     private:

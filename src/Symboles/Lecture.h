@@ -9,13 +9,10 @@ class Lecture : public Instruction
     public:
         Lecture(int id) : Instruction (id) {}
         virtual ~Lecture() {};
-
-        void setAttribute(Identificateur * p_identificateur) {m_identificateur = p_identificateur;};
-		void print() {};
-        //bool do(&idToRead);
+        void setAttribute(const string & identificateur) {m_identificateur.assign(identificateur);};
+		void print();
     protected:
-    	Identificateur * idToRead;
-    	Identificateur * m_identificateur;
+    	string m_identificateur;
     private:
 };
 

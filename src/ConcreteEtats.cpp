@@ -5,7 +5,6 @@ transition_return Etat1::transition(Automate & automate, Symbole * s)
     AbstractEtat * p_etat;
     switch (*s)
     {
-
         case PROGRAMME:
             p_etat = new Etat2("Etat 2");
             automate.shift(p_etat, s);
@@ -641,7 +640,7 @@ transition_return Etat24::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Lecture * p_lecture = new Lecture(LECTURE);
-                p_lecture->setAttribute((Identificateur *) automate.depilerSymbole());
+                p_lecture->setAttribute(automate.depilerSymbole()->getName());
                 automate.depilerSymbole(true);
 
                 automate.reduce(2,p_lecture);
@@ -1046,11 +1045,14 @@ transition_return Etat42::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 ListAffectation * p_ListAffectation = new ListAffectation(LISTAFFECTATION);
-                p_ListAffectation->setAttribute((Valeur *) automate.depilerSymbole());
-                p_ListAffectation->setAttribute((Egal *) automate.depilerSymbole());
-                p_ListAffectation->setAttribute((Identificateur *) automate.depilerSymbole());
-                p_ListAffectation->setAttribute((Virgule *) automate.depilerSymbole());
-                p_ListAffectation->addToList((ListAffectation *) automate.depilerSymbole());
+                int t_val;
+                string t_ident;
+                t_val = automate.depilerSymbole()->getValue();
+                automate.depilerSymbole(true);
+                t_ident = automate.depilerSymbole()->getName();
+                automate.depilerSymbole(true);
+                p_ListAffectation->setAttribute(t_ident, t_val);
+                p_ListAffectation->setAttribute((ListAffectation *) automate.depilerSymbole());
 
                 automate.reduce(5,p_ListAffectation);
             }
@@ -1108,9 +1110,12 @@ transition_return Etat45::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 ListAffectation * p_ListAffectation = new ListAffectation(LISTAFFECTATION);
-                p_ListAffectation->setAttribute((Valeur *) automate.depilerSymbole());
-                p_ListAffectation->setAttribute((Egal *) automate.depilerSymbole());
-                p_ListAffectation->setAttribute((Identificateur *) automate.depilerSymbole());
+                int t_val;
+                string t_ident;
+                t_val = automate.depilerSymbole()->getValue();
+                automate.depilerSymbole(true);
+                t_ident = automate.depilerSymbole()->getName();
+                p_ListAffectation->setAttribute(t_ident, t_val);
 
                 automate.reduce(3,p_ListAffectation);
             }

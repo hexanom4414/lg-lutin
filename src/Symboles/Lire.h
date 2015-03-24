@@ -9,7 +9,6 @@ class Lire : public SymboleSimple
     public:
         Lire(int id) : SymboleSimple(id) {};
         virtual ~Lire() {};
-        void print();
     protected:
     private:
 };

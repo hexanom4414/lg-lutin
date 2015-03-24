@@ -2,39 +2,30 @@
 #define LISTAFFECTATION_H
 
 #include <list>
+#include <utility>
 
 #include "SymboleComplexe.h"
 #include "Affectation.h"
-#include "Valeur.h"
-#include "Egal.h"
-#include "Identificateur.h"
-#include "Virgule.h"
 
 class ListAffectation : public SymboleComplexe
 {
-public:
-    ListAffectation(int id) : SymboleComplexe(id) {};
-    virtual ~ListAffectation() {};
+    public:
+        ListAffectation(int id) : SymboleComplexe(id) {};
+        virtual ~ListAffectation() {};
 
-    void addToList(ListAffectation * p_listAffectation);
-    void addToList(Affectation * p_affectation);
-    bool isEmpty();
-    void popFront();
-    Affectation * getFront();
-    virtual void print();
+        virtual void print();
 
-    void setAttribute(Valeur * p_valeur) {m_valeur = p_valeur;};
-    void setAttribute(Egal * p_egal) {m_egal = p_egal;};
-    void setAttribute(Identificateur * p_identificateur) {m_identificateur = p_identificateur;};
-    void setAttribute(Virgule * p_virgule) {m_virgule = p_virgule;};
+        bool isEmpty();
+        void popFront();
+        pair<string,int> getFront();
+        void addToList(const string & ident, int value);
+        void addToList(pair<string,int> p_affectation);
 
-protected:
-    list<Affectation *> m_listAffectation;
-    Valeur * m_valeur;
-    Egal * m_egal;
-    Identificateur * m_identificateur;
-    Virgule * m_virgule;
-private:
+        void setAttribute(const string & ident, int value);
+        void setAttribute(ListAffectation * p_listAffectation);
+    protected:
+        list<pair<string,int> > m_listAffectation;
+    private:
 };
 
 #endif // LISTAFFECTATION_H
