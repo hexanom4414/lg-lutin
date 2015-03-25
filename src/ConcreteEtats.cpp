@@ -423,7 +423,7 @@ transition_return Etat15::transition(Automate & automate, Symbole * s)
     switch (*s)
     {
         case OPA:
-            p_etat = new Etat6("Etat 6");
+            p_etat = new Etat8("Etat 8");
             automate.shift(p_etat, s);
             return SHIFTED;
         case PLUS:
