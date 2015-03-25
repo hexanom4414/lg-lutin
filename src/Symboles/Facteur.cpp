@@ -5,7 +5,7 @@ void Facteur::print()
 {
     if(m_isAnExpression)
     {
-        cout << "(";
+        cout << "( ";
         m_expression->print();
         cout << ") ";
     }

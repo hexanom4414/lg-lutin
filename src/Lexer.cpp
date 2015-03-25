@@ -75,13 +75,13 @@ bool Lexer::lexer_virg(const string &s)
 
 bool Lexer::lexer_parOuvr(const string &s)
 {
-    const regex parOuvr("(");
+    const regex parOuvr("\\(");
     return lexical_result(s,regex_match(s,parOuvr));
 }
 
 bool Lexer::lexer_parFerm(const string &s)
 {
-    const regex parFerm(")");
+    const regex parFerm("\\)");
     return lexical_result(s,regex_match(s,parFerm));
 }
 

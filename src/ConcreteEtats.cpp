@@ -93,6 +93,8 @@ transition_return Etat4::transition(Automate & automate, Symbole * s)
         case IDENTIFICATEUR:
             automate.shift(new Etat25("Etat 25"), s);
             return SHIFTED;
+        case SYMBVARIABLE:
+        case SYMBCONST:
         case DOLLAR:
             {
                 Programme * p_programme = new Programme(PROGRAMME);
@@ -557,8 +559,9 @@ transition_return Etat20::transition(Automate & automate, Symbole * s)
 {
     switch (*s)
     {
-        case MULT:
-        case DIV:
+        case IDENTIFICATEUR:
+        case VALEUR:
+        case PAROUVRE:
             {
                 OpM * p_opM = new OpM(OPM);
                 p_opM->setAttribute(MULT);
@@ -578,8 +581,9 @@ transition_return Etat21::transition(Automate & automate, Symbole * s)
 {
     switch (*s)
     {
-        case MULT:
-        case DIV:
+        case IDENTIFICATEUR:
+        case VALEUR:
+        case PAROUVRE:
             {
                 OpM * p_opM = new OpM(OPM);
                 p_opM->setAttribute(DIV);
