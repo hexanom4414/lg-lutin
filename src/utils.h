@@ -10,6 +10,7 @@ enum transition_return
     SHIFTED,
     REDUCED,
     ACCEPTED,
+    FINISH,
     ERROR
 };
 
@@ -42,7 +43,7 @@ enum enumSymbole
     LISTINSTRUCTION, // 24
     PROGRAMME, // 25
     LISTDECLARATION, // 26
-    EXPCOMPLEXE, // 27
+    DONOTUSE_OLD, // 27
     VARIABLE, // 28
     DOLLAR, // 29
     TERME, // 30

@@ -2,7 +2,7 @@
 
 void ListInstruction::print()
 {
-    for (list<Instruction *>::iterator it=m_listInstruction.begin(); it != m_listInstruction.end(); ++it)
+    for (list<Instruction *>::reverse_iterator it=m_listInstruction.rbegin(); it != m_listInstruction.rend(); ++it)
         (*it)->print();
 }
 

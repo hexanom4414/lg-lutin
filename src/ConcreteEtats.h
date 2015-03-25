@@ -454,4 +454,24 @@ protected:
 private:
 };
 
+class Etat46 : public AbstractEtat
+{
+public:
+    Etat46(const string & name) : AbstractEtat(name) {};
+	virtual transition_return transition(Automate & automate, Symbole * s);
+    virtual ~Etat46() {};
+protected:
+private:
+};
+
+class Etat47 : public AbstractEtat
+{
+public:
+    Etat47(const string & name) : AbstractEtat(name) {};
+	virtual transition_return transition(Automate & automate, Symbole * s);
+    virtual ~Etat47() {};
+protected:
+private:
+};
+
 #endif // CONCRETEETATS_H

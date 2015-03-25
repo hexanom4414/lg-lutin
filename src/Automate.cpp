@@ -26,15 +26,16 @@ void Automate::run()
         }
 
         ret_val = REDUCED;
-        while(ret_val == REDUCED)
+        while(ret_val == REDUCED || ret_val == ACCEPTED)
         {
             ret_val = m_pileEtats.top()->transition(*this, t_symb);
         }
     }
-    if(ret_val == ACCEPTED)
+    if(ret_val == FINISH)
     {
         cout << "Program Accepted !" << endl;
     }
+
     cout << "//////////////// End Run ////////////////" << endl << endl;
     cout << "Affichage du programme :" << endl;
     m_pileSymboles.top()->print();
@@ -51,7 +52,7 @@ Symbole * Automate::depilerSymbole(bool toDelete)
 {
     Symbole * p_symbole = m_pileSymboles.top();
     //if(toDelete)
-        //delete p_symbole;
+    //delete p_symbole;
     m_pileSymboles.pop();
     return p_symbole;
 }
@@ -197,9 +198,6 @@ void Automate::printSymbole(int symbole)
             break;
         case LISTDECLARATION :
             cout << "listdeclaration";
-            break;
-        case EXPCOMPLEXE :
-            cout << "expcomplexe";
             break;
         case VARIABLE :
             cout << "variable";

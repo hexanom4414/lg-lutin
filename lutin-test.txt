@@ -1,3 +1,7 @@
 var x ;
-var y , z ;
-y := 2 ;
+var y ;
+const n = 10 , n2 = 100 ;
+ecrire n + n2 ;
+x := n + n2 ;
+lire x ;
+ecrire x ;

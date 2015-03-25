@@ -17,8 +17,6 @@ class ListAffectation : public SymboleComplexe
         bool isEmpty();
         void popFront();
         pair<string,int> getFront();
-        void addToList(const string & ident, int value);
-        void addToList(pair<string,int> p_affectation);
 
         void setAttribute(const string & ident, int value);
         void setAttribute(ListAffectation * p_listAffectation);

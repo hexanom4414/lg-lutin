@@ -4,4 +4,5 @@ void Ecriture::print()
 {
     cout << "ecrire ";
     m_expression->print();
+    cout << ";" << endl;
 }

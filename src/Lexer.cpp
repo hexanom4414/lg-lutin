@@ -136,14 +136,6 @@ Symbole * Lexer::getSymbole ()
             return resultat;
         }
 
-        if(resultat != 0 && (int) * resultat == POINTVIRGULE)
-        {
-            resultat = new Dollar(DOLLAR);
-            cout << "........................." << endl;
-            cout << "LU : "<< "$ (forced)" << endl;
-            return resultat;
-        }
-
         string word;
         if(file >> word)
         {
