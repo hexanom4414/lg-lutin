@@ -10,3 +10,11 @@ void Terme::print()
     }
     m_expDroite->print();
 }
+
+int Terme::eval()
+{
+    if(!m_isFacteur)
+    {
+    }
+    return m_expDroite->eval();
+}

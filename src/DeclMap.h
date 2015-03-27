@@ -15,12 +15,17 @@ public:
 
     int getValue(const string & ident);
     void setValue(const string & ident, int val);
-    void addIdent(const string & ident);
+    void addIdent(const string & ident, bool isConst, int val = 0);
     void print();
 protected:
 private:
-    map<string,pair<int,bool> > m_declMap;
-    map<string,pair<int,bool> >::iterator m_it;
+    struct IdentValue {
+        bool isConst, isInitialized;
+        int value;
+    };
+
+    map<string,IdentValue> m_declMap;
+    map<string,IdentValue>::iterator m_it;
 
     bool checkIdent(const string & ident);
 };

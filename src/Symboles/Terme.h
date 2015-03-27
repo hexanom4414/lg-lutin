@@ -15,6 +15,7 @@ public:
     virtual ~Terme() {};
 
     virtual void print();
+    int eval();
     void setAttribute(Terme * p_terme) {m_expGauche = p_terme;};
     void setAttribute(OpM * p_opM) {m_operateur = p_opM;};
     void setAttribute(Facteur * p_facteur, bool isFacteur) {m_expDroite = p_facteur;m_isFacteur = isFacteur;};

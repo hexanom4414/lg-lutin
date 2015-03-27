@@ -9,3 +9,12 @@ void Expression::print()
     }
     m_expDroite->print();
 }
+
+int Expression::eval()
+{
+    if(!m_isTerme)
+    {
+
+    }
+    return m_expDroite->eval();
+}

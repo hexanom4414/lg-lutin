@@ -27,7 +27,6 @@ protected:
     stack <AbstractEtat *> m_pileEtats;
     stack <Symbole *> m_pileSymboles;
     Lexer * m_lexer;
-    DeclMap * m_declMap;
 
     void printEtatStack();
     void printSymboleStack();

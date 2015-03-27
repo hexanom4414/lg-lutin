@@ -5,6 +5,7 @@
 #include "Expression.h"
 #include "Valeur.h"
 #include "Identificateur.h"
+#include "../utils.h"
 
 class Affectation : public Instruction
 {
@@ -15,6 +16,7 @@ class Affectation : public Instruction
         void setAttribute(Expression * p_expression) {m_expression = p_expression;};
         void setAttribute(const string & ident) {m_ident = ident;};
 		void print();
+		void execute();
     protected:
     	string m_ident;
     	Expression * m_expression;

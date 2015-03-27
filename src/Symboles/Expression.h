@@ -14,6 +14,7 @@ class Expression : public SymboleComplexe
         void setAttribute(Expression * p_expression) {m_expGauche = p_expression;};
         void setAttribute(OpA * p_opA) {m_operateur = p_opA;};
         void setAttribute(Terme * p_terme, bool isTerme) {m_expDroite = p_terme;m_isTerme = isTerme;};
+        int eval();
     protected:
     private:
         Expression * m_expGauche;

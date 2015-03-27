@@ -33,7 +33,7 @@ string ListIdentificateur::getFront()
 void ListIdentificateur::print()
 {
     unsigned int i = m_listIdentificateur.size();
-    for (list<string>::iterator it=m_listIdentificateur.begin(); it != m_listIdentificateur.end(); ++it)
+    for (list<string>::reverse_iterator it=m_listIdentificateur.rbegin(); it != m_listIdentificateur.rend(); ++it)
     {
         cout << *it << " ";
         if(i != 1)

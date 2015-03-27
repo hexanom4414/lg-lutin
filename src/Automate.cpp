@@ -6,7 +6,7 @@ Automate::Automate(const string & p_file)
     cout << "Automate created & initialized" << endl;
 
     m_lexer = new Lexer(p_file);
-    m_declMap = new DeclMap();
+    global_declMap = new DeclMap();
 }
 
 void Automate::run()
@@ -19,11 +19,6 @@ void Automate::run()
         cout << "RECU : ";
         printSymbole((int) * t_symb);
         cout << endl << endl;
-
-        if((int)* t_symb == IDENTIFICATEUR)
-        {
-            m_declMap->addIdent(t_symb->getName());
-        }
 
         ret_val = REDUCED;
         while(ret_val == REDUCED || ret_val == ACCEPTED)
@@ -111,7 +106,7 @@ void Automate::printSymboleStack()
 void Automate::printDeclMap()
 {
     cout << "Map des variables :" << endl;
-    m_declMap->print();
+    global_declMap->print();
 }
 
 void Automate::printSymbole(int symbole)

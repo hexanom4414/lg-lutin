@@ -2,8 +2,12 @@
 #define UTILS_H
 
 #include <iostream>
+#include "DeclMap.h"
 
 using namespace std;
+
+class DeclMap;
+static DeclMap * global_declMap;
 
 enum transition_return
 {

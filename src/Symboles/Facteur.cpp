@@ -18,3 +18,19 @@ void Facteur::print()
         cout << m_identificateur << " ";
     }
 }
+
+int Facteur::eval()
+{
+    if(m_isAnExpression)
+    {
+        return m_expression->eval();
+    }
+    else if (m_identificateur.compare("") == 0)
+    {
+        return m_valeur;
+    }
+    else
+    {
+        return global_declMap->getValue(m_identificateur);
+    }
+}
