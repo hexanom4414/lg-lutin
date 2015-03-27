@@ -14,7 +14,7 @@ void Automate::run()
     cout << endl << "////////////////// Run //////////////////"  << endl;
     Symbole * t_symb;
     transition_return ret_val = REDUCED;
-    while((int)(t_symb = m_lexer->getSymbole()) != -1)
+    while((int)*(t_symb = m_lexer->getSymbole()) != -1)
     {
         cout << "RECU : ";
         printSymbole((int) * t_symb);
