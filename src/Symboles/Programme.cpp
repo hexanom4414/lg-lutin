@@ -10,4 +10,5 @@ void Programme::staticCheck()
 {
     m_listDeclaration->staticCheck();
     m_listInstruction->staticCheck();
+    DeclMap::Instance().clearMap();
 }

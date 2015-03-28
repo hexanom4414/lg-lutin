@@ -16,6 +16,7 @@ class DeclMap
         bool getIsConst(const string & ident);
         bool getIsInitialized(const string & ident);
 
+        void clearMap() {m_declMap.clear();};
         void setValue(const string & ident, int val);
         void addIdent(const string & ident, bool isConst, int val = 0);
         bool checkIdent(const string & ident);

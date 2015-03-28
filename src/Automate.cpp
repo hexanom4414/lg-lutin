@@ -3,12 +3,7 @@
 Automate::Automate(const string & p_file)
 {
     m_pileEtats.push(new Etat1("Etat 1"));
-    cout << "Automate created & initialized" << endl;
-
     m_lexer = new Lexer(p_file);
-
-    DeclMap & ptrMap = DeclMap::Instance();
-    cout << &ptrMap;
 }
 
 void Automate::run()

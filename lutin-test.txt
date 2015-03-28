@@ -1,5 +1,6 @@
 var x , y ;
 const y = 6 , n = 12 ;
 x := 3 ;
+x := n + azdad ;
 n := 2 ;
 lire v ;

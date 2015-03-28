@@ -48,8 +48,7 @@ void ListAffectation::staticCheck()
     {
         if(DeclMap::Instance().checkIdent(it->first))
         {
-            print();
-            cout << endl;
+            cout << it->first << " = " << it->second << endl;
             cout << ">>>> err : " << it->first << " deja declare" << endl;
         }
         else
