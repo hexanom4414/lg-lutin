@@ -14,24 +14,26 @@ using namespace std;
 
 class Automate
 {
-public:
-    Automate(const string & p_file);
-    virtual ~Automate() {};
+    public:
+        Automate(const string & p_file);
+        virtual ~Automate() {};
 
-    void run();
-    Symbole * depilerSymbole(bool toDelete = false);
-    void shift(AbstractEtat * etat, Symbole * s);
-    void reduce(unsigned int nbDepil, Symbole * s);
-    void printSymbole(int symbole);
-protected:
-    stack <AbstractEtat *> m_pileEtats;
-    stack <Symbole *> m_pileSymboles;
-    Lexer * m_lexer;
+        void run();
+        Symbole * depilerSymbole(bool toDelete = false);
+        void shift(AbstractEtat * etat, Symbole * s);
+        void reduce(unsigned int nbDepil, Symbole * s);
+        void printSymbole(int symbole);
+        void printProgram();
+        void checkStatic();
+    protected:
+        stack <AbstractEtat *> m_pileEtats;
+        stack <Symbole *> m_pileSymboles;
+        Lexer * m_lexer;
 
-    void printEtatStack();
-    void printSymboleStack();
-    void printDeclMap();
-private:
+        void printEtatStack();
+        void printSymboleStack();
+        void printDeclMap();
+    private:
 };
 
 #endif // AUTOMATE_H

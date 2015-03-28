@@ -25,8 +25,6 @@ bool DeclMap::checkIdent(const string & ident)
 
 int DeclMap::getValue(const string & ident)
 {
-    if(!m_declMap.find(ident)->second.isUsed)
-        m_declMap.find(ident)->second.isUsed = true;
     return m_declMap.find(ident)->second.value;
 }
 
@@ -67,4 +65,20 @@ void DeclMap::print()
 {
     for (m_it=m_declMap.begin(); m_it!=m_declMap.end(); ++m_it)
         cout << m_it->first << " := " << m_it->second.value << endl;
+}
+
+void DeclMap::staticCheck()
+{
+    for (m_it=m_declMap.begin(); m_it!=m_declMap.end(); ++m_it)
+    {
+        if(!m_it->second.isUsed)
+        {
+            cout << m_it->first << " n'est pas utilise" << endl;
+        }
+    }
+}
+
+void DeclMap::setUsed(const string & ident)
+{
+    m_declMap.find(ident)->second.isUsed = true;
 }

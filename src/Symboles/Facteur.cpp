@@ -48,5 +48,9 @@ void Facteur::staticCheck()
             print();
             cout << endl << ">>>> err : " << m_identificateur << " declaration manquante" << endl;
         }
+        else
+        {
+            DeclMap::Instance().setUsed(m_identificateur);
+        }
     }
 }

@@ -29,16 +29,6 @@ void Automate::run()
     }
 
     cout << "//////////////// End Run ////////////////" << endl << endl;
-    cout << "Affichage du programme :" << endl;
-    m_pileSymboles.top()->print();
-    cout << endl << endl << "Static check du programme :" << endl;
-    m_pileSymboles.top()->staticCheck();
-    cout << endl << endl;
-    printEtatStack();
-    cout << endl << endl;
-    printSymboleStack();
-    cout << endl << endl;
-    printDeclMap();
 }
 
 
@@ -78,6 +68,22 @@ void Automate::reduce(unsigned int nbDepil, Symbole * s)
 
     m_pileEtats.top()->transition(* this, s);
     return;
+}
+
+void Automate::printProgram()
+{
+    cout << "Affichage du programme :" << endl;
+    m_pileSymboles.top()->print();
+    cout << endl;
+}
+
+void Automate::checkStatic()
+{
+    cout << "Analyse statique du programme :" << endl;
+    m_pileSymboles.top()->staticCheck();
+    DeclMap::Instance().staticCheck();
+    DeclMap::Instance().clearMap();
+    cout << endl;
 }
 
 void Automate::printEtatStack()

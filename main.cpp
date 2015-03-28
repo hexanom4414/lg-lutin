@@ -65,6 +65,10 @@ int main(int argc, const char* argv[])
     //// Lancement automate
     Automate * automate = new Automate(m_file);
     automate->run();
+    if(affichage)
+        automate->printProgram();
+    if(analyse)
+        automate->checkStatic();
 
     return 0;
 }

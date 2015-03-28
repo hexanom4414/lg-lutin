@@ -1,6 +1,7 @@
 var x , y ;
-const y = 6 , n = 12 ;
+const y = 6 , n = 12 , u = 19 ;
 x := 3 ;
 x := n + azdad ;
 n := 2 ;
 lire v ;
+ecrire x ;

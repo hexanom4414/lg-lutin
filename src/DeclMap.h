@@ -18,9 +18,11 @@ class DeclMap
 
         void clearMap() {m_declMap.clear();};
         void setValue(const string & ident, int val);
+        void setUsed(const string & ident);
         void addIdent(const string & ident, bool isConst, int val = 0);
         bool checkIdent(const string & ident);
         void print();
+        void staticCheck();
     protected:
     private:
         DeclMap& operator= (const DeclMap&) {};
@@ -28,7 +30,6 @@ class DeclMap
         static DeclMap m_instance;
         DeclMap();
         ~DeclMap();
-
 
         struct IdentValue
         {
