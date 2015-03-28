@@ -18,3 +18,12 @@ int Expression::eval()
     }
     return m_expDroite->eval();
 }
+
+void Expression::staticCheck()
+{
+    if(!m_isTerme)
+    {
+        m_expGauche->staticCheck();
+    }
+    m_expDroite->staticCheck();
+}

@@ -35,3 +35,9 @@ void ListDeclaration::popFront()
 {
     m_listDeclaration.pop_front();
 }
+
+void ListDeclaration::staticCheck()
+{
+    for (list<Declaration *>::reverse_iterator it=m_listDeclaration.rbegin(); it != m_listDeclaration.rend(); ++it)
+        (*it)->staticCheck();
+}

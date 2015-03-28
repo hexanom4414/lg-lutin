@@ -6,12 +6,18 @@ void ListInstruction::print()
         (*it)->print();
 }
 
+void ListInstruction::staticCheck()
+{
+    for (list<Instruction *>::reverse_iterator it=m_listInstruction.rbegin(); it != m_listInstruction.rend(); ++it)
+        (*it)->staticCheck();
+}
+
 void ListInstruction::setAttribute(ListInstruction * p_listInstruction)
 {
     while (!p_listInstruction->isEmpty())
     {
-            setAttribute(p_listInstruction->getFront());
-            p_listInstruction->popFront();
+        setAttribute(p_listInstruction->getFront());
+        p_listInstruction->popFront();
     }
 //    delete p_listInstruction;
 }

@@ -9,25 +9,34 @@ using namespace std;
 
 class DeclMap
 {
-public:
-    DeclMap();
-    virtual ~DeclMap();
+    public:
+        static DeclMap& Instance();
 
-    int getValue(const string & ident);
-    void setValue(const string & ident, int val);
-    void addIdent(const string & ident, bool isConst, int val = 0);
-    void print();
-protected:
-private:
-    struct IdentValue {
-        bool isConst, isInitialized;
-        int value;
-    };
+        int getValue(const string & ident);
+        bool getIsConst(const string & ident);
+        bool getIsInitialized(const string & ident);
 
-    map<string,IdentValue> m_declMap;
-    map<string,IdentValue>::iterator m_it;
+        void setValue(const string & ident, int val);
+        void addIdent(const string & ident, bool isConst, int val = 0);
+        bool checkIdent(const string & ident);
+        void print();
+    protected:
+    private:
+        DeclMap& operator= (const DeclMap&) {};
+        DeclMap (const DeclMap&) {};
+        static DeclMap m_instance;
+        DeclMap();
+        ~DeclMap();
 
-    bool checkIdent(const string & ident);
+
+        struct IdentValue
+        {
+            bool isConst, isInitialized;
+            int value;
+        };
+
+        map<string,IdentValue> m_declMap;
+        map<string,IdentValue>::iterator m_it;
 };
 
 #endif // DECLMAP_H

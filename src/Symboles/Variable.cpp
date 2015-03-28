@@ -6,3 +6,8 @@ void Variable::print()
     m_listIdentificateur->print();
     cout << ";" << endl;
 }
+
+void Variable::staticCheck()
+{
+    m_listIdentificateur->staticCheck();
+}

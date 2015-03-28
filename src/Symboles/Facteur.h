@@ -15,6 +15,7 @@ class Facteur : public SymboleComplexe
         void setAttribute(Expression * p_expression) {m_expression = p_expression; m_isAnExpression = true;};
         void print();
         int eval();
+        virtual void staticCheck();
     protected:
         string m_identificateur;
         int m_valeur;

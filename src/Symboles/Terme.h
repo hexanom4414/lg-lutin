@@ -15,6 +15,7 @@ public:
     virtual ~Terme() {};
 
     virtual void print();
+    virtual void staticCheck();
     int eval();
     void setAttribute(Terme * p_terme) {m_expGauche = p_terme;};
     void setAttribute(OpM * p_opM) {m_operateur = p_opM;};

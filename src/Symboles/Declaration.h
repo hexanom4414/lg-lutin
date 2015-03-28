@@ -10,6 +10,7 @@ public:
     virtual ~Declaration() {};
 
     virtual void print() = 0;
+    virtual void staticCheck() {};
 protected:
 private:
 };

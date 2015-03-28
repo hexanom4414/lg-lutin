@@ -18,3 +18,12 @@ int Terme::eval()
     }
     return m_expDroite->eval();
 }
+
+void Terme::staticCheck()
+{
+    if(!m_isFacteur)
+    {
+        m_expGauche->staticCheck();
+    }
+    m_expDroite->staticCheck();
+}

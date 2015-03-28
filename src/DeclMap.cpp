@@ -1,5 +1,7 @@
 #include "DeclMap.h"
 
+DeclMap DeclMap::m_instance=DeclMap();
+
 DeclMap::DeclMap()
 {
 }
@@ -8,17 +10,32 @@ DeclMap::~DeclMap()
 {
 }
 
+DeclMap& DeclMap::Instance()
+{
+    return m_instance;
+}
+
 bool DeclMap::checkIdent(const string & ident)
 {
     if(m_declMap.find(ident) == m_declMap.end())
-        return true;
-    else
         return false;
+    else
+        return true;
 }
 
 int DeclMap::getValue(const string & ident)
 {
     return m_declMap.find(ident)->second.value;
+}
+
+bool DeclMap::getIsConst(const string & ident)
+{
+    return m_declMap.find(ident)->second.isConst;
+}
+
+bool DeclMap::getIsInitialized(const string & ident)
+{
+    return m_declMap.find(ident)->second.isInitialized;
 }
 
 void DeclMap::setValue(const string & ident, int val)
@@ -33,7 +50,7 @@ void DeclMap::setValue(const string & ident, int val)
 
 void DeclMap::addIdent(const string & ident, bool isConst, int value)
 {
-    if(checkIdent(ident))
+    if(!checkIdent(ident))
     {
         IdentValue t_identValue;
         t_identValue.isConst = isConst;

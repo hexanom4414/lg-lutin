@@ -11,6 +11,7 @@ class Lecture : public Instruction
         virtual ~Lecture() {};
         void setAttribute(const string & identificateur) {m_identificateur.assign(identificateur);};
 		void print();
+		virtual void staticCheck();
     protected:
     	string m_identificateur;
     private:

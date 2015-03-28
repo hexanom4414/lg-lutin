@@ -1,10 +1,5 @@
-var x ;
-var y ;
-const n3 = 8 ;
-const n = 10 , n2 = 100 ;
-var a , b , c ;
-ecrire n + n2 ;
-x := n + ( n2 * 5 ) + 4 * n + c ;
-y := n * n2 ;
-lire x ;
-ecrire x + 4 - 5 / 2 + ( x / 5 - n3 / 6 + 9 ) / n * n ;
+var x , y ;
+const y = 6 , n = 12 ;
+x := 3 ;
+n := 2 ;
+lire v ;

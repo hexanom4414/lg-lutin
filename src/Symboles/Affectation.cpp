@@ -9,5 +9,20 @@ void Affectation::print()
 
 void Affectation::execute()
 {
-    global_declMap->setValue(m_ident, m_expression->eval());
+    DeclMap::Instance().setValue(m_ident, m_expression->eval());
+}
+
+void Affectation::staticCheck()
+{
+    if(!DeclMap::Instance().checkIdent(m_ident))
+    {
+        print();
+        cout << ">>>> err : " << m_ident << " declaration manquante" << endl;
+    }
+    else if (DeclMap::Instance().getIsConst(m_ident))
+    {
+        print();
+        cout << ">>>> err : affectation sur constante" << endl;
+    }
+    m_expression->staticCheck();
 }

@@ -12,7 +12,8 @@ class ListAffectation : public SymboleComplexe
         ListAffectation(int id) : SymboleComplexe(id) {};
         virtual ~ListAffectation() {};
 
-        virtual void print();
+        void print();
+        virtual void staticCheck();
 
         bool isEmpty();
         void popFront();

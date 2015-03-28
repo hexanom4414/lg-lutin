@@ -17,6 +17,7 @@ class ListInstruction : public SymboleComplexe
         void popFront();
         Instruction * getFront();
         virtual void print();
+        virtual void staticCheck();
     protected:
     	list<Instruction *> m_listInstruction;
     private:

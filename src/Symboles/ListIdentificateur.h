@@ -17,6 +17,7 @@ class ListIdentificateur : public SymboleComplexe
         void popFront();
         string getFront();
         virtual void print();
+        virtual void staticCheck();
     protected:
     	list<string> m_listIdentificateur;
     private:

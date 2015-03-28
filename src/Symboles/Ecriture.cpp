@@ -6,3 +6,8 @@ void Ecriture::print()
     m_expression->print();
     cout << ";" << endl;
 }
+
+void Ecriture::staticCheck()
+{
+    m_expression->staticCheck();
+}

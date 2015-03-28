@@ -31,6 +31,14 @@ int Facteur::eval()
     }
     else
     {
-        return global_declMap->getValue(m_identificateur);
+        return DeclMap::Instance().getValue(m_identificateur);
+    }
+}
+
+void Facteur::staticCheck()
+{
+    if(m_isAnExpression)
+    {
+        m_expression->staticCheck();
     }
 }

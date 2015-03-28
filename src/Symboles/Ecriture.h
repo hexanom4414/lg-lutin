@@ -12,6 +12,7 @@ class Ecriture : public Instruction
 
         void setAttribute(Expression * p_expression) {m_expression = p_expression;};
         void print();
+        virtual void staticCheck();
     protected:
     	Expression * m_expression;
     private:

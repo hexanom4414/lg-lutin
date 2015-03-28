@@ -10,7 +10,8 @@ class Expression : public SymboleComplexe
     public:
         Expression(int id) : SymboleComplexe(id) {};
         virtual ~Expression() {};
-        virtual void print();
+        void print();
+        virtual void staticCheck();
         void setAttribute(Expression * p_expression) {m_expGauche = p_expression;};
         void setAttribute(OpA * p_opA) {m_operateur = p_opA;};
         void setAttribute(Terme * p_terme, bool isTerme) {m_expDroite = p_terme;m_isTerme = isTerme;};

@@ -1,4 +1,5 @@
 *.o
+*.ini
 lutin.cbp
 lutin.depend
 lutin.layout

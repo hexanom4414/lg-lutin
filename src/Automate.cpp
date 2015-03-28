@@ -6,7 +6,9 @@ Automate::Automate(const string & p_file)
     cout << "Automate created & initialized" << endl;
 
     m_lexer = new Lexer(p_file);
-    global_declMap = new DeclMap();
+
+    DeclMap & ptrMap = DeclMap::Instance();
+    cout << &ptrMap;
 }
 
 void Automate::run()
@@ -34,6 +36,8 @@ void Automate::run()
     cout << "//////////////// End Run ////////////////" << endl << endl;
     cout << "Affichage du programme :" << endl;
     m_pileSymboles.top()->print();
+    cout << endl << endl << "Static check du programme :" << endl;
+    m_pileSymboles.top()->staticCheck();
     cout << endl << endl;
     printEtatStack();
     cout << endl << endl;
@@ -106,7 +110,7 @@ void Automate::printSymboleStack()
 void Automate::printDeclMap()
 {
     cout << "Map des variables :" << endl;
-    global_declMap->print();
+    DeclMap::Instance().print();
 }
 
 void Automate::printSymbole(int symbole)

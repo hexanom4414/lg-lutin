@@ -6,3 +6,8 @@ void Constante::print()
     m_listAffectation->print();
     cout << ";" << endl;
 }
+
+void Constante::staticCheck()
+{
+    m_listAffectation->staticCheck();
+}
