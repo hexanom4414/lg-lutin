@@ -32,7 +32,7 @@ class DeclMap
 
         struct IdentValue
         {
-            bool isConst, isInitialized;
+            bool isConst, isInitialized, isUsed;
             int value;
         };
 

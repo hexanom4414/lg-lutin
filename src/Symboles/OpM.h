@@ -10,6 +10,7 @@ class OpM : public Operateur
         OpM(int id) : Operateur(id) {};
         virtual ~OpM() {};
         void setAttribute(int type) {m_type = type;};
+        int getType() {return m_type;};
         void print();
     protected:
     private:

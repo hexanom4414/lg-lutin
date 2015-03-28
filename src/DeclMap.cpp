@@ -25,6 +25,8 @@ bool DeclMap::checkIdent(const string & ident)
 
 int DeclMap::getValue(const string & ident)
 {
+    if(!m_declMap.find(ident)->second.isUsed)
+        m_declMap.find(ident)->second.isUsed = true;
     return m_declMap.find(ident)->second.value;
 }
 
@@ -55,6 +57,7 @@ void DeclMap::addIdent(const string & ident, bool isConst, int value)
         IdentValue t_identValue;
         t_identValue.isConst = isConst;
         t_identValue.isInitialized = isConst;
+        t_identValue.isUsed = false;
         t_identValue.value = value;
         m_declMap[ident] = t_identValue;
     }

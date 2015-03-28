@@ -11,6 +11,7 @@ class OpA : public Operateur
         virtual ~OpA() {};
 
         void setAttribute(int type) {m_type = type;};
+        int getType() {return m_type;};
         void print();
     protected:
     private:

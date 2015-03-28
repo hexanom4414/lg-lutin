@@ -41,4 +41,12 @@ void Facteur::staticCheck()
     {
         m_expression->staticCheck();
     }
+    else if (m_identificateur.compare("") != 0)
+    {
+        if(!DeclMap::Instance().checkIdent(m_identificateur))
+        {
+            print();
+            cout << endl << ">>>> err : " << m_identificateur << " declaration manquante" << endl;
+        }
+    }
 }
