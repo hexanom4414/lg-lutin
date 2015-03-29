@@ -15,10 +15,10 @@ using namespace std;
 class Automate
 {
     public:
-        Automate(const string & p_file);
+        Automate(const string & p_file, bool skipErrChar);
         virtual ~Automate() {};
 
-        void run();
+        transition_return run();
         Symbole * depilerSymbole(bool toDelete = false);
         void shift(AbstractEtat * etat, Symbole * s);
         void reduce(unsigned int nbDepil, Symbole * s);
@@ -30,6 +30,7 @@ class Automate
         stack <AbstractEtat *> m_pileEtats;
         stack <Symbole *> m_pileSymboles;
         Lexer * m_lexer;
+        bool m_skipErrChar;
 
         void printEtatStack();
         void printSymboleStack();

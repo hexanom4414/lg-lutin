@@ -14,6 +14,5 @@ void Ecriture::staticCheck()
 
 void Ecriture::transformation()
 {
-    cout << "Ecriture" << endl;
     m_expression->transformation();
 }

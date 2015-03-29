@@ -48,7 +48,7 @@ using namespace boost;
 class Lexer
 {
 public:
-    Lexer(const string & p_file);
+    Lexer(const string & p_file, bool skipErrChar);
     virtual ~Lexer() {};
 
     Symbole * getSymbole ();
@@ -57,6 +57,7 @@ protected:
 
 private:
     ifstream file;
+    bool m_skipErrChar;
     Symbole * resultat;
 
     bool symbolExist(const string &s);

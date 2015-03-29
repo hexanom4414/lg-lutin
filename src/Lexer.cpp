@@ -6,9 +6,10 @@
 //const string ID_REGEX = "\\w+";
 //const string VAL_REGEX =;
 
-Lexer::Lexer(const string & p_file) : file(p_file.c_str(), ios_base::in)
+Lexer::Lexer(const string & p_file, bool skipErrChar) : file(p_file.c_str(), ios_base::in)
 {
     cout << "Lexer created" << endl;
+    m_skipErrChar = skipErrChar;
     resultat = 0;
 }
 
@@ -228,7 +229,9 @@ Symbole * Lexer::getSymbole ()
 
         if(word.size() == 0)
         {
-            cout << "char non autorise : " << file.get() << endl;
+            cout << "........................." << endl;
+            cout << "char non autorise : " << (char) file.get() << endl;
+            return getSymbole();
         }
         else
         {

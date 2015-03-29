@@ -63,15 +63,16 @@ int main(int argc, const char* argv[])
     }
 
     //// Lancement automate
-    Automate * automate = new Automate(m_file);
-    automate->run();
-    if(affichage)
-        automate->printProgram();
-    if(analyse)
-        automate->checkStatic();
-    if(optimisation)
-        automate->transformation();
-
+    Automate * automate = new Automate(m_file, true);
+    if(automate->run() == FINISH)
+    {
+        if(affichage)
+            automate->printProgram();
+        if(analyse)
+            automate->checkStatic();
+        if(optimisation)
+            automate->transformation();
+    }
     return 0;
 }
 

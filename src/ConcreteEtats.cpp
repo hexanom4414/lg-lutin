@@ -199,7 +199,7 @@ transition_return Etat7::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -231,7 +231,7 @@ transition_return Etat8::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -269,7 +269,7 @@ transition_return Etat9::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -297,7 +297,7 @@ transition_return Etat10::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -324,7 +324,7 @@ transition_return Etat11::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -350,7 +350,7 @@ transition_return Etat12::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -375,7 +375,7 @@ transition_return Etat13::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -411,7 +411,7 @@ transition_return Etat14::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -439,7 +439,7 @@ transition_return Etat15::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -466,7 +466,7 @@ transition_return Etat16::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -488,7 +488,7 @@ transition_return Etat17::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -511,7 +511,7 @@ transition_return Etat18::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -548,7 +548,7 @@ transition_return Etat19::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -570,7 +570,7 @@ transition_return Etat20::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -592,7 +592,7 @@ transition_return Etat21::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -618,7 +618,7 @@ transition_return Etat22::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -634,7 +634,7 @@ transition_return Etat23::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -651,7 +651,7 @@ transition_return Etat24::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -668,7 +668,7 @@ transition_return Etat25::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -705,7 +705,7 @@ transition_return Etat26::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -734,7 +734,7 @@ transition_return Etat27::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -761,7 +761,7 @@ transition_return Etat28::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -795,7 +795,7 @@ transition_return Etat29::transition(Automate & automate, Symbole * s)
             }
             return ACCEPTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -836,7 +836,7 @@ transition_return Etat31::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -888,7 +888,7 @@ transition_return Etat33::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -914,7 +914,7 @@ transition_return Etat34::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -937,7 +937,7 @@ transition_return Etat35::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -957,7 +957,7 @@ transition_return Etat36::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -978,7 +978,7 @@ transition_return Etat37::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -1004,7 +1004,7 @@ transition_return Etat38::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -1021,7 +1021,7 @@ transition_return Etat39::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 }
@@ -1037,7 +1037,7 @@ transition_return Etat40::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -1054,7 +1054,7 @@ transition_return Etat41::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -1085,7 +1085,7 @@ transition_return Etat42::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -1102,7 +1102,7 @@ transition_return Etat43::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -1119,7 +1119,7 @@ transition_return Etat44::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -1147,7 +1147,7 @@ transition_return Etat45::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -1174,7 +1174,7 @@ transition_return Etat46::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
@@ -1201,7 +1201,7 @@ transition_return Etat47::transition(Automate & automate, Symbole * s)
             }
             return REDUCED;
         default:
-            cout << "err" << endl;
+
             return ERROR;
     }
 
