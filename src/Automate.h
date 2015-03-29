@@ -25,6 +25,7 @@ class Automate
         void printSymbole(int symbole);
         void printProgram();
         void checkStatic();
+        void transformation();
     protected:
         stack <AbstractEtat *> m_pileEtats;
         stack <Symbole *> m_pileSymboles;

@@ -15,6 +15,7 @@ class Programme : public SymboleComplexe
         void setAttribute(ListInstruction * p_listInstruction) {m_listInstruction = p_listInstruction;};
         void print();
         virtual void staticCheck();
+        virtual void transformation();
     protected:
     private:
         ListDeclaration * m_listDeclaration;

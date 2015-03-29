@@ -12,6 +12,13 @@ void ListInstruction::staticCheck()
         (*it)->staticCheck();
 }
 
+void ListInstruction::transformation()
+{
+    for (list<Instruction *>::reverse_iterator it=m_listInstruction.rbegin(); it != m_listInstruction.rend(); ++it)
+        (*it)->transformation();
+}
+
+
 void ListInstruction::setAttribute(ListInstruction * p_listInstruction)
 {
     while (!p_listInstruction->isEmpty())

@@ -86,6 +86,16 @@ void Automate::checkStatic()
     cout << endl;
 }
 
+void Automate::transformation()
+{
+    cout << "Transformation du programme :" << endl;
+    m_pileSymboles.top()->transformation();
+    cout << endl;
+    cout << "Affichage du programme transforme :" << endl;
+    m_pileSymboles.top()->print();
+    cout << endl;
+}
+
 void Automate::printEtatStack()
 {
     cout << "Pile d'etats :" << endl;

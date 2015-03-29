@@ -14,7 +14,10 @@ int Expression::eval()
 {
     if(!m_isTerme)
     {
-
+        if(m_operateur->getType() == PLUS)
+            return m_expDroite->eval() + m_expGauche->eval();
+        else if (m_operateur->getType() == MOINS)
+            return m_expDroite->eval() - m_expGauche->eval();
     }
     return m_expDroite->eval();
 }
@@ -26,4 +29,37 @@ void Expression::staticCheck()
         m_expGauche->staticCheck();
     }
     m_expDroite->staticCheck();
+}
+
+void Expression::transformation()
+{
+    isConst();
+}
+
+bool Expression::isConst()
+{
+    if(!m_isTerme)
+    {
+        if(m_expDroite->isConst() && m_expGauche->isConst())
+        {
+            if(m_operateur->getType() == PLUS)
+            {
+                m_expDroite->setFacteurVal(m_expGauche->eval() + m_expDroite->eval());
+            }
+            else if (m_operateur->getType() == MOINS)
+            {
+                m_expDroite->setFacteurVal(m_expGauche->eval() - m_expDroite->eval());
+            }
+            m_isTerme = true;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    else
+    {
+        return m_expDroite->isConst();
+    }
 }

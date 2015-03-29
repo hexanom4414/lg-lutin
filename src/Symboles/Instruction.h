@@ -7,8 +7,9 @@ class Instruction : public SymboleComplexe
 {
     public:
         Instruction(int id) : SymboleComplexe(id) { };
-		virtual void print() = 0;
-		virtual void staticCheck() =0;
+        virtual void print() = 0;
+        virtual void staticCheck() =0;
+        virtual void transformation() {};
         virtual ~Instruction() {};
     protected:
     private:
