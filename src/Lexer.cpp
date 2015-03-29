@@ -23,6 +23,78 @@ bool Lexer::lexical_result (string s, bool b)
     return b;
 }
 
+bool Lexer::symbolExist(const string &s)
+{
+    if (lexer_lire(s))
+    {
+        return true;
+    }
+    else if(lexer_ecrire(s))
+    {
+        return true;
+    }
+    else if(lexer_const(s))
+    {
+        return true;
+    }
+    else if(lexer_var(s))
+    {
+        return true;
+    }
+    else if(lexer_identificateur(s))
+    {
+        return true;
+    }
+    else if(lexer_num(s))
+    {
+        return true;
+    }
+    else if(lexer_aff_dyn(s))
+    {
+        return true;
+    }
+    else if(lexer_aff_stat(s))
+    {
+        return true;
+    }
+    else if(lexer_point_virg(s))
+    {
+        return true;
+    }
+    else if(lexer_virg(s))
+    {
+        return true;
+    }
+    else if(lexer_plus(s))
+    {
+        return true;
+    }
+    else if(lexer_moins(s))
+    {
+        return true;
+    }
+    else if(lexer_mult(s))
+    {
+        return true;
+    }
+    else if(lexer_div(s))
+    {
+        return true;
+    }
+    else if(lexer_parOuvr(s))
+    {
+        return true;
+    }
+    else if(lexer_parFerm(s))
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 bool Lexer::lexer_const(const string &s)
 {
     const regex declaration("const");
@@ -44,7 +116,7 @@ bool Lexer::lexer_identificateur(const string &s)
 
 bool Lexer::lexer_num(const string &s)
 {
-    const regex num("-?[0-9]+\\.?[0-9]*");
+    const regex num("[0-9]+\\.?[0-9]*");
     return lexical_result(s,regex_match(s,num));
 }
 
@@ -127,17 +199,38 @@ Symbole * Lexer::getSymbole ()
 {
     if(file.is_open())
     {
-        if (file.eof())
+        string word = "";
+        char c;
+
+        file.get(c);
+        while(c == ' ' || c == '\n')
         {
-            cout << "........................." << endl;
-            cout << "LU : EoF" << endl;
-            resultat = new Dollar(DOLLAR);
-            file.close();
-            return resultat;
+            file.get(c);
         }
 
-        string word;
-        if(file >> word)
+        word += c;
+        while((symbolExist(word) && !file.eof()) || word.compare(":") == 0)
+        {
+            c = file.get();
+            if(!file.eof())
+                word += c;
+        }
+
+        if (file.eof())
+        {
+            file.close();
+        }
+        else
+        {
+            file.unget();
+            word = word.substr(0, word.size()-1);
+        }
+
+        if(word.size() == 0)
+        {
+            cout << "char non autorise : " << file.get() << endl;
+        }
+        else
         {
             cout << "........................." << endl;
             cout << "LU : "<< word << endl;
@@ -210,14 +303,24 @@ Symbole * Lexer::getSymbole ()
             }
             else
             {
-                cerr << "syntaxe incorrecte : " << word << endl;
+                cout << "syntaxe incorrecte : " << word << endl;
             }
+            return resultat;
         }
-        return resultat;
     }
     else
     {
-        resultat = (Symbole *) -1;
-        return resultat;
+        if((int) * resultat != DOLLAR)
+        {
+            cout << "........................." << endl;
+            cout << "LU : EoF" << endl;
+            resultat = new Dollar(DOLLAR);
+            return resultat;
+        }
+        else
+        {
+            resultat = (Symbole *) -1;
+            return resultat;
+        }
     }
 }
