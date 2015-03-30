@@ -210,14 +210,14 @@ Symbole * Lexer::getSymbole ()
         }
 
         word += c;
-        while((symbolExist(word) && !file.eof()) || word.compare(":") == 0)
+        while((symbolExist(word) && (int) c != -1) || word.compare(":") == 0)
         {
             c = file.get();
-            if(!file.eof())
+            if((int) c != -1)
                 word += c;
         }
 
-        if (file.eof())
+        if ((int) c == -1)
         {
             file.close();
         }
