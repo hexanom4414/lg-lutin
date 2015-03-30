@@ -13,20 +13,15 @@ void Facteur::print()
     {
         cout << m_valeur << " ";
     }
-    else if(!DeclMap::Instance().getVarIsReaded(m_identificateur))
-    {
-        if(DeclMap::Instance().checkIdent(m_identificateur)) //
-            cout << DeclMap::Instance().getValue(m_identificateur) << " ";
-        else
-        {
-            cout << m_identificateur << " ";
-        }
-    }
     else
     {
-        cout << m_identificateur << " ";
+        if(DeclMap::Instance().getVarIsReaded(m_identificateur))
+            cout << m_identificateur << " ";
+        else if(!DeclMap::Instance().getIsInitialized(m_identificateur))
+            cout << m_identificateur << " ";
+        else
+            cout << DeclMap::Instance().getValue(m_identificateur) << " ";
     }
-
 }
 
 int Facteur::eval()

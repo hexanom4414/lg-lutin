@@ -75,7 +75,14 @@ void DeclMap::addIdent(const string & ident, bool isConst, int value)
 void DeclMap::print()
 {
     for (m_it=m_declMap.begin(); m_it!=m_declMap.end(); ++m_it)
-        cout << m_it->first << " := " << m_it->second.value << endl;
+        cout << m_it->first <<
+             " -> value : " << m_it->second.value <<
+             ", const : " << m_it->second.isConst <<
+             ", initialized : " << m_it->second.isInitialized <<
+             ", used : " << m_it->second.isUsed <<
+             ", readed : " << m_it->second.varIsReaded <<
+             endl;
+    cout << endl;
 }
 
 void DeclMap::staticCheck()

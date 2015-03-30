@@ -31,6 +31,6 @@ void Affectation::staticCheck()
 
 void Affectation::transformation()
 {
-    m_expression->transformation();
-    execute();
+    if(m_expression->isConst())
+        execute();
 }
