@@ -18,6 +18,12 @@ void ListInstruction::transformation()
         (*it)->transformation();
 }
 
+void ListInstruction::execute()
+{
+    for (list<Instruction *>::reverse_iterator it=m_listInstruction.rbegin(); it != m_listInstruction.rend(); ++it)
+        (*it)->execute();
+}
+
 
 void ListInstruction::setAttribute(ListInstruction * p_listInstruction)
 {
