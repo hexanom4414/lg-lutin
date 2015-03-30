@@ -24,7 +24,6 @@ class Automate
         void shift(AbstractEtat * etat, Symbole * s);
         void reduce(unsigned int nbDepil, Symbole * s);
         void execute();
-        void setProgramme(Programme * p);
         void printSymbole(int symbole);
         void printProgram();
         void checkStatic();

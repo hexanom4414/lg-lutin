@@ -145,14 +145,12 @@ void Automate::printDeclMap()
 
 void Automate::execute()
 {
-  p_programme->execute();
+  m_pileSymboles.top()->execute();
+  DeclMap::Instance().clearMap();
 
 }
 
-void Automate::setProgramme(Programme * p)
-{
-    p_programme = p ;
-}
+
 
 void Automate::printSymbole(int symbole)
 {

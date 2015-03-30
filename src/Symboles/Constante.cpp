@@ -18,8 +18,6 @@ void Constante::execute()
 	
   m_listAffectation->execute();
 
-
-
 }
 
 void Constante::transformation()
