@@ -8,7 +8,6 @@
 
 Lexer::Lexer(const string & p_file, bool skipErrChar) : file(p_file.c_str(), ios_base::in)
 {
-    cout << "Lexer created" << endl;
     m_skipErrChar = skipErrChar;
     resultat = 0;
 }
@@ -206,6 +205,7 @@ Symbole * Lexer::getSymbole ()
         file.get(c);
         while(c == ' ' || c == '\n')
         {
+			cerr<< "BUG"  << (int)c<<endl;
             file.get(c);
         }
 
@@ -229,14 +229,12 @@ Symbole * Lexer::getSymbole ()
 
         if(word.size() == 0)
         {
-            cout << "........................." << endl;
-            cout << "char non autorise : " << (char) file.get() << endl;
+			file.get();
             return getSymbole();
         }
         else
         {
-            cout << "........................." << endl;
-            cout << "LU : "<< word << endl;
+
 
             if (lexer_lire(word))
             {
@@ -306,7 +304,7 @@ Symbole * Lexer::getSymbole ()
             }
             else
             {
-                cout << "syntaxe incorrecte : " << word << endl;
+                cerr << "syntaxe incorrecte : " << word << endl;
             }
             return resultat;
         }
@@ -315,8 +313,7 @@ Symbole * Lexer::getSymbole ()
     {
         if((int) * resultat != DOLLAR)
         {
-            cout << "........................." << endl;
-            cout << "LU : EoF" << endl;
+
             resultat = new Dollar(DOLLAR);
             return resultat;
         }

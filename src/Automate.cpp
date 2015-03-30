@@ -9,14 +9,10 @@ Automate::Automate(const string & p_file, bool skipErrChar)
 
 transition_return Automate::run()
 {
-    cout << endl << "////////////////// Run //////////////////"  << endl;
     Symbole * t_symb;
     transition_return ret_val = REDUCED;
     while((t_symb = m_lexer->getSymbole()) != (Symbole *) -1)
     {
-        cout << "RECU : ";
-        printSymbole((int) * t_symb);
-        cout << endl << endl;
 
         ret_val = REDUCED;
         while(ret_val == REDUCED || ret_val == ACCEPTED || ret_val == RECUP_ERROR)
@@ -25,22 +21,21 @@ transition_return Automate::run()
 
             if(ret_val == RECUP_ERROR)
             {
-                cout << ">>>> RECUP_ERROR <<<<" << endl;
+                cerr << ">>>> RECUP_ERROR <<<<" << endl;
             }
         }
 
         if(ret_val == ERROR)
         {
-            cout << ">>>> ERROR <<<<" << endl;
+            cerr << ">>>> ERROR <<<<" << endl;
             break;
         }
     }
     if(ret_val == FINISH)
     {
-        cout << "Program Accepted !" << endl;
+        //cout << "Program Accepted !" << endl;
     }
 
-    cout << "//////////////// End Run ////////////////" << endl << endl;
     return ret_val;
 }
 
@@ -61,11 +56,6 @@ void Automate::empilerSymbole(Symbole * s)
 
 void Automate::shift(AbstractEtat * etat, Symbole * s)
 {
-    cout << "Decalage vers l'";
-    etat->print();
-    cout << " par le symbole : ";
-    printSymbole((int) *s);
-    cout << endl;
 
     m_pileEtats.push(etat);
     m_pileSymboles.push(s);
@@ -74,9 +64,7 @@ void Automate::shift(AbstractEtat * etat, Symbole * s)
 
 void Automate::reduce(unsigned int nbDepil, Symbole * s)
 {
-    cout << "Reduction de " << nbDepil << " symboles par le symbole : ";
-    printSymbole((int) *s);
-    cout << endl;
+    
 
     for(unsigned int i = 0 ; i < nbDepil ; i++)
     {
@@ -145,7 +133,7 @@ void Automate::printDeclMap()
 void Automate::execute()
 {
     m_pileSymboles.top()->execute();
-    printDeclMap();
+   // printDeclMap();
     DeclMap::Instance().clearMap();
 }
 

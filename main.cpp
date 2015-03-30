@@ -43,7 +43,7 @@ int main(int argc, const char* argv[])
         {
             cout << arg << " : Argument inconnu" << endl;
             cout << "Use \"Lutin -help\" for help" << endl;
-            return 0;
+            return 1;
         }
     }
 
@@ -53,13 +53,15 @@ int main(int argc, const char* argv[])
     {
         cout << "Need file" << endl;
         cout << "Use \"Lutin -help\" for help" << endl;
-        return 0;
+        return 1;
     }
 
     ifstream fichier(m_file.c_str());
     if(fichier.fail())
     {
         cout << m_file << " : Fichier inexistant ou non lisible" << endl;
+                
+        return 1;
     }
 
     //// Lancement automate

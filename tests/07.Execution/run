@@ -1,1 +1,1 @@
-../lut -e ../files/correct.lt
+../Lutin -e ../files/lutin-test.txt
