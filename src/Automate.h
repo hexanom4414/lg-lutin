@@ -17,11 +17,13 @@ class Automate
     public:
         Automate(const string & p_file);
         virtual ~Automate() {};
-
+		
         void run();
         Symbole * depilerSymbole(bool toDelete = false);
         void shift(AbstractEtat * etat, Symbole * s);
         void reduce(unsigned int nbDepil, Symbole * s);
+        void execute();
+        void setProgramme(Programme * p);
         void printSymbole(int symbole);
         void printProgram();
         void checkStatic();
@@ -29,7 +31,8 @@ class Automate
         stack <AbstractEtat *> m_pileEtats;
         stack <Symbole *> m_pileSymboles;
         Lexer * m_lexer;
-
+		Programme * p_programme;
+		
         void printEtatStack();
         void printSymboleStack();
         void printDeclMap();

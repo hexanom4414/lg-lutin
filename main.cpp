@@ -69,6 +69,8 @@ int main(int argc, const char* argv[])
         automate->printProgram();
     if(analyse)
         automate->checkStatic();
+    if(execution)
+		automate->execute();
 
     return 0;
 }

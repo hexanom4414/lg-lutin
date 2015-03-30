@@ -114,6 +114,18 @@ void Automate::printDeclMap()
     DeclMap::Instance().print();
 }
 
+
+void Automate::execute()
+{
+  p_programme->execute();  
+
+}
+
+void Automate::setProgramme(Programme * p)
+{
+    p_programme = p ;
+}
+
 void Automate::printSymbole(int symbole)
 {
     switch(symbole)

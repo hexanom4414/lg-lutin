@@ -1,5 +1,4 @@
 #include "Lecture.h"
-
 void Lecture::print()
 {
     cout << "lire " << m_identificateur << " ;" << endl;
@@ -18,3 +17,22 @@ void Lecture::staticCheck()
         cout << ">>>> err : lecture sur constante" << endl;
     }
 }
+
+
+void Lecture::execute()
+{
+	int value;
+	// Get the value from the standard input
+	cout << "Entrez une valeur pour " << m_identificateur << endl;
+	cin >> value; // Secure input
+	
+	
+	// Set the value in the map 
+	
+	if(DeclMap::Instance().checkIdent(m_identificateur)){
+
+	DeclMap::Instance().setValue(m_identificateur, value);
+	
+	}
+}
+
