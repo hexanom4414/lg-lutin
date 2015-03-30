@@ -48,8 +48,8 @@ void ListAffectation::staticCheck()
     {
         if(DeclMap::Instance().checkIdent(it->first))
         {
-            cout << it->first << " = " << it->second << endl;
-            cout << ">>>> err : " << it->first << " deja declare" << endl;
+            cerr << it->first << " = " << it->second << endl;
+            cerr << ">>>> err : " << it->first << " deja declare" << endl;
         }
         else
         {
@@ -60,8 +60,8 @@ void ListAffectation::staticCheck()
 
 void ListAffectation::execute()
 {
-	 
-	 
+
+
 	for (list<pair<string,double> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
     {
         if(DeclMap::Instance().checkIdent(it->first))

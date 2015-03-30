@@ -242,7 +242,6 @@ transition_return Etat8::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-
             return ERROR;
     }
 }
@@ -308,7 +307,6 @@ transition_return Etat10::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-
             return ERROR;
     }
 }
@@ -368,7 +366,7 @@ transition_return Etat12::transition(Automate & automate, Symbole * s)
         case POINTVIRGULE:
             {
                 Facteur * p_facteur = new Facteur(FACTEUR);
-                p_facteur->setAttribute(automate.depilerSymbole()->getName());
+                p_facteur->setAttribute(automate.depilerSymbole(true)->getName());
 
                 automate.reduce(1,p_facteur);
             }
@@ -380,10 +378,10 @@ transition_return Etat12::transition(Automate & automate, Symbole * s)
         case SYMBCONST:
         case DOLLAR:
             {
-                Facteur * p_facteur = new Facteur(FACTEUR);
-                p_facteur->setAttribute(automate.depilerSymbole()->getName());
+                Facteur * fake_s = new Facteur(FACTEUR);
+                fake_s->setAttribute(automate.depilerSymbole()->getName());
 
-                automate.reduce(1,p_facteur);
+                automate.reduce(1,fake_s);
             }
             return RECUP_ERROR;
         default:
@@ -405,7 +403,7 @@ transition_return Etat13::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Facteur * p_facteur = new Facteur(FACTEUR);
-                p_facteur->setAttribute(automate.depilerSymbole()->getValue());
+                p_facteur->setAttribute(automate.depilerSymbole(true)->getValue());
 
                 automate.reduce(1,p_facteur);
             }
@@ -589,10 +587,10 @@ transition_return Etat19::transition(Automate & automate, Symbole * s)
         case SYMBCONST:
         case DOLLAR:
             {
-                Expression * p_expression = new Expression(EXPRESSION);
-                p_expression->setAttribute((Terme *) automate.depilerSymbole(), true);
+                Expression * fake_s = new Expression(EXPRESSION);
+                fake_s->setAttribute((Terme *) automate.depilerSymbole(), true);
 
-                automate.reduce(1,p_expression);
+                automate.reduce(1,fake_s);
             }
             return RECUP_ERROR;
         default:
@@ -824,9 +822,9 @@ transition_return Etat28::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Affectation * p_affectation = new Affectation(AFFECTATION);
-                automate.depilerSymbole();
+                automate.depilerSymbole(true);
                 p_affectation->setAttribute((Expression *) automate.depilerSymbole());
-                automate.depilerSymbole();
+                automate.depilerSymbole(true);
                 p_affectation->setAttribute(automate.depilerSymbole()->getName());
 
                 automate.reduce(4,p_affectation);
@@ -987,7 +985,7 @@ transition_return Etat34::transition(Automate & automate, Symbole * s)
             {
                 ListIdentificateur * p_ListIdentificateur = new ListIdentificateur(LISTIDENTIFICATEUR);
                 p_ListIdentificateur->setAttribute(automate.depilerSymbole()->getName());
-                automate.depilerSymbole(true); //remove virgule
+                automate.depilerSymbole(true);
                 p_ListIdentificateur->setAttribute((ListIdentificateur *) automate.depilerSymbole());
 
                 automate.reduce(3,p_ListIdentificateur);
@@ -1139,7 +1137,6 @@ transition_return Etat40::transition(Automate & automate, Symbole * s)
             }
             return RECUP_ERROR;
         default:
-
             return ERROR;
     }
 
@@ -1156,7 +1153,6 @@ transition_return Etat41::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-
             return ERROR;
     }
 

@@ -8,11 +8,11 @@ void Lecture::staticCheck()
 {
     if(!DeclMap::Instance().checkIdent(m_identificateur))
     {
-        cout << ">>>> err : " << m_identificateur << " declaration manquante" << endl;
+        cerr << ">>>> err : " << m_identificateur << " declaration manquante" << endl;
     }
     else if (DeclMap::Instance().getIsConst(m_identificateur))
     {
-        cout << ">>>> err : lecture sur constante" << endl;
+        cerr << ">>>> err : lecture sur constante" << endl;
     }
     else
     {
@@ -34,14 +34,14 @@ void Lecture::execute()
 	cin >> value; // Secure input
 	cout << "Vous avez entré : " << value << endl;
 
-	
-	// Set the value in the map 
-	
+
+	// Set the value in the map
+
 	if(DeclMap::Instance().checkIdent(m_identificateur)){
 
 	DeclMap::Instance().setValue(m_identificateur, value);
 	DeclMap::Instance().setInitialized(m_identificateur);
-	
+
 	}
 }
 

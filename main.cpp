@@ -41,8 +41,8 @@ int main(int argc, const char* argv[])
             m_file.assign(arg);
         else
         {
-            cout << arg << " : Argument inconnu" << endl;
-            cout << "Use \"Lutin -help\" for help" << endl;
+            cerr << arg << " : Argument inconnu" << endl;
+            cerr << "Use \"Lutin -help\" for help" << endl;
             return 1;
         }
     }
@@ -60,7 +60,7 @@ int main(int argc, const char* argv[])
     if(fichier.fail())
     {
         cerr << m_file << " : Fichier inexistant ou non lisible" << endl;
-                
+
         return 1;
     }
 

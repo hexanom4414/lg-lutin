@@ -57,7 +57,7 @@ void DeclMap::setValue(const string & ident, double val)
             m_it->second.isInitialized = true;
         }
         else
-            cout << "!!! setValue on const !!!" << endl;
+            cerr << "setValue sur constante" << endl;
     }
 
 }
@@ -95,11 +95,11 @@ void DeclMap::staticCheck()
     {
         if(!m_it->second.isUsed)
         {
-            cout << m_it->first << " n'est pas utilise" << endl;
+            cerr << m_it->first << " n'est pas utilise" << endl;
         }
         if(!m_it->second.isInitialized)
         {
-            cout << m_it->first << " n'est pas affecte" << endl;
+            cerr << m_it->first << " n'est pas affecte" << endl;
         }
     }
 }

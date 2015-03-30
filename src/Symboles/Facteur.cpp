@@ -50,11 +50,11 @@ void Facteur::staticCheck()
     {
         if(!DeclMap::Instance().checkIdent(m_identificateur))
         {
-            cout << endl << ">>>> err : " << m_identificateur << " declaration manquante" << endl;
+            cerr << endl << ">>>> err : " << m_identificateur << " declaration manquante" << endl;
         }
         else if(!DeclMap::Instance().getIsInitialized(m_identificateur))
         {
-            cout << endl << ">>>> err : " << m_identificateur << " initialisation manquante" << endl;
+            cerr << endl << ">>>> err : " << m_identificateur << " initialisation manquante" << endl;
         }
         else
         {

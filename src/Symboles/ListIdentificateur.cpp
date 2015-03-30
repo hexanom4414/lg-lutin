@@ -48,7 +48,7 @@ void ListIdentificateur::staticCheck()
     {
         if(DeclMap::Instance().checkIdent(*it))
         {
-            cout << ">>>> err : " << *it << " deja declare" << endl;
+            cerr << ">>>> err : " << *it << " deja declare" << endl;
         }
         else
         {
