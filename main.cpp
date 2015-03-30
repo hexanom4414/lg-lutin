@@ -41,8 +41,8 @@ int main(int argc, const char* argv[])
             m_file.assign(arg);
         else
         {
-            cerr << arg << " : Argument inconnu" << endl;
-            cerr << "Use \"Lutin -help\" for help" << endl;
+            cout << arg << " : Argument inconnu" << endl;
+            cout << "Use \"Lutin -help\" for help" << endl;
             return 0;
         }
     }
@@ -51,27 +51,31 @@ int main(int argc, const char* argv[])
 
     if(m_file.compare("") == 0)
     {
-        cerr << "Need file" << endl;
-        cerr << "Use \"Lutin -help\" for help" << endl;
+        cout << "Need file" << endl;
+        cout << "Use \"Lutin -help\" for help" << endl;
         return 0;
     }
 
     ifstream fichier(m_file.c_str());
     if(fichier.fail())
     {
-        cerr << m_file << " : Fichier inexistant ou non lisible" << endl;
+        cout << m_file << " : Fichier inexistant ou non lisible" << endl;
     }
 
     //// Lancement automate
-    Automate * automate = new Automate(m_file);
-    automate->run();
-    if(affichage)
-        automate->printProgram();
-    if(analyse)
-        automate->checkStatic();
-    if(execution)
-		automate->execute();
 
+    Automate * automate = new Automate(m_file, true);
+    if(automate->run() == FINISH)
+    {
+        if(affichage)
+            automate->printProgram();
+        if(analyse)
+            automate->checkStatic();
+        if(optimisation)
+            automate->transformation();
+        if(execution)
+			automate->execute();
+    }
     return 0;
 }
 

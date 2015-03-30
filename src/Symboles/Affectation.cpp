@@ -26,3 +26,8 @@ void Affectation::staticCheck()
     }
     m_expression->staticCheck();
 }
+
+void Affectation::transformation()
+{
+    m_expression->transformation();
+}

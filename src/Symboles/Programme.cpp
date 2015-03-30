@@ -22,6 +22,13 @@ Programme::Programme (const Programme & p) : SymboleComplexe (p)
 void Programme::execute()
 
 {
+	// Here we fill in the map
+	
+	
+	
+	
+	
+	//Here we execute the instructions
 	
 	while (!m_listInstruction->isEmpty()){
 		
@@ -30,4 +37,9 @@ void Programme::execute()
 	}
 	
 	
+}
+
+void Programme::transformation()
+{
+    m_listInstruction->transformation();
 }

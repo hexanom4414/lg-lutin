@@ -13,7 +13,8 @@ class Ecriture : public Instruction
         void setAttribute(Expression * p_expression) {m_expression = p_expression;};
         virtual void execute();
         void print();
-        virtual void staticCheck();
+        void staticCheck();
+        void transformation();
     protected:
     	Expression * m_expression;
     private:

@@ -11,6 +11,7 @@ class Symbole
 
         virtual void print() = 0;
         virtual void staticCheck() {};
+        virtual void transformation() {};
         virtual void execute() {};
         virtual string getName() {return "";};
         virtual int getValue() {return -1;};

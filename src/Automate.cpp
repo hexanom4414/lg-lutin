@@ -1,12 +1,13 @@
 #include "Automate.h"
 
-Automate::Automate(const string & p_file)
+Automate::Automate(const string & p_file, bool skipErrChar)
 {
     m_pileEtats.push(new Etat1("Etat 1"));
-    m_lexer = new Lexer(p_file);
+    m_lexer = new Lexer(p_file, skipErrChar);
+    m_skipErrChar = skipErrChar;
 }
 
-void Automate::run()
+transition_return Automate::run()
 {
     cout << endl << "////////////////// Run //////////////////"  << endl;
     Symbole * t_symb;
@@ -22,6 +23,12 @@ void Automate::run()
         {
             ret_val = m_pileEtats.top()->transition(*this, t_symb);
         }
+
+        if(ret_val == ERROR)
+        {
+            cout << ">>>> ERROR <<<<" << endl;
+            break;
+        }
     }
     if(ret_val == FINISH)
     {
@@ -29,6 +36,7 @@ void Automate::run()
     }
 
     cout << "//////////////// End Run ////////////////" << endl << endl;
+    return ret_val;
 }
 
 
@@ -83,6 +91,16 @@ void Automate::checkStatic()
     m_pileSymboles.top()->staticCheck();
     DeclMap::Instance().staticCheck();
     DeclMap::Instance().clearMap();
+    cout << endl;
+}
+
+void Automate::transformation()
+{
+    cout << "Transformation du programme :" << endl;
+    m_pileSymboles.top()->transformation();
+    cout << endl;
+    cout << "Affichage du programme transforme :" << endl;
+    m_pileSymboles.top()->print();
     cout << endl;
 }
 

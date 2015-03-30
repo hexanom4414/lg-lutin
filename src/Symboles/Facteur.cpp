@@ -54,3 +54,25 @@ void Facteur::staticCheck()
         }
     }
 }
+
+bool Facteur::isConst()
+{
+    if(m_isAnExpression)
+    {
+        if(m_expression->isConst())
+        {
+            m_isAnExpression = false;
+            m_valeur = m_expression->eval();
+            return true;
+        }
+        return false;
+    }
+    else if (m_identificateur.compare("") == 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}

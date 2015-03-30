@@ -8,18 +8,17 @@
 class Terme : public SymboleComplexe
 {
 public:
-    Terme(int id) : SymboleComplexe(id),
-        m_expGauche(NULL),
-        m_operateur(NULL),
-        m_expDroite(NULL) { };
+    Terme(int id) : SymboleComplexe(id) {};
     virtual ~Terme() {};
 
-    virtual void print();
-    virtual void staticCheck();
+    void print();
+    void staticCheck();
+    bool isConst();
     int eval();
     void setAttribute(Terme * p_terme) {m_expGauche = p_terme;};
     void setAttribute(OpM * p_opM) {m_operateur = p_opM;};
     void setAttribute(Facteur * p_facteur, bool isFacteur) {m_expDroite = p_facteur;m_isFacteur = isFacteur;};
+    void setFacteurVal(int val);
 protected:
     Terme * m_expGauche;
     OpM * m_operateur;

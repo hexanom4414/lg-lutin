@@ -21,11 +21,12 @@ void Lecture::staticCheck()
 
 void Lecture::execute()
 {
-	int value;
+	double value;
 	// Get the value from the standard input
-	cout << "Entrez une valeur pour " << m_identificateur << endl;
+	cout << "Entrez une valeur pour : " << m_identificateur << endl;
 	cin >> value; // Secure input
-	
+	cout << "Vous avez entré : " << value << endl;
+
 	
 	// Set the value in the map 
 	

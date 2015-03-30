@@ -17,6 +17,7 @@ class Programme : public SymboleComplexe
         void print();
         void execute();
         virtual void staticCheck();
+        virtual void transformation();
     protected:
     private:
         ListDeclaration * m_listDeclaration;
