@@ -22,6 +22,9 @@ Programme::Programme (const Programme & p) : SymboleComplexe (p)
 void Programme::execute()
 
 {
+	
+	m_listDeclaration->print();
+	m_listInstruction->print();
 	// Here we fill in the map
 	m_listDeclaration->execute();
 
