@@ -13,6 +13,7 @@ class ListDeclaration : public SymboleComplexe
 
 		void print();
 		virtual void staticCheck();
+		virtual void execute();
 		void setAttribute(ListDeclaration * p_listDeclaration);
         void setAttribute(Declaration * p_Declaration);
         bool isEmpty();

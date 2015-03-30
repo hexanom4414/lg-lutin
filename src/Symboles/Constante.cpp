@@ -11,3 +11,11 @@ void Constante::staticCheck()
 {
     m_listAffectation->staticCheck();
 }
+
+void Constante::execute()
+
+{
+	
+  m_listAffectation->execute();
+
+}

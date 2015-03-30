@@ -46,6 +46,7 @@ void DeclMap::setValue(const string & ident, int val)
         m_it->second.value = val;
         m_it->second.isInitialized = true;
     }
+
 }
 
 void DeclMap::addIdent(const string & ident, bool isConst, int value)

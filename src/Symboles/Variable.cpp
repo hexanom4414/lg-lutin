@@ -11,3 +11,15 @@ void Variable::staticCheck()
 {
     m_listIdentificateur->staticCheck();
 }
+
+
+
+void Variable::execute()
+
+{
+	
+	
+	m_listIdentificateur->execute();
+
+
+}
