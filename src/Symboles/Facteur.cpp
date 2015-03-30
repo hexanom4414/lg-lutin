@@ -67,8 +67,6 @@ bool Facteur::isConst()
 {
     if(m_isAnExpression)
     {
-
-
         if(m_expression->isConst())
         {
             m_isAnExpression = false;

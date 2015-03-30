@@ -62,3 +62,24 @@ void Terme::setFacteurVal(int val)
 {
     m_expDroite->setAttribute(val);
 }
+
+void Terme::setFacteurExp(Expression * p_exp)
+{
+    m_expDroite->setAttribute(p_exp);
+}
+
+void Terme::elementNeutre()
+{
+    if(!m_isFacteur)
+    {
+        if(m_expGauche->eval() == 1 && m_operateur->getType() == MULT)
+        {
+            m_isFacteur = true;
+        }
+        if(m_expDroite->eval() == 1)
+        {
+            m_expDroite->setAttribute(m_expGauche->eval());
+            m_isFacteur = true;
+        }
+    }
+}

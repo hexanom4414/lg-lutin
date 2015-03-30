@@ -25,7 +25,10 @@ bool DeclMap::checkIdent(const string & ident)
 
 int DeclMap::getValue(const string & ident)
 {
-    return m_declMap.find(ident)->second.value;
+    if(m_declMap.find(ident)->second.isInitialized)
+        return m_declMap.find(ident)->second.value;
+    else
+        return -1;
 }
 
 bool DeclMap::getIsConst(const string & ident)

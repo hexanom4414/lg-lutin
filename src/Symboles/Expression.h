@@ -12,8 +12,8 @@ class Expression : public SymboleComplexe
         virtual ~Expression() {};
         void print();
         void staticCheck();
-        void transformation();
         bool isConst();
+        Expression * elementNeutre();
         void setAttribute(Expression * p_expression) {m_expGauche = p_expression;};
         void setAttribute(OpA * p_opA) {m_operateur = p_opA;};
         void setAttribute(Terme * p_terme, bool isTerme) {m_expDroite = p_terme;m_isTerme = isTerme;};

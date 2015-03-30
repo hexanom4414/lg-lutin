@@ -32,5 +32,8 @@ void Affectation::staticCheck()
 void Affectation::transformation()
 {
     if(m_expression->isConst())
+    {
         execute();
+    }
+    m_expression =  m_expression->elementNeutre();
 }

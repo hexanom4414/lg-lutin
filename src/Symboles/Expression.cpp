@@ -31,11 +31,6 @@ void Expression::staticCheck()
     m_expDroite->staticCheck();
 }
 
-void Expression::transformation()
-{
-    isConst();
-}
-
 bool Expression::isConst()
 {
     if(!m_isTerme)
@@ -63,4 +58,22 @@ bool Expression::isConst()
     {
         return m_expDroite->isConst();
     }
+}
+
+Expression * Expression::elementNeutre()
+{
+    if(!m_isTerme)
+    {
+        if(m_expGauche->eval() == 0 && m_operateur->getType() == PLUS)
+        {
+            m_isTerme = true;
+            return this;
+        }
+        if(m_expDroite->eval() == 0)
+        {
+            return m_expGauche;
+        }
+    }
+    else
+        return this;
 }
