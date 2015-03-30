@@ -11,7 +11,7 @@ void Terme::print()
     m_expDroite->print();
 }
 
-int Terme::eval()
+double Terme::eval()
 {
     if(!m_isFacteur)
     {
@@ -58,7 +58,7 @@ bool Terme::isConst()
     }
 }
 
-void Terme::setFacteurVal(int val)
+void Terme::setFacteurVal(double val)
 {
     m_expDroite->setAttribute(val);
 }

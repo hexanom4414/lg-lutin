@@ -1,6 +1,6 @@
 #include "ListAffectation.h"
 
-void ListAffectation::setAttribute(const string & ident, int value)
+void ListAffectation::setAttribute(const string & ident, double value)
 {
     m_listAffectation.push_back(make_pair(ident, value));
 }
@@ -25,7 +25,7 @@ void ListAffectation::popFront()
     m_listAffectation.pop_front();
 }
 
-pair<string,int> ListAffectation::getFront()
+pair<string,double> ListAffectation::getFront()
 {
     return m_listAffectation.front();
 }
@@ -33,7 +33,7 @@ pair<string,int> ListAffectation::getFront()
 void ListAffectation::print()
 {
     unsigned int i = m_listAffectation.size();
-    for (list<pair<string,int> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
+    for (list<pair<string,double> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
     {
         cout << it->first << " = " << it->second << " ";
         if(i != 1)
@@ -44,7 +44,7 @@ void ListAffectation::print()
 
 void ListAffectation::staticCheck()
 {
-    for (list<pair<string,int> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
+    for (list<pair<string,double> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
     {
         if(DeclMap::Instance().checkIdent(it->first))
         {
@@ -62,7 +62,7 @@ void ListAffectation::execute()
 {
 	 
 	 
-	for (list<pair<string,int> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
+	for (list<pair<string,double> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
     {
         if(DeclMap::Instance().checkIdent(it->first))
         {
