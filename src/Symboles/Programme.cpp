@@ -47,5 +47,6 @@ void Programme::execute()
 
 void Programme::transformation()
 {
+    m_listDeclaration->transformation();
     m_listInstruction->transformation();
 }

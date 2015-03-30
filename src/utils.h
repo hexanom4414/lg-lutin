@@ -12,7 +12,8 @@ enum transition_return
     REDUCED,
     ACCEPTED,
     FINISH,
-    ERROR
+    ERROR,
+    RECUP_ERROR
 };
 
 enum enumSymbole

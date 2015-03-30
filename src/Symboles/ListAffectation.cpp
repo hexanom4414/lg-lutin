@@ -77,3 +77,8 @@ void ListAffectation::execute()
 
 
 
+void ListAffectation::transformation()
+{
+    execute();
+}
+

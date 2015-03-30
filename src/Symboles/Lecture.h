@@ -13,6 +13,7 @@ class Lecture : public Instruction
         virtual void execute();
 		void print();
 		virtual void staticCheck();
+		virtual void transformation();
     protected:
     	string m_identificateur;
     private:

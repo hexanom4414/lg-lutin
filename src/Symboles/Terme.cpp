@@ -16,9 +16,9 @@ int Terme::eval()
     if(!m_isFacteur)
     {
         if(m_operateur->getType() == MULT)
-            return m_expDroite->eval() * m_expGauche->eval();
+            return m_expGauche->eval() * m_expDroite->eval();
         else if (m_operateur->getType() == DIV)
-            return m_expDroite->eval() / m_expGauche->eval();
+            return m_expGauche->eval() / m_expDroite->eval();
     }
     return m_expDroite->eval();
 }
@@ -36,7 +36,7 @@ bool Terme::isConst()
 {
     if(!m_isFacteur)
     {
-        if(m_expDroite->isConst() && m_expGauche->isConst())
+        if(m_expGauche->isConst() && m_expDroite->isConst())
         {
             if(m_operateur->getType() == MULT)
                 m_expDroite->setAttribute(m_expGauche->eval() * m_expDroite->eval());
@@ -47,7 +47,10 @@ bool Terme::isConst()
             return true;
         }
         else
+        {
+            m_isFacteur = false;
             return false;
+        }
     }
     else
     {
@@ -57,8 +60,5 @@ bool Terme::isConst()
 
 void Terme::setFacteurVal(int val)
 {
-    if(m_isFacteur)
-    {
-        m_expDroite->setAttribute(val);
-    }
+    m_expDroite->setAttribute(val);
 }

@@ -19,9 +19,14 @@ transition_return Automate::run()
         cout << endl << endl;
 
         ret_val = REDUCED;
-        while(ret_val == REDUCED || ret_val == ACCEPTED)
+        while(ret_val == REDUCED || ret_val == ACCEPTED || ret_val == RECUP_ERROR)
         {
             ret_val = m_pileEtats.top()->transition(*this, t_symb);
+
+            if(ret_val == RECUP_ERROR)
+            {
+                cout << ">>>> RECUP_ERROR <<<<" << endl;
+            }
         }
 
         if(ret_val == ERROR)
@@ -47,6 +52,11 @@ Symbole * Automate::depilerSymbole(bool toDelete)
     //delete p_symbole;
     m_pileSymboles.pop();
     return p_symbole;
+}
+
+void Automate::empilerSymbole(Symbole * s)
+{
+    m_pileSymboles.push(s);
 }
 
 void Automate::shift(AbstractEtat * etat, Symbole * s)
@@ -99,9 +109,7 @@ void Automate::transformation()
     cout << "Transformation du programme :" << endl;
     m_pileSymboles.top()->transformation();
     cout << endl;
-    cout << "Affichage du programme transforme :" << endl;
-    m_pileSymboles.top()->print();
-    cout << endl;
+    printDeclMap();
 }
 
 void Automate::printEtatStack()

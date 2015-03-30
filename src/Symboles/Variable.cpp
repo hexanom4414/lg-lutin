@@ -13,13 +13,16 @@ void Variable::staticCheck()
 }
 
 
-
 void Variable::execute()
 
 {
 	
-	
 	m_listIdentificateur->execute();
-
-
 }
+
+void Variable::transformation()
+{
+    m_listIdentificateur->transformation();
+}
+
+

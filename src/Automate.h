@@ -20,6 +20,7 @@ class Automate
         
         transition_return run();
         Symbole * depilerSymbole(bool toDelete = false);
+        void empilerSymbole(Symbole * s);
         void shift(AbstractEtat * etat, Symbole * s);
         void reduce(unsigned int nbDepil, Symbole * s);
         void execute();

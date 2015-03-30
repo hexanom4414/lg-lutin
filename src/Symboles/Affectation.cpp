@@ -16,18 +16,21 @@ void Affectation::staticCheck()
 {
     if(!DeclMap::Instance().checkIdent(m_ident))
     {
-        print();
         cout << ">>>> err : " << m_ident << " declaration manquante" << endl;
     }
     else if (DeclMap::Instance().getIsConst(m_ident))
     {
-        print();
         cout << ">>>> err : affectation sur constante" << endl;
+    }
+    else
+    {
+        DeclMap::Instance().setInitialized(m_ident);
     }
     m_expression->staticCheck();
 }
 
 void Affectation::transformation()
 {
-    m_expression->transformation();
+    if(m_expression->isConst())
+        execute();
 }

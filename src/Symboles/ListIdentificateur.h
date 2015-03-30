@@ -19,6 +19,8 @@ class ListIdentificateur : public SymboleComplexe
         virtual void execute();
         virtual void print();
         virtual void staticCheck();
+        virtual void transformation();
+        virtual void execute();
     protected:
     	list<string> m_listIdentificateur;
     private:

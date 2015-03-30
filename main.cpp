@@ -67,14 +67,14 @@ int main(int argc, const char* argv[])
     Automate * automate = new Automate(m_file, true);
     if(automate->run() == FINISH)
     {
-        if(affichage)
-            automate->printProgram();
         if(analyse)
             automate->checkStatic();
+		if(execution)
+			automate->execute();
         if(optimisation)
             automate->transformation();
-        if(execution)
-			automate->execute();
+        if(affichage)
+            automate->printProgram();
     }
     return 0;
 }

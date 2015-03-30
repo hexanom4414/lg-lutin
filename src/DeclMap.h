@@ -15,10 +15,13 @@ class DeclMap
         int getValue(const string & ident);
         bool getIsConst(const string & ident);
         bool getIsInitialized(const string & ident);
+        bool getVarIsReaded(const string & ident);
 
         void clearMap() {m_declMap.clear();};
         void setValue(const string & ident, int val);
         void setUsed(const string & ident);
+        void setInitialized(const string & ident);
+        void setVarIsReaded(const string & ident);
         void addIdent(const string & ident, bool isConst, int val = 0);
         bool checkIdent(const string & ident);
         void print();
@@ -33,7 +36,7 @@ class DeclMap
 
         struct IdentValue
         {
-            bool isConst, isInitialized, isUsed;
+            bool isConst, isInitialized, isUsed, varIsReaded;
             int value;
         };
 

@@ -198,8 +198,20 @@ transition_return Etat7::transition(Automate & automate, Symbole * s)
             p_etat = new Etat46("Etat 46");
             automate.shift(p_etat, s);
             return SHIFTED;
-        default:
+        case ECRIRE:
+        case LIRE:
+        case IDENTIFICATEUR:
+        case SYMBVARIABLE:
+        case SYMBCONST:
+        case DOLLAR:
+            {
+                PointVirgule * fake_s = new PointVirgule(POINTVIRGULE);
 
+                p_etat = new Etat46("Etat 46");
+                automate.shift(p_etat, fake_s);
+            }
+            return RECUP_ERROR;
+        default:
             return ERROR;
     }
 }
@@ -313,7 +325,6 @@ transition_return Etat11::transition(Automate & automate, Symbole * s)
         case DIV:
         case PARFERME:
         case POINTVIRGULE:
-        case DOLLAR:
             {
                 Terme * p_terme = new Terme(TERME);
                 p_terme->setAttribute((Facteur *) automate.depilerSymbole(), false);
@@ -323,6 +334,21 @@ transition_return Etat11::transition(Automate & automate, Symbole * s)
                 automate.reduce(3,p_terme);
             }
             return REDUCED;
+        case ECRIRE:
+        case LIRE:
+        case IDENTIFICATEUR:
+        case SYMBVARIABLE:
+        case SYMBCONST:
+        case DOLLAR:
+            {
+                Terme * p_terme = new Terme(TERME);
+                p_terme->setAttribute((Facteur *) automate.depilerSymbole(), false);
+                p_terme->setAttribute((OpM *) automate.depilerSymbole());
+                p_terme->setAttribute((Terme *) automate.depilerSymbole());
+
+                automate.reduce(3,p_terme);
+            }
+            return RECUP_ERROR;
         default:
 
             return ERROR;
@@ -341,7 +367,6 @@ transition_return Etat12::transition(Automate & automate, Symbole * s)
         case DIV:
         case PARFERME:
         case POINTVIRGULE:
-        case DOLLAR:
             {
                 Facteur * p_facteur = new Facteur(FACTEUR);
                 p_facteur->setAttribute(automate.depilerSymbole()->getName());
@@ -349,8 +374,20 @@ transition_return Etat12::transition(Automate & automate, Symbole * s)
                 automate.reduce(1,p_facteur);
             }
             return REDUCED;
-        default:
+        case ECRIRE:
+        case LIRE:
+        case IDENTIFICATEUR:
+        case SYMBVARIABLE:
+        case SYMBCONST:
+        case DOLLAR:
+            {
+                Facteur * p_facteur = new Facteur(FACTEUR);
+                p_facteur->setAttribute(automate.depilerSymbole()->getName());
 
+                automate.reduce(1,p_facteur);
+            }
+            return RECUP_ERROR;
+        default:
             return ERROR;
     }
 }
@@ -539,7 +576,6 @@ transition_return Etat19::transition(Automate & automate, Symbole * s)
         case MOINS:
         case PARFERME:
         case POINTVIRGULE:
-        case DOLLAR:
             {
                 Expression * p_expression = new Expression(EXPRESSION);
                 p_expression->setAttribute((Terme *) automate.depilerSymbole(), true);
@@ -547,6 +583,19 @@ transition_return Etat19::transition(Automate & automate, Symbole * s)
                 automate.reduce(1,p_expression);
             }
             return REDUCED;
+        case ECRIRE:
+        case LIRE:
+        case IDENTIFICATEUR:
+        case SYMBVARIABLE:
+        case SYMBCONST:
+        case DOLLAR:
+            {
+                Expression * p_expression = new Expression(EXPRESSION);
+                p_expression->setAttribute((Terme *) automate.depilerSymbole(), true);
+
+                automate.reduce(1,p_expression);
+            }
+            return RECUP_ERROR;
         default:
 
             return ERROR;
@@ -634,7 +683,6 @@ transition_return Etat23::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-
             return ERROR;
     }
 
@@ -650,8 +698,21 @@ transition_return Etat24::transition(Automate & automate, Symbole * s)
             p_etat = new Etat47("Etat 47");
             automate.shift(p_etat, s);
             return SHIFTED;
-        default:
 
+        case ECRIRE:
+        case LIRE:
+        case IDENTIFICATEUR:
+        case SYMBVARIABLE:
+        case SYMBCONST:
+        case DOLLAR:
+            {
+                PointVirgule * fake_s = new PointVirgule(POINTVIRGULE);
+
+                p_etat = new Etat47("Etat 47");
+                automate.shift(p_etat, fake_s);
+            }
+            return RECUP_ERROR;
+        default:
             return ERROR;
     }
 
@@ -667,6 +728,19 @@ transition_return Etat25::transition(Automate & automate, Symbole * s)
             p_etat = new Etat26("Etat 26");
             automate.shift(p_etat, s);
             return SHIFTED;
+        case IDENTIFICATEUR:
+        case VALEUR:
+        case FACTEUR:
+        case EXPRESSION:
+        case TERME:
+        case PAROUVRE:
+            {
+                SymbAffectation * fake_s = new SymbAffectation(SYMBAFFECTATION);
+
+                p_etat = new Etat26("Etat 26");
+                automate.shift(p_etat, fake_s);
+            }
+            return RECUP_ERROR;
         default:
 
             return ERROR;
@@ -734,7 +808,6 @@ transition_return Etat27::transition(Automate & automate, Symbole * s)
             automate.shift(p_etat, s);
             return SHIFTED;
         default:
-
             return ERROR;
     }
 }
@@ -835,6 +908,14 @@ transition_return Etat31::transition(Automate & automate, Symbole * s)
             p_etat = new Etat33("Etat 33");
             automate.shift(p_etat, s);
             return SHIFTED;
+        case IDENTIFICATEUR:
+            {
+                Virgule * fake_s = new Virgule(VIRGULE);
+
+                p_etat = new Etat33("Etat 33");
+                automate.shift(p_etat, fake_s);
+            }
+            return RECUP_ERROR;
         default:
 
             return ERROR;
@@ -929,6 +1010,7 @@ transition_return Etat35::transition(Automate & automate, Symbole * s)
         case SYMBCONST:
         case POINTVIRGULE:
         case VIRGULE:
+        case IDENTIFICATEUR: // RECUP ERROR
         case DOLLAR:
             {
                 ListIdentificateur * p_ListIdentificateur = new ListIdentificateur(LISTIDENTIFICATEUR);
@@ -977,6 +1059,19 @@ transition_return Etat37::transition(Automate & automate, Symbole * s)
             p_etat = new Etat39("Etat 39");
             automate.shift(p_etat, s);
             return SHIFTED;
+        case SYMBVARIABLE:
+        case SYMBCONST:
+        case DOLLAR:
+        case ECRIRE:
+        case LIRE:
+        case IDENTIFICATEUR:
+            {
+                PointVirgule * fake_s = new PointVirgule(POINTVIRGULE);
+
+                p_etat = new Etat38("Etat 38");
+                automate.shift(p_etat, fake_s);
+            }
+            return RECUP_ERROR;
         default:
 
             return ERROR;
@@ -1036,6 +1131,14 @@ transition_return Etat40::transition(Automate & automate, Symbole * s)
             p_etat = new Etat41("Etat 41");
             automate.shift(p_etat, s);
             return SHIFTED;
+        case VALEUR:
+            {
+                Egal * fake_s = new Egal(EGAL);
+
+                p_etat = new Etat41("Etat 41");
+                automate.shift(p_etat, fake_s);
+            }
+            return RECUP_ERROR;
         default:
 
             return ERROR;
@@ -1101,8 +1204,15 @@ transition_return Etat43::transition(Automate & automate, Symbole * s)
             p_etat = new Etat44("Etat 44");
             automate.shift(p_etat, s);
             return SHIFTED;
-        default:
+        case VALEUR:
+            {
+                Egal * fake_s = new Egal(EGAL);
 
+                p_etat = new Etat44("Etat 44");
+                automate.shift(p_etat, fake_s);
+            }
+            return RECUP_ERROR;
+        default:
             return ERROR;
     }
 
