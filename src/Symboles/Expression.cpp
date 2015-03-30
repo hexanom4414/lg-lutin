@@ -73,7 +73,11 @@ Expression * Expression::elementNeutre()
         {
             return m_expGauche;
         }
+        return this;
     }
     else
+    {
         return this;
+    }
+
 }

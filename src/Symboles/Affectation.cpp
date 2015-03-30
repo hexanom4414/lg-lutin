@@ -11,7 +11,6 @@ void Affectation::execute()
 {
     DeclMap::Instance().setValue(m_ident, m_expression->eval());
     DeclMap::Instance().setInitialized(m_ident);
-    
 }
 
 void Affectation::staticCheck()

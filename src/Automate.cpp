@@ -110,7 +110,7 @@ void Automate::transformation()
     cout << "Transformation du programme :" << endl;
     m_pileSymboles.top()->transformation();
     cout << endl;
-    printDeclMap();
+    DeclMap::Instance().clearMap();
 }
 
 void Automate::printEtatStack()
@@ -144,13 +144,10 @@ void Automate::printDeclMap()
 
 void Automate::execute()
 {
-  m_pileSymboles.top()->execute();
-  printDeclMap();
-  DeclMap::Instance().clearMap();
-
+    m_pileSymboles.top()->execute();
+    printDeclMap();
+    DeclMap::Instance().clearMap();
 }
-
-
 
 void Automate::printSymbole(int symbole)
 {

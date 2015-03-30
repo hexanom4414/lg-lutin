@@ -78,6 +78,7 @@ bool Facteur::isConst()
     }
     else if (m_identificateur.compare("") == 0)
     {
+        // is a valeur
         return true;
     }
     else
