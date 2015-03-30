@@ -41,3 +41,9 @@ void ListDeclaration::staticCheck()
     for (list<Declaration *>::reverse_iterator it=m_listDeclaration.rbegin(); it != m_listDeclaration.rend(); ++it)
         (*it)->staticCheck();
 }
+
+void ListDeclaration::transformation()
+{
+    for (list<Declaration *>::reverse_iterator it=m_listDeclaration.rbegin(); it != m_listDeclaration.rend(); ++it)
+        (*it)->transformation();
+}

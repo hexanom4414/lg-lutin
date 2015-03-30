@@ -14,6 +14,8 @@ class ListAffectation : public SymboleComplexe
 
         void print();
         virtual void staticCheck();
+        virtual void transformation();
+        virtual void execute();
 
         bool isEmpty();
         void popFront();

@@ -14,5 +14,6 @@ void Programme::staticCheck()
 
 void Programme::transformation()
 {
+    m_listDeclaration->transformation();
     m_listInstruction->transformation();
 }

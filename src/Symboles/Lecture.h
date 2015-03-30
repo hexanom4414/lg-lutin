@@ -12,6 +12,7 @@ class Lecture : public Instruction
         void setAttribute(const string & identificateur) {m_identificateur.assign(identificateur);};
 		void print();
 		virtual void staticCheck();
+		virtual void transformation();
     protected:
     	string m_identificateur;
     private:

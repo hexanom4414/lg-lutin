@@ -13,10 +13,20 @@ void Facteur::print()
     {
         cout << m_valeur << " ";
     }
+    else if(!DeclMap::Instance().getVarIsReaded(m_identificateur))
+    {
+        if(DeclMap::Instance().checkIdent(m_identificateur)) //
+            cout << DeclMap::Instance().getValue(m_identificateur) << " ";
+        else
+        {
+            cout << m_identificateur << " ";
+        }
+    }
     else
     {
         cout << m_identificateur << " ";
     }
+
 }
 
 int Facteur::eval()
@@ -45,8 +55,11 @@ void Facteur::staticCheck()
     {
         if(!DeclMap::Instance().checkIdent(m_identificateur))
         {
-            print();
             cout << endl << ">>>> err : " << m_identificateur << " declaration manquante" << endl;
+        }
+        else if(!DeclMap::Instance().getIsInitialized(m_identificateur))
+        {
+            cout << endl << ">>>> err : " << m_identificateur << " initialisation manquante" << endl;
         }
         else
         {
@@ -59,10 +72,13 @@ bool Facteur::isConst()
 {
     if(m_isAnExpression)
     {
+
+
         if(m_expression->isConst())
         {
             m_isAnExpression = false;
             m_valeur = m_expression->eval();
+            m_isAnExpression == false;
             return true;
         }
         return false;
@@ -73,6 +89,17 @@ bool Facteur::isConst()
     }
     else
     {
-        return false;
+        if(
+            DeclMap::Instance().getIsConst(m_identificateur) ||
+            (!DeclMap::Instance().getVarIsReaded(m_identificateur) &&
+             DeclMap::Instance().getIsInitialized(m_identificateur))
+        )
+        {
+            m_valeur = DeclMap::Instance().getValue(m_identificateur);
+            m_identificateur = "";
+            return true;
+        }
+        else
+            return false;
     }
 }

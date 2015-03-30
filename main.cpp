@@ -66,12 +66,12 @@ int main(int argc, const char* argv[])
     Automate * automate = new Automate(m_file, true);
     if(automate->run() == FINISH)
     {
-        if(affichage)
-            automate->printProgram();
         if(analyse)
             automate->checkStatic();
         if(optimisation)
             automate->transformation();
+        if(affichage)
+            automate->printProgram();
     }
     return 0;
 }

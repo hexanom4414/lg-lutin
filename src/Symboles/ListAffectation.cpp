@@ -57,3 +57,16 @@ void ListAffectation::staticCheck()
         }
     }
 }
+
+void ListAffectation::transformation()
+{
+    execute();
+}
+
+void ListAffectation::execute()
+{
+    for (list<pair<string,int> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
+    {
+        DeclMap::Instance().addIdent(it->first, true, it->second);
+    }
+}

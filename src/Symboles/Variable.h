@@ -10,6 +10,8 @@ class Variable : public Declaration
         Variable(int id) : Declaration(id){}
 		virtual void print();
 		virtual void staticCheck();
+		virtual void transformation();
+		virtual void execute();
 		void setAttribute(ListIdentificateur * p_listIdentificateur) {m_listIdentificateur = p_listIdentificateur;};
         virtual ~Variable() {};
     protected:

@@ -56,3 +56,16 @@ void ListIdentificateur::staticCheck()
         }
     }
 }
+
+void ListIdentificateur::transformation()
+{
+    execute();
+}
+
+void ListIdentificateur::execute()
+{
+    for (list<string>::reverse_iterator it=m_listIdentificateur.rbegin(); it != m_listIdentificateur.rend(); ++it)
+    {
+        DeclMap::Instance().addIdent(*it, false);
+    }
+}

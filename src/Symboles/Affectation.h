@@ -16,9 +16,9 @@ class Affectation : public Instruction
         void setAttribute(Expression * p_expression) {m_expression = p_expression;};
         void setAttribute(const string & ident) {m_ident = ident;};
 		void print();
-		void execute();
-		void staticCheck();
-		void transformation();
+		virtual void staticCheck();
+		virtual void transformation();
+		virtual void execute();
     protected:
     	string m_ident;
     	Expression * m_expression;

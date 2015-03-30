@@ -15,9 +15,9 @@ int Expression::eval()
     if(!m_isTerme)
     {
         if(m_operateur->getType() == PLUS)
-            return m_expDroite->eval() + m_expGauche->eval();
+            return m_expGauche->eval() + m_expDroite->eval();
         else if (m_operateur->getType() == MOINS)
-            return m_expDroite->eval() - m_expGauche->eval();
+            return m_expGauche->eval() - m_expDroite->eval();
     }
     return m_expDroite->eval();
 }
@@ -40,7 +40,7 @@ bool Expression::isConst()
 {
     if(!m_isTerme)
     {
-        if(m_expDroite->isConst() && m_expGauche->isConst())
+        if(m_expGauche->isConst() && m_expDroite->isConst())
         {
             if(m_operateur->getType() == PLUS)
             {
@@ -55,6 +55,7 @@ bool Expression::isConst()
         }
         else
         {
+            m_isTerme = false;
             return false;
         }
     }

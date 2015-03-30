@@ -12,6 +12,8 @@ class Constante : public Declaration
         void setAttribute(ListAffectation * p_listAffectation) {m_listAffectation = p_listAffectation;};
 		void print();
 		virtual void staticCheck();
+		virtual void transformation();
+		virtual void execute();
         virtual ~Constante() {};
     protected:
     private:
