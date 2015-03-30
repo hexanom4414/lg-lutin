@@ -207,6 +207,12 @@ Symbole * Lexer::getSymbole ()
         while(c == ' ' || c == '\n')
         {
             file.get(c);
+            if(file.gcount() == 0)
+            {
+                resultat = new Dollar(DOLLAR);
+                file.close();
+                return resultat;
+            }
         }
 
         word += c;
@@ -229,15 +235,11 @@ Symbole * Lexer::getSymbole ()
 
         if(word.size() == 0)
         {
-            cout << "........................." << endl;
-            cout << "char non autorise : " << (char) file.get() << endl;
+            cerr << "char non autorise : " << (char) file.get() << endl;
             return getSymbole();
         }
         else
         {
-            cout << "........................." << endl;
-            cout << "LU : "<< word << endl;
-
             if (lexer_lire(word))
             {
                 resultat = new Lire(LIRE);
@@ -306,7 +308,7 @@ Symbole * Lexer::getSymbole ()
             }
             else
             {
-                cout << "syntaxe incorrecte : " << word << endl;
+                cerr << "syntaxe incorrecte : " << word << endl;
             }
             return resultat;
         }
@@ -315,8 +317,6 @@ Symbole * Lexer::getSymbole ()
     {
         if((int) * resultat != DOLLAR)
         {
-            cout << "........................." << endl;
-            cout << "LU : EoF" << endl;
             resultat = new Dollar(DOLLAR);
             return resultat;
         }
