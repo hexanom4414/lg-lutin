@@ -25,16 +25,22 @@ void Programme::execute()
 	// Here we fill in the map
 	
 	
-	
+	    for (list<Declaration *>::reverse_iterator it=m_listDeclaration.m_listDeclaration.rbegin(); it != m_listDeclaration.m_listDeclaration.rend(); ++it)
+	    {
+			(*it)->execute();
+		}
+
 	
 	
 	//Here we execute the instructions
 	
-	while (!m_listInstruction->isEmpty()){
+    for (list<Instruction *>::reverse_iterator it=m_listInstruction.m_listInstruction.rbegin(); it != m_listInstruction.m_listInstruction.rend(); ++it)
+    
+    {
 		
-		m_listInstruction->getFront()->execute();
-		m_listInstruction->popFront();
+		(*it)->execute;
 	}
+
 	
 	
 }

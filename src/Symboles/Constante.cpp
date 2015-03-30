@@ -12,12 +12,19 @@ void Constante::staticCheck()
     m_listAffectation->staticCheck();
 }
 
+void Constante::execute()
+
+{
+	
+  m_listAffectation->execute();
+
+
+
+}
+
 void Constante::transformation()
 {
     m_listAffectation->transformation();
 }
 
-void Constante::execute()
-{
-    m_listAffectation->execute();
-}
+

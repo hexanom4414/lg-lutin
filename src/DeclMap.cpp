@@ -59,6 +59,7 @@ void DeclMap::setValue(const string & ident, int val)
         else
             cout << "!!! setValue on const !!!" << endl;
     }
+
 }
 
 void DeclMap::addIdent(const string & ident, bool isConst, int value)

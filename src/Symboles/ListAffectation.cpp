@@ -58,15 +58,27 @@ void ListAffectation::staticCheck()
     }
 }
 
+void ListAffectation::execute()
+{
+	 
+	 
+	for (list<pair<string,int> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
+    {
+        if(DeclMap::Instance().checkIdent(it->first))
+        {
+            cerr << ">>>> err : " << it->first << " deja declare" << endl;
+        }
+        else
+        {
+            DeclMap::Instance().addIdent(it->first, true, it->second);
+        }
+    }
+}
+
+
+
 void ListAffectation::transformation()
 {
     execute();
 }
 
-void ListAffectation::execute()
-{
-    for (list<pair<string,int> >::reverse_iterator it=m_listAffectation.rbegin(); it != m_listAffectation.rend(); ++it)
-    {
-        DeclMap::Instance().addIdent(it->first, true, it->second);
-    }
-}

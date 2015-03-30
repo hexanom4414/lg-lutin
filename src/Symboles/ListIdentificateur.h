@@ -16,10 +16,10 @@ class ListIdentificateur : public SymboleComplexe
         bool isEmpty();
         void popFront();
         string getFront();
+        virtual void execute();
         virtual void print();
         virtual void staticCheck();
         virtual void transformation();
-        virtual void execute();
     protected:
     	list<string> m_listIdentificateur;
     private:
