@@ -20,4 +20,5 @@ void Ecriture::execute()
 void Ecriture::transformation()
 {
     m_expression->transformation();
+    m_expression->elementNeutre();
 }
