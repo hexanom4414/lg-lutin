@@ -1,1 +1,1 @@
-../Lutin -a ../files/nondeclared.lt
+../../Lutin ../files/nondeclared.lt -a

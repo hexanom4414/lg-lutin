@@ -1,1 +1,1 @@
-../Lutin -e ../files/lutin-test.txt
+../../Lutin -e ../files/lutin-test.txt

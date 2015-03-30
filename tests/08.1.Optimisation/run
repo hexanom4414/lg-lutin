@@ -1,1 +1,1 @@
-../Lutin -o -p ../files/correct.lt
+../../Lutin -o -p ../files/correct.lt

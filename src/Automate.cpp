@@ -43,8 +43,8 @@ transition_return Automate::run()
 Symbole * Automate::depilerSymbole(bool toDelete)
 {
     Symbole * p_symbole = m_pileSymboles.top();
-    if(toDelete)
-        delete p_symbole;
+    //if(toDelete)
+        //delete p_symbole;
     m_pileSymboles.pop();
     return p_symbole;
 }
