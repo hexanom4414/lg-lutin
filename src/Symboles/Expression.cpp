@@ -10,7 +10,7 @@ void Expression::print()
     m_expDroite->print();
 }
 
-int Expression::eval()
+double Expression::eval()
 {
     if(!m_isTerme)
     {

@@ -19,12 +19,12 @@ class ListAffectation : public SymboleComplexe
 
         bool isEmpty();
         void popFront();
-        pair<string,int> getFront();
+        pair<string,double> getFront();
 
-        void setAttribute(const string & ident, int value);
+        void setAttribute(const string & ident, double value);
         void setAttribute(ListAffectation * p_listAffectation);
     protected:
-        list<pair<string,int> > m_listAffectation;
+        list<pair<string,double> > m_listAffectation;
     private:
 };
 

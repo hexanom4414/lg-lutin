@@ -24,7 +24,7 @@ void Facteur::print()
     }
 }
 
-int Facteur::eval()
+double Facteur::eval()
 {
     if(m_isAnExpression)
     {

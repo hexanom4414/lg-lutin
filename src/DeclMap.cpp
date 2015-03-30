@@ -23,7 +23,7 @@ bool DeclMap::checkIdent(const string & ident)
         return true;
 }
 
-int DeclMap::getValue(const string & ident)
+double DeclMap::getValue(const string & ident)
 {
     if(m_declMap.find(ident)->second.isInitialized)
         return m_declMap.find(ident)->second.value;
@@ -46,7 +46,7 @@ bool DeclMap::getVarIsReaded(const string & ident)
     return m_declMap.find(ident)->second.varIsReaded;
 }
 
-void DeclMap::setValue(const string & ident, int val)
+void DeclMap::setValue(const string & ident, double val)
 {
     if(checkIdent(ident))
     {
@@ -62,7 +62,7 @@ void DeclMap::setValue(const string & ident, int val)
 
 }
 
-void DeclMap::addIdent(const string & ident, bool isConst, int value)
+void DeclMap::addIdent(const string & ident, bool isConst, double value)
 {
     if(!checkIdent(ident))
     {
