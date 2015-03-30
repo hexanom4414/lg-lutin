@@ -63,11 +63,14 @@ int main(int argc, const char* argv[])
     }
 
     //// Lancement automate
+
     Automate * automate = new Automate(m_file, true);
     if(automate->run() == FINISH)
     {
         if(analyse)
             automate->checkStatic();
+		if(execution)
+			automate->execute();
         if(optimisation)
             automate->transformation();
         if(affichage)

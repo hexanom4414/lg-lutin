@@ -101,7 +101,7 @@ transition_return Etat4::transition(Automate & automate, Symbole * s)
 
                 p_programme->setAttribute((ListInstruction *) automate.depilerSymbole());
                 p_programme->setAttribute((ListDeclaration *) automate.depilerSymbole());
-
+				automate.setProgramme(p_programme);
                 automate.reduce(2, p_programme);
             }
             return REDUCED;

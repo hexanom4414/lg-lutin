@@ -16,13 +16,15 @@ class Automate
 {
     public:
         Automate(const string & p_file, bool skipErrChar);
-        virtual ~Automate() {};
-
+        virtual ~Automate() {};		
+        
         transition_return run();
         Symbole * depilerSymbole(bool toDelete = false);
         void empilerSymbole(Symbole * s);
         void shift(AbstractEtat * etat, Symbole * s);
         void reduce(unsigned int nbDepil, Symbole * s);
+        void execute();
+        void setProgramme(Programme * p);
         void printSymbole(int symbole);
         void printProgram();
         void checkStatic();
@@ -31,8 +33,8 @@ class Automate
         stack <AbstractEtat *> m_pileEtats;
         stack <Symbole *> m_pileSymboles;
         Lexer * m_lexer;
-        bool m_skipErrChar;
-
+		Programme * p_programme;
+		bool m_skipErrChar;
         void printEtatStack();
         void printSymboleStack();
         void printDeclMap();

@@ -10,6 +10,7 @@ class Lecture : public Instruction
         Lecture(int id) : Instruction (id) {}
         virtual ~Lecture() {};
         void setAttribute(const string & identificateur) {m_identificateur.assign(identificateur);};
+        virtual void execute();
 		void print();
 		virtual void staticCheck();
 		virtual void transformation();

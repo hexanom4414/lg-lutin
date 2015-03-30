@@ -12,6 +12,12 @@ void Ecriture::staticCheck()
     m_expression->staticCheck();
 }
 
+
+void Ecriture::execute()
+{			
+	cout<<"ecriture : "<< m_expression->eval()<<endl;
+	
+}
 void Ecriture::transformation()
 {
     m_expression->transformation();

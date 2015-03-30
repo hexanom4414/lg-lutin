@@ -11,6 +11,7 @@ class Ecriture : public Instruction
         virtual ~Ecriture() {};
 
         void setAttribute(Expression * p_expression) {m_expression = p_expression;};
+        virtual void execute();
         void print();
         void staticCheck();
         void transformation();
