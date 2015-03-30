@@ -1,3 +1,7 @@
-var a;
-lire a;
-ecrire (a);
+Transformation du programme :
+
+Affichage du programme :
+var a ;
+lire a ;
+ecrire ( a + 0 ) * 1 - 0 ;
+

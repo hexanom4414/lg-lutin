@@ -203,10 +203,15 @@ Symbole * Lexer::getSymbole ()
         char c;
 
         file.get(c);
-        while(c == ' ' || c == '\n')
+        while(c == ' ' || c == '\n' || c == '\t'||c=='\r')
         {
-			cerr<< "BUG"  << (int)c<<endl;
             file.get(c);
+            if(file.gcount() == 0)
+            {
+                resultat = new Dollar(DOLLAR);
+                file.close();
+                return resultat;
+            }
         }
 
         word += c;
@@ -229,12 +234,12 @@ Symbole * Lexer::getSymbole ()
 
         if(word.size() == 0)
         {
-			file.get();
+            cerr << "char non autorise : " << (int) file.get() << endl;
+            
             return getSymbole();
         }
         else
         {
-
 
             if (lexer_lire(word))
             {
@@ -313,7 +318,6 @@ Symbole * Lexer::getSymbole ()
     {
         if((int) * resultat != DOLLAR)
         {
-
             resultat = new Dollar(DOLLAR);
             return resultat;
         }

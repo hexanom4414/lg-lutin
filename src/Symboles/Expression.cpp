@@ -62,6 +62,7 @@ bool Expression::isConst()
 
 Expression * Expression::elementNeutre()
 {
+    m_expDroite = m_expDroite->elementNeutre();
     if(!m_isTerme)
     {
         if(m_expGauche->eval() == 0 && m_operateur->getType() == PLUS)
@@ -73,11 +74,6 @@ Expression * Expression::elementNeutre()
         {
             return m_expGauche;
         }
-        return this;
     }
-    else
-    {
-        return this;
-    }
-
+    return this;
 }

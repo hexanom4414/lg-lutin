@@ -1,2 +1,5 @@
-variable non affectee : b
-variable non utilisee : b
+Analyse statique du programme :
+b n'est pas utilise
+b n'est pas affecte
+
+

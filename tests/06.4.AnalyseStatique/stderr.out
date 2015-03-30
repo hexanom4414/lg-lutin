@@ -1,1 +1,4 @@
-la variable a n'a pas ete declaree.
+Analyse statique du programme :
+>>>> err : a declaration manquante
+
+

@@ -1,1 +1,5 @@
-une valeur dans l'expression a*b n'est pas connue.
+Analyse statique du programme :
+
+>>>> err : b initialisation manquante
+
+

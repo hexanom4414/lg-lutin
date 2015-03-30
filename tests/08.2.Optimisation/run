@@ -1,1 +1,1 @@
-../lut -o -p ../files/neutres.lt
+../Lutin -o -p ../files/neutres.lt

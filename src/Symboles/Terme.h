@@ -20,7 +20,7 @@ public:
     void setAttribute(Facteur * p_facteur, bool isFacteur) {m_expDroite = p_facteur;m_isFacteur = isFacteur;};
     void setFacteurVal(double val);
     void setFacteurExp(Expression * p_exp);
-    void elementNeutre();
+    Terme * elementNeutre();
 protected:
     Terme * m_expGauche;
     OpM * m_operateur;

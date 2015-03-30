@@ -51,15 +51,15 @@ int main(int argc, const char* argv[])
 
     if(m_file.compare("") == 0)
     {
-        cout << "Need file" << endl;
-        cout << "Use \"Lutin -help\" for help" << endl;
+        cerr << "Need file" << endl;
+        cerr << "Use \"Lutin -help\" for help" << endl;
         return 1;
     }
 
     ifstream fichier(m_file.c_str());
     if(fichier.fail())
     {
-        cout << m_file << " : Fichier inexistant ou non lisible" << endl;
+        cerr << m_file << " : Fichier inexistant ou non lisible" << endl;
                 
         return 1;
     }
