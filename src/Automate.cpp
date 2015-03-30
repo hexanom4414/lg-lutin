@@ -101,7 +101,6 @@ void Automate::checkStatic()
     m_pileSymboles.top()->staticCheck();
     DeclMap::Instance().staticCheck();
     cout << endl;
-    printDeclMap();
     DeclMap::Instance().clearMap();
     cout << endl;
 }
@@ -146,6 +145,7 @@ void Automate::printDeclMap()
 void Automate::execute()
 {
   m_pileSymboles.top()->execute();
+  printDeclMap();
   DeclMap::Instance().clearMap();
 
 }

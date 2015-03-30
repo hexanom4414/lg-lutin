@@ -40,6 +40,7 @@ void Lecture::execute()
 	if(DeclMap::Instance().checkIdent(m_identificateur)){
 
 	DeclMap::Instance().setValue(m_identificateur, value);
+	DeclMap::Instance().setInitialized(m_identificateur);
 	
 	}
 }
