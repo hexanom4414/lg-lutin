@@ -28,6 +28,12 @@ transition_return Automate::run()
         if(ret_val == ERROR)
         {
             cerr << ">>>> ERROR <<<<" << endl;
+			cerr << "symbole : ";
+			printSymbole((int) *t_symb);
+			cerr << endl;
+			cerr << "etat : ";
+			m_pileEtats.top()->print();
+			cerr << endl;
             break;
         }
     }

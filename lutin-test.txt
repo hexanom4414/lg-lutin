@@ -1,10 +1,13 @@
-var a,b; 
-const c = 4;
-const d = 6;
-var e;
-a := (c+d)*3-5;
-b := 1 ;
-a := 3 * 1;
-ecrire a*b;
-e := b+d;
-ecrire e;
+var a,b,  c ;
+const n 2;
+var d;
+const n2 = µµ 3;
+lire b
+d := 1;
+a  n2 * 2 + b * 1;
+c := a - n / b - d;
+d  d - 1;
+c := c + a + d;
+ecrire a;
+ecrire b;
+ecrire ££ c + 4 - a * d;

@@ -1,0 +1,16 @@
+Transformation du programme :
+
+Affichage du programme :
+var a , b , c ;
+const n = 2 ;
+var d ;
+const n2 = 3 ;
+lire b ;
+d := 1 ;
+a := 6 + b ;
+c := a - 2 / b - d ;
+d := 0 ;
+c := c + a ;
+ecrire a ;
+ecrire b ;
+ecrire c + 4 - a * d ;
