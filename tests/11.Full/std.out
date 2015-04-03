@@ -1,5 +1,14 @@
+Analyse statique du programme :
+
+
 Transformation du programme :
 
+Entrez une valeur pour : b
+7
+Vous avez entré : 7
+ecriture : 13
+ecriture : 7
+ecriture : 28.7143
 Affichage du programme :
 var a , b , c ;
 const n = 2 ;
@@ -8,7 +17,7 @@ const n2 = 3 ;
 lire b ;
 d := 1 ;
 a := 6 + b ;
-c := a - 2 / b - d ;
+c := a - n / b - d ;
 d := 0 ;
 c := c + a ;
 ecrire a ;

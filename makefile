@@ -25,6 +25,9 @@ OBJ= $(SRC:.cpp=.o)
 
 all : $(EXE)
 
+test : $(EXE)
+	   sh ./tests/mktest.sh
+
 Lutin : $(OBJ)
 		$(ECHO) Editions des liens :
 		$(CXX) $^ -o $@ $(LDFLAGS) $(LIBS)
