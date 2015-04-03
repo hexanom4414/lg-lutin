@@ -4,9 +4,9 @@ nKo=0
 nTotal=0
 nMis=0
 
-for i in ??.*
+for i in tests/??.*
 do
-  ./test.sh $i results.csv
+  tests/test.sh $i results.csv
   result=$?
   if [ $result -eq 0 ]
   then
