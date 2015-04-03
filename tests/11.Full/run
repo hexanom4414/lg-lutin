@@ -1,2 +1,2 @@
-../../Lutin -o -p ../files/full.lt
+../../Lutin -o -p -e -a ../files/full.lt
 
