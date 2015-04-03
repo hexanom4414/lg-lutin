@@ -9,6 +9,8 @@ Vous avez entré : 7
 ecriture : 13
 ecriture : 7
 ecriture : 28.7143
+Transformation du programme :
+
 Affichage du programme :
 var a , b , c ;
 const n = 2 ;
@@ -17,9 +19,10 @@ const n2 = 3 ;
 lire b ;
 d := 1 ;
 a := 6 + b ;
-c := a - n / b - d ;
+c := a - 2 / b - 1 ;
 d := 0 ;
 c := c + a ;
 ecrire a ;
 ecrire b ;
-ecrire c + 4 - a * d ;
+ecrire c + 4 ;
+
