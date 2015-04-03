@@ -20,7 +20,7 @@ CXX=g++
 CXXFLAGS=-W -Wall -ansi -pedantic
 prefix=.
 srcdir= $(prefix)/src
-SRC= main.cpp $(wildcard $(srcdir)/*.cpp) $(wildcard $(srcdir)/Symboles/*.cpp)
+SRC= $(wildcard $(srcdir)/*.cpp) $(wildcard $(srcdir)/Symboles/*.cpp)
 OBJ= $(SRC:.cpp=.o)
 
 all : $(EXE)
