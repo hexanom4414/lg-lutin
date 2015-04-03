@@ -1,8 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <boost/regex.hpp>
-#include "src/Automate.h"
-#include "src/Lexer.h"
+#include "Automate.h"
+#include "Lexer.h"
 
 using namespace std;
 using namespace boost;
