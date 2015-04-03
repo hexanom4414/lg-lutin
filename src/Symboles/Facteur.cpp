@@ -14,7 +14,7 @@ void Facteur::print()
         m_expression->print();
         cout << ") ";
     }
-    else if (m_identificateur.compare("") == 0)
+    else if (!m_isAnIdentificateur)
     {
         cout << m_valeur << " ";
     }
@@ -34,7 +34,7 @@ double Facteur::eval()
     {
         return m_expression->eval();
     }
-    else if (m_identificateur.compare("") == 0)
+    else if (!m_isAnIdentificateur)
     {
         return m_valeur;
     }
@@ -50,7 +50,7 @@ void Facteur::staticCheck()
     {
         m_expression->staticCheck();
     }
-    else if (m_identificateur.compare("") != 0)
+    else if (m_isAnIdentificateur)
     {
         if(!DeclMap::Instance().checkIdent(m_identificateur))
         {
@@ -79,7 +79,7 @@ bool Facteur::isConst()
         }
         return false;
     }
-    else if (m_identificateur.compare("") == 0)
+    else if (!m_isAnIdentificateur)
     {
         // is a valeur
         return true;
@@ -93,7 +93,7 @@ bool Facteur::isConst()
         )
         {
             m_valeur = DeclMap::Instance().getValue(m_identificateur);
-            m_identificateur = "";
+            m_isAnIdentificateur = false;
             return true;
         }
         else
