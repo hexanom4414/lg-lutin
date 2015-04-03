@@ -36,5 +36,6 @@ void Affectation::transformation()
     {
         execute();
     }
-    m_expression =  m_expression->elementNeutre();
+    while(m_expression != m_expression->elementNeutre()) // Point fixe
+        m_expression =  m_expression->elementNeutre();
 }

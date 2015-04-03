@@ -100,3 +100,12 @@ bool Facteur::isConst()
             return false;
     }
 }
+
+Facteur * Facteur::elementNeutre()
+{
+    if(m_isAnExpression)
+    {
+        m_expression = m_expression->elementNeutre();
+    }
+    return this;
+}

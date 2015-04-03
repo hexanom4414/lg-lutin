@@ -17,6 +17,7 @@ class Facteur : public SymboleComplexe
         double eval();
         bool isConst();
         void staticCheck();
+        Facteur * elementNeutre();
     protected:
         string m_identificateur;
         double m_valeur;

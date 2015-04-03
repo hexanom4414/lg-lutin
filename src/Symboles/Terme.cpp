@@ -81,6 +81,7 @@ void Terme::setFacteurExp(Expression * p_exp)
 
 Terme * Terme::elementNeutre()
 {
+    m_expDroite = m_expDroite->elementNeutre();
     if(!m_isFacteur)
     {
         if(m_expGauche->eval() == 1 && m_operateur->getType() == MULT)
