@@ -87,6 +87,7 @@ void Automate::printProgram()
 
 void Automate::checkStatic()
 {
+    DeclMap::Instance().clearMap();
     cout << "Analyse statique du programme :" << endl;
     m_pileSymboles.top()->staticCheck();
     DeclMap::Instance().staticCheck();
@@ -101,7 +102,6 @@ void Automate::transformation()
     m_pileSymboles.top()->transformation();
     cout << endl;
     //printDeclMap();
-    DeclMap::Instance().clearMap();
 }
 
 void Automate::printEtatStack()
@@ -135,6 +135,7 @@ void Automate::printDeclMap()
 
 void Automate::execute()
 {
+    DeclMap::Instance().clearMap();
     m_pileSymboles.top()->execute();
     // printDeclMap();
     DeclMap::Instance().clearMap();
