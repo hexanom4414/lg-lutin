@@ -79,12 +79,7 @@ bool Facteur::isConst()
         }
         return false;
     }
-    else if (!m_isAnIdentificateur)
-    {
-        // is a valeur
-        return true;
-    }
-    else
+    else if (m_isAnIdentificateur)
     {
         if(
             DeclMap::Instance().getIsConst(m_identificateur) ||
@@ -94,10 +89,15 @@ bool Facteur::isConst()
         {
             m_valeur = DeclMap::Instance().getValue(m_identificateur);
             m_isAnIdentificateur = false;
+            m_isAnExpression = false;
             return true;
         }
         else
             return false;
+    }
+    else
+    {
+        return true;
     }
 }
 

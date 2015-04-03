@@ -14,9 +14,7 @@ void Variable::staticCheck()
 
 
 void Variable::execute()
-
 {
-	
 	m_listIdentificateur->execute();
 }
 
