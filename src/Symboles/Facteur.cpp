@@ -1,6 +1,11 @@
 #include "Facteur.h"
 #include "Expression.h"
 
+Facteur::~Facteur()
+{
+    delete m_expression;
+}
+
 void Facteur::print()
 {
     if(m_isAnExpression)
@@ -69,7 +74,6 @@ bool Facteur::isConst()
     {
         if(m_expression->isConst())
         {
-            m_isAnExpression = false;
             m_valeur = m_expression->eval();
             m_isAnExpression == false;
             return true;

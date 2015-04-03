@@ -14,8 +14,8 @@ class Symbole
         virtual void transformation() {};
         virtual void execute() {};
         virtual string getName() {return "";};
-        virtual int getValue() {return -1;};
-        virtual void setValue(int value) { };
+        virtual double getValue() {return -1;};
+        virtual void setValue(double value) { };
         virtual void setName(const string & name) {};
 
         operator int() const { return ident; }

@@ -9,7 +9,7 @@ class Terme : public SymboleComplexe
 {
 public:
     Terme(int id) : SymboleComplexe(id) {};
-    virtual ~Terme() {};
+    virtual ~Terme();
 
     void print();
     void staticCheck();

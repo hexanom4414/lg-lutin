@@ -9,7 +9,7 @@ class Expression : public SymboleComplexe
 {
     public:
         Expression(int id) : SymboleComplexe(id) {};
-        virtual ~Expression() {};
+        virtual ~Expression();
         void print();
         void staticCheck();
         bool isConst();

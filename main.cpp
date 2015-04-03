@@ -66,7 +66,7 @@ int main(int argc, const char* argv[])
 
     //// Lancement automate
 
-    Automate * automate = new Automate(m_file, true);
+    Automate * automate = new Automate(m_file);
     if(automate->run() == FINISH)
     {
         if(analyse)

@@ -11,6 +11,7 @@ class SymboleSimple : public Symbole
         void print() {};
         virtual string getName() {return "";};
         virtual void setName(const string & name) {};
+        virtual double getValue() {return -1;};
         virtual ~SymboleSimple() {};
     protected:
     private:

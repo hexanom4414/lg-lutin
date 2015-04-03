@@ -15,9 +15,9 @@ using namespace std;
 class Automate
 {
     public:
-        Automate(const string & p_file, bool skipErrChar);
-        virtual ~Automate() {};		
-        
+        Automate(const string & p_file);
+        virtual ~Automate() {};
+
         transition_return run();
         Symbole * depilerSymbole(bool toDelete = false);
         void empilerSymbole(Symbole * s);

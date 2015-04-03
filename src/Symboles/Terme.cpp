@@ -1,6 +1,13 @@
 #include "Terme.h"
 #include "Facteur.h"
 
+Terme::~Terme()
+{
+    /* delete m_expDroite;
+    delete m_expGauche;
+    delete m_operateur; */
+}
+
 void Terme::print()
 {
     if(!m_isFacteur)

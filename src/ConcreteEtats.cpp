@@ -366,7 +366,7 @@ transition_return Etat12::transition(Automate & automate, Symbole * s)
         case POINTVIRGULE:
             {
                 Facteur * p_facteur = new Facteur(FACTEUR);
-                p_facteur->setAttribute(automate.depilerSymbole(true)->getName());
+                p_facteur->setAttribute(automate.depilerSymbole()->getName());
 
                 automate.reduce(1,p_facteur);
             }
@@ -403,7 +403,7 @@ transition_return Etat13::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 Facteur * p_facteur = new Facteur(FACTEUR);
-                p_facteur->setAttribute(automate.depilerSymbole(true)->getValue());
+                p_facteur->setAttribute(automate.depilerSymbole()->getValue());
 
                 automate.reduce(1,p_facteur);
             }
@@ -1170,7 +1170,7 @@ transition_return Etat42::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 ListAffectation * p_ListAffectation = new ListAffectation(LISTAFFECTATION);
-                int t_val;
+                double t_val;
                 string t_ident;
                 t_val = automate.depilerSymbole()->getValue();
                 automate.depilerSymbole(true);
@@ -1242,7 +1242,7 @@ transition_return Etat45::transition(Automate & automate, Symbole * s)
         case DOLLAR:
             {
                 ListAffectation * p_ListAffectation = new ListAffectation(LISTAFFECTATION);
-                int t_val;
+                double t_val;
                 string t_ident;
                 t_val = automate.depilerSymbole()->getValue();
                 automate.depilerSymbole(true);

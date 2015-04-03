@@ -8,7 +8,7 @@ class Facteur : public SymboleComplexe
 {
     public:
         Facteur(int id) : SymboleComplexe(id), m_isAnExpression(false), m_identificateur("") {};
-        virtual ~Facteur() {};
+        virtual ~Facteur();
 
         void setAttribute(const string & identificateur) {m_identificateur = identificateur;};
         void setAttribute(double valeur) {m_valeur = valeur; m_isAnExpression = false;};

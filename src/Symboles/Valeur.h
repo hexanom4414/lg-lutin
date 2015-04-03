@@ -9,11 +9,10 @@ class Valeur : public SymboleSimple
         Valeur(int id) : SymboleSimple(id) {};
         virtual ~Valeur(){};
 
-        void setValue(int value) {m_value = value;};
-        int getValue() {return m_value;};
-        //void print() {cout << m_value << " ";};
+        void setValue(double value) {m_value = value;};
+        double getValue() {return m_value;};
     protected:
-        int m_value ;
+        double m_value ;
     private:
 };
 

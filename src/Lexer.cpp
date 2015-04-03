@@ -1,26 +1,8 @@
 #include "Lexer.h"
 
-// Show result
-
-
-//const string ID_REGEX = "\\w+";
-//const string VAL_REGEX =;
-
-Lexer::Lexer(const string & p_file, bool skipErrChar) : file(p_file.c_str(), ios_base::in)
+Lexer::Lexer(const string & p_file) : file(p_file.c_str(), ios_base::in)
 {
-    m_skipErrChar = skipErrChar;
     resultat = 0;
-}
-
-bool Lexer::lexical_result (string s, bool b)
-{
-    //if (b){
-    ////cout << "Expression " +s+" correcte" << endl;
-    //}else{
-    ////cout << "Expression "+s + " incorrecte" << endl ;
-    //}
-
-    return b;
 }
 
 bool Lexer::symbolExist(const string &s)
@@ -98,103 +80,102 @@ bool Lexer::symbolExist(const string &s)
 bool Lexer::lexer_const(const string &s)
 {
     const regex declaration("const");
-    return lexical_result(s,regex_match(s,declaration));
+    return regex_match(s,declaration);
 }
 
 bool Lexer::lexer_var(const string &s)
 {
     const regex declaration("var");
-    return lexical_result(s,regex_match(s,declaration));
+    return regex_match(s,declaration);
 }
 
 bool Lexer::lexer_identificateur(const string &s)
 {
     const regex valeur("[a-z]+[a-zA-Z0-9]*");
-    return lexical_result(s,regex_match(s,valeur));
+    return regex_match(s,valeur);
 }
 
 
 bool Lexer::lexer_num(const string &s)
 {
     const regex num("[0-9]+\\.?[0-9]*");
-    return lexical_result(s,regex_match(s,num));
+    return regex_match(s,num);
 }
 
 
 bool Lexer::lexer_aff_dyn(const string &s)
 {
     const regex affectation(":=");
-    return lexical_result(s,regex_match(s,affectation));
+    return regex_match(s,affectation);
 }
 
 bool Lexer::lexer_aff_stat(const string &s)
 {
     const regex affectation("=");
-    return lexical_result(s,regex_match(s,affectation));
+    return regex_match(s,affectation);
 }
 
 bool Lexer::lexer_point_virg(const string &s)
 {
     const regex pVirg(";");
-    return lexical_result(s,regex_match(s,pVirg));
+    return regex_match(s,pVirg);
 }
 
 bool Lexer::lexer_virg(const string &s)
 {
     const regex virg(",");
-    return lexical_result(s,regex_match(s,virg));
+    return regex_match(s,virg);
 }
 
 bool Lexer::lexer_parOuvr(const string &s)
 {
     const regex parOuvr("\\(");
-    return lexical_result(s,regex_match(s,parOuvr));
+    return regex_match(s,parOuvr);
 }
 
 bool Lexer::lexer_parFerm(const string &s)
 {
     const regex parFerm("\\)");
-    return lexical_result(s,regex_match(s,parFerm));
+    return regex_match(s,parFerm);
 }
 
-// verify the validity of multiplication operator
 bool Lexer::lexer_mult(const string &s)
 {
     const regex opM("(\\*)");
-    return lexical_result(s,regex_match(s,opM));
+    return regex_match(s,opM);
 }
 
 bool Lexer::lexer_div(const string &s)
 {
     const regex opM("(/)");
-    return lexical_result(s,regex_match(s,opM));
+    return regex_match(s,opM);
 }
 
-// verify the validity of addition operator
 bool Lexer::lexer_plus(const string &s)
 {
     const regex opA("\\+");
-    return lexical_result(s,regex_match(s,opA));
+    return regex_match(s,opA);
 }
 
 bool Lexer::lexer_moins(const string &s)
 {
     const regex opA("-");
-    return lexical_result(s,regex_match(s,opA));
+    return regex_match(s,opA);
 }
 
 bool Lexer::lexer_ecrire(const string &s)
 {
     const regex instruction("(ecrire)");
-    return lexical_result(s,regex_match(s,instruction));
+    return regex_match(s,instruction);
 }
 
 bool Lexer::lexer_lire(const string &s)
 {
     const regex instruction("(lire)");
-    return lexical_result(s,regex_match(s,instruction));
+    return regex_match(s,instruction);
 }
 
+// Retourne le symbole lu ou -1 si fin du fichier
 Symbole * Lexer::getSymbole ()
 {
     if(file.is_open())
@@ -202,11 +183,17 @@ Symbole * Lexer::getSymbole ()
         string word = "";
         char c;
 
-        file.get(c);
-        while(c == ' ' || c == '\n' || c == '\t'||c=='\r')
+        file.get(c); // read one char
+        if(file.gcount() == 0) // detect end of file
         {
-            file.get(c);
-            if(file.gcount() == 0)
+            resultat = new Dollar(DOLLAR);
+            file.close();
+            return resultat;
+        }
+        while(c == ' ' || c == '\n' || c == '\t'||c=='\r') // skip space, tab, endline
+        {
+            file.get(c); // get while skip char
+            if(file.gcount() == 0) // detect end of file
             {
                 resultat = new Dollar(DOLLAR);
                 file.close();
@@ -214,7 +201,10 @@ Symbole * Lexer::getSymbole ()
             }
         }
 
-        word += c;
+        word += c; // add to string
+        // while word is a symbole, try next char
+        // check := (two-char symbole)
+        // sometime get() return -1 on end of file.
         while((symbolExist(word) && (int) c != -1) || word.compare(":") == 0)
         {
             c = file.get();
@@ -228,19 +218,18 @@ Symbole * Lexer::getSymbole ()
         }
         else
         {
-            file.unget();
-            word = word.substr(0, word.size()-1);
+            file.unget(); // unget the last char which is not part of the symbol
+            word = word.substr(0, word.size()-1); // remove last char to get the good word
         }
 
-        if(word.size() == 0)
+        if(word.size() == 0) // if size == 0, the char is not authorized
         {
             cerr << "char non autorise : " << (int) file.get() << endl;
-            
+
             return getSymbole();
         }
-        else
+        else // get the symbol
         {
-
             if (lexer_lire(word))
             {
                 resultat = new Lire(LIRE);
@@ -316,14 +305,14 @@ Symbole * Lexer::getSymbole ()
     }
     else
     {
-        if((int) * resultat != DOLLAR)
+        if((int) * resultat != DOLLAR) // security check
         {
             resultat = new Dollar(DOLLAR);
             return resultat;
         }
         else
         {
-            resultat = (Symbole *) -1;
+            resultat = (Symbole *) -1; // automate stop reading
             return resultat;
         }
     }

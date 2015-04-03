@@ -1,5 +1,12 @@
 #include "Expression.h"
 
+Expression::~Expression()
+{
+    /* delete m_expDroite;
+    delete m_expGauche;
+    delete m_operateur; */
+}
+
 void Expression::print()
 {
     if(!m_isTerme)

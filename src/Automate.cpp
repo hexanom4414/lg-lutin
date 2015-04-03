@@ -1,10 +1,10 @@
 #include "Automate.h"
 
-Automate::Automate(const string & p_file, bool skipErrChar)
+Automate::Automate(const string & p_file)
 {
+    // Initialize on state 1
     m_pileEtats.push(new Etat1("Etat 1"));
-    m_lexer = new Lexer(p_file, skipErrChar);
-    m_skipErrChar = skipErrChar;
+    m_lexer = new Lexer(p_file);
 }
 
 transition_return Automate::run()
@@ -13,7 +13,6 @@ transition_return Automate::run()
     transition_return ret_val = REDUCED;
     while((t_symb = m_lexer->getSymbole()) != (Symbole *) -1)
     {
-
         ret_val = REDUCED;
         while(ret_val == REDUCED || ret_val == ACCEPTED || ret_val == RECUP_ERROR)
         {
@@ -28,12 +27,12 @@ transition_return Automate::run()
         if(ret_val == ERROR)
         {
             cerr << ">>>> ERROR <<<<" << endl;
-			cerr << "symbole : ";
-			printSymbole((int) *t_symb);
-			cerr << endl;
-			cerr << "etat : ";
-			m_pileEtats.top()->print();
-			cerr << endl;
+            cerr << "symbole : ";
+            printSymbole((int) *t_symb);
+            cerr << endl;
+            cerr << "etat : ";
+            m_pileEtats.top()->print();
+            cerr << endl;
             break;
         }
     }
@@ -45,12 +44,11 @@ transition_return Automate::run()
     return ret_val;
 }
 
-
 Symbole * Automate::depilerSymbole(bool toDelete)
 {
     Symbole * p_symbole = m_pileSymboles.top();
-    //if(toDelete)
-        //delete p_symbole;
+    if(toDelete)
+        delete p_symbole;
     m_pileSymboles.pop();
     return p_symbole;
 }
@@ -70,11 +68,9 @@ void Automate::shift(AbstractEtat * etat, Symbole * s)
 
 void Automate::reduce(unsigned int nbDepil, Symbole * s)
 {
-
-
     for(unsigned int i = 0 ; i < nbDepil ; i++)
     {
-//        delete m_pileEtats.top();
+        delete m_pileEtats.top();
         m_pileEtats.pop();
     }
 
