@@ -71,10 +71,10 @@ int main(int argc, const char* argv[])
     {
         if(analyse)
             automate->checkStatic();
-        if(optimisation)
-            automate->transformation();
         if(execution)
             automate->execute();
+        if(optimisation)
+            automate->transformation();
         if(affichage)
             automate->printProgram();
     }

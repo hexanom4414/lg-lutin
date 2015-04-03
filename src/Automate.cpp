@@ -100,6 +100,7 @@ void Automate::transformation()
     cout << "Transformation du programme :" << endl;
     m_pileSymboles.top()->transformation();
     cout << endl;
+    //printDeclMap();
     DeclMap::Instance().clearMap();
 }
 

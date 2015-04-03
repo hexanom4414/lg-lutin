@@ -42,7 +42,9 @@ bool Expression::isConst()
 {
     if(!m_isTerme)
     {
-        if(m_expGauche->isConst() && m_expDroite->isConst())
+        bool g = m_expGauche->isConst();
+        bool d = m_expDroite->isConst();
+        if(g && d)
         {
             if(m_operateur->getType() == PLUS)
             {

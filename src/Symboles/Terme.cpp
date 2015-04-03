@@ -43,7 +43,9 @@ bool Terme::isConst()
 {
     if(!m_isFacteur)
     {
-        if(m_expGauche->isConst() && m_expDroite->isConst())
+        bool g = m_expGauche->isConst();
+        bool d = m_expDroite->isConst();
+        if(g && d)
         {
             if(m_operateur->getType() == MULT)
                 m_expDroite->setAttribute(m_expGauche->eval() * m_expDroite->eval());
@@ -68,6 +70,8 @@ bool Terme::isConst()
 void Terme::setFacteurVal(double val)
 {
     m_expDroite->setAttribute(val);
+    if(val == 0)
+        m_isFacteur == true;
 }
 
 void Terme::setFacteurExp(Expression * p_exp)
@@ -86,6 +90,17 @@ Terme * Terme::elementNeutre()
         }
         if(m_expDroite->eval() == 1)
         {
+            return m_expGauche;
+        }
+        if(m_expGauche->eval() == 0 && m_operateur->getType() == MULT)
+        {
+            m_isFacteur = true;
+            setFacteurVal(0.0);
+            return this;
+        }
+        if(m_expDroite->eval() == 0 && m_operateur->getType() == MULT)
+        {
+            m_expGauche->setFacteurVal(0.0);
             return m_expGauche;
         }
     }
